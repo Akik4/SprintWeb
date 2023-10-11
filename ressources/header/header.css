@@ -5,6 +5,11 @@ body {
     padding: 0px;
     font-family: 'Gabarito';
 }
+.theH {
+    background-image: url("../image/pxfuel.jpg") ;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
 .navbar {
     color: white;
     display: flex;
