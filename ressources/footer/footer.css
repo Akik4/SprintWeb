@@ -17,7 +17,7 @@ body {
     align-items: center;
 }
 
-img {
+.info img {
     background-color: orange;
 }
 
@@ -69,3 +69,23 @@ img {
     border: 0px;
     padding: 0px;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(12, 10, 36); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(150, 95, 212); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(115, 79, 154); 
+  }

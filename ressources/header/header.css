@@ -26,6 +26,14 @@ body {
     justify-content: center;
     color: white;
 }
+.nav-login {
+    display: flex;
+    align-items: center;
+}
+.nav-login button {
+    background-color: transparent;
+    border: none;
+}
 .navbar {
     width: 100%;
     color: white;
