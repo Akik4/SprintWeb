@@ -6,7 +6,6 @@ body {
     font-family: 'Gabarito';
 }
 .theH {
-    background-image: url("../image/pxfuel.jpg") ;
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -22,6 +21,12 @@ body {
 
 .list-inactive {
     margin-right: 20px;
+}
+
+.list-active {
+    margin-right: 20px;
+    color: orange;
+    border-top: solid 2px orange;
 }
 
 .nav-element {
