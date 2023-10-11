@@ -14,11 +14,6 @@
     justify-content: center;
     height: 1000px;
 }
-.lookalike {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
 .theH H1 {
     color: white;
 }

@@ -56,3 +56,10 @@ body {
     list-style: none;
     display: inline-flex;
 }
+
+.lookalike {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    color: white;   
+}

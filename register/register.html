@@ -2,20 +2,78 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../ressources/header/header.css">
+    <link rel="stylesheet" href="../ressources/footer/footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
 </head>
 <body>
-    <div><h1> Inscription </h1></div>
-    <section class="form">
-        <form method="POST" action="traitement.php">
-            <input type="email" name="Email" placeholder="Email"><br>
-            <input type="text" name="Pseudo" placeholder="Pseudo"><br>
-            <input type="password" name="Mot de passe" placeholder="Mot de passe"><br>
-            <input type="password" name="Confirmez le mot de passe" placeholder="Confirmez le mot de passe"><br>
-            <button class="button-5" role="button"> Inscription </button>
-        </form>
-    </section>
+    <div class="theH">
+        <div class="header">
+            <nav class="navbar">
+                <div class="title">
+                    <ul class="nav-element">
+                        <li>The Power Of Memory</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul class="nav-element">
+                        <li class="list-inactive">ACCUEIL</li>
+                        <li class="list-inactive">JEU</li>
+                        <li class="list-inactive">SCORE</li>
+                        <li class="list-inactive">NOUS CONTACTER</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="lookalike">
+            <div>
+                <h1> Inscription </h1>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <section class="form">
+            <form method="POST" action="traitement.php">
+                <input type="email" name="Email" placeholder="Email"><br>
+                <input type="text" name="Pseudo" placeholder="Pseudo"><br>
+                <input type="password" name="Mot de passe" placeholder="Mot de passe"><br>
+                <input type="password" name="Confirmez le mot de passe" placeholder="Confirmez le mot de passe"><br>
+                <button class="button-5" role="button"> Inscription </button>
+            </form>
+        </section>
+    </div>
+    <div class="footer">
+        
+        <div class="info">
+            <p style="font-weight: bold;">Information</p>
+            <p>Quisque commodo facilisis purus, interdum volupat arcu viverra sed.</p>
+            <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
+            <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
+            <p><span class="footer-title">Location:</span> Paris</p>
+           <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../image/facebook.png" width="20px" height="20px"></button> 
+           <button onclick="window.location = 'https:\/\/x.com'"><img src="../image/twitter.png" width="20px" height="20px"></button> 
+           <button onclick="window.location = 'https:\/\/google.com'"><img src="../image/google.png" width="20px" height="20px"></button> 
+           <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../image/pinterest.png" width="20px" height="20px"></button> 
+           <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../image/Instagram.png" width="20px" height="20px"></button> 
+
+
+        </div>
+        <div class="other">
+            <div>
+                <p style="font-weight: bold;">Power Of Memory</p>
+                
+                    <p class="olist">Jouer !</p>
+                    <p class="olist">Les scores</p>
+                    <p class="olist">Nous contacter</p>
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="copyrig">
+        <span>Copyright © 2022 Tous droits réservés</span>
+    </div>
 </body>
 </html>
