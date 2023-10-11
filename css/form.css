@@ -4,25 +4,31 @@ body{
     padding: 0%;
     background-color:rgb(13, 11, 38) ;
     font-family: "Gabarito";
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
 }
 div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 55vh;
     background-image: url("../css/assets/futuristic-banner.png");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin-top: -5%;
-
 }
 h1{
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
     color: white;
-
-
+    text-align: center;
+}
+span{
+    color: rgba(245, 245, 245, 0.5);
+    font-size: x-small;
 }
 .form{
     display: flex;
@@ -40,6 +46,9 @@ input {
     height: fit-content;
     color: whitesmoke;
 }
+.nomarginb{
+    margin-bottom: 0%;
+}
 .button-5 {
     align-items: center;
     background-clip: padding-box;
@@ -51,12 +60,12 @@ input {
     color: #fff;
     cursor: pointer;
     display: inline-flex;
-    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Gabarito";
     font-size: 16px;
     font-weight: 600;
     justify-content: center;
     line-height: 1.25;
-    margin: 0;
+    margin-top: 8px;
     min-height: 3rem;
     padding: calc(.875rem - 1px) calc(1.5rem - 1px);
     position: relative;
