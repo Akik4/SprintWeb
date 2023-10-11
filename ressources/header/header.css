@@ -6,6 +6,7 @@ body {
     font-family: 'Gabarito';
 }
 .navbar {
+    color: white;
     display: flex;
     flex-wrap: nowrap;
 }
