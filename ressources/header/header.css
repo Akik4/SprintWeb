@@ -5,11 +5,17 @@ body {
     padding: 0px;
     font-family: 'Gabarito';
 }
+.header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+}
 .theH {
     background-size: 100%;
     background-repeat: no-repeat;
 }
 .navbar {
+    width: 100%;
     color: white;
     display: flex;
     flex-wrap: nowrap;
@@ -31,8 +37,8 @@ body {
 
 .list-inactive:hover {
     transform: translateY(-5px);
-    color: aqua;
     transition: 0.5s;
+    color: aqua;
     cursor: pointer;
 }
 
