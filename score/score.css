@@ -1,0 +1,39 @@
+    .theH {
+        background-image: url("../ressources/image/pxfuel.jpg") ;
+    }
+    .body {
+        width: 100%;
+        display: block;
+        background-color: rgb(16,14,46);
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+    .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1000px;
+    }
+    .lookalike {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+    .theH H1 {
+        color: white;
+    }
+
+    .body table, th, td {
+        
+        margin-top: 10%;
+        border: solid 1px white;
+    }
+    .body table {
+        width: 50%;
+
+        border-collapse: collapse;
+    }
+    .tab {
+        width: 100%;
+    }

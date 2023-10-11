@@ -17,16 +17,33 @@ body {
 
 .title {
     flex: calc(100% / 6);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .list-inactive {
     margin-right: 20px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
+
+.list-inactive:hover {
+    transform: translateY(-5px);
+    color: aqua;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
 
 .list-active {
     margin-right: 20px;
     color: orange;
     border-top: solid 2px orange;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .nav-element {
