@@ -15,12 +15,6 @@
     background-size: 100%;
     
 }
-.filter{
-    position: absolute;
-    width: 100%;
-    height: 7vh;
-    background: #00000076;
-}
 span{
     color: rgba(245, 245, 245, 0.5);
     font-size: x-small;
