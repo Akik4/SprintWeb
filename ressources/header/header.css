@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Gabarito");
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Gabarito';
+}
+.header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+}
+.theH {
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.navbar {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.title {
+    flex: calc(100% / 6);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.list-inactive {
+    margin-right: 20px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.list-inactive:hover {
+    transform: translateY(-5px);
+    transition: 0.5s;
+    color: aqua;
+    cursor: pointer;
+}
+
+
+.list-active {
+    margin-right: 20px;
+    color: orange;
+    border-top: solid 2px orange;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.nav-element {
+    list-style: none;
+    display: inline-flex;
+}
