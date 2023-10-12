@@ -56,3 +56,33 @@ let myChart2 = new Chart(ctx1, {
         }
     }
 })
+
+
+// graph partie profil
+// graph partie profil
+// graph partie profil
+
+
+
+let graph = document.getElementById('graph').getContext('2d');
+
+let graphData = {
+    labels: ["lorem", "lorem"],
+    datasets : [{
+        label: "Joueur Inscrits",
+        data: [20, 80],
+        backgroundColor: [
+            '#27ae60',
+            '#e74c3c',
+          ],
+    }]
+
+}
+
+let stat = new Chart(graph, {
+    type: "bar",
+    data: graphData,
+    options: {
+        responsive: true,
+    }
+})
