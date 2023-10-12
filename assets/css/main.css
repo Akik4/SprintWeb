@@ -78,6 +78,10 @@
     font-size: 18px;
 }
 
+.checkbox {
+    display: none;
+}
+
 /* seconde partie  */
 /* seconde partie  */
 /* seconde partie  */
@@ -679,12 +683,12 @@ transform: translateY(0);
     color: white;
 }
 
-.container{
+.containerE{
     color: white;
     font-size: 32px;
     text-align: center;
 }
-.container h1{
+.containerE h1{
     letter-spacing: 3px;
    
 }
@@ -708,11 +712,6 @@ transform: translateY(0);
 /* END 404 */
 
 /* BEGIN CHATBOX */
-
-body {
-    margin: 0;
-    padding: 0;
-}
 
 .chatboxdisplay{
     position: fixed;
