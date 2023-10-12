@@ -6,7 +6,7 @@ body {
     font-family: 'Gabarito';
 }
 .header {
-    position: relative;
+    position: fixed;
     display: flex;
     width: 100%;
 }
