@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ressources/footer/footer.css">
     <link rel="stylesheet" href="../ressources/header/header.css">
+    <link rel="stylesheet" href="../chatbox/chatbox.css">
     <link rel="stylesheet" href="./contact.css">
     <title>Contact</title>
 </head>
@@ -18,14 +19,16 @@
             <div>
                 <div class="header">
                     <nav class="navbar">
+                        <div class="space"></div>
                         <div class="title">
                             <ul class="nav-element">
+                                <img src="../assets/img/Fichier 1.png" height="30px" width="30px">
                                 <li>The Power Of Memory</li>
                             </ul>
                         </div>
                         <div class="list">
                             <ul class="nav-element">
-                                <li class="list-inactive">ACCUEIL</li>
+                                <li class="list-inactive" onclick="window.location='../index.html'">ACCUEIL</li>
                                 <li class="list-inactive">JEU</li>
                                 <li class="list-inactive" onclick="window.location='../score/score.html'">SCORE</li>
                                 <li class="list-active">NOUS CONTACTER</li>
@@ -34,6 +37,7 @@
                         <div class="nav-login">
                             <button><img src="../ressources/image/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
                         </div>
+                        <div class="space"></div>   
                     </nav>
                 </div>
             </div>
@@ -47,13 +51,39 @@
        </div>
     <section class="form">
         <form method="POST" action="traitement.php">
-            <input type="text" name="Nom" placeholder="Nom">
-            <input type="email" name="Email" placeholder="Email"><br>
+            <input class="name" type="text" name="Nom" placeholder="Nom">
+            <input class="email" type="email" name="Email" placeholder="Email"><br>
             <input class="suj" type="text" name="sujet" placeholder="Sujet"><br>
-            <textarea placeholder="Message"></textarea><br>
+            <textarea class="msg" placeholder="Message"></textarea><br>
             <button class="button-5" role="button"> Envoyer </button>
         </form>
     </div>
+    <section class="chatbox">
+        <div class="chatboxdisplay">
+            <div class="chatboxopen">
+                <div class="chattitle">
+                    <p>chat général</p>
+                </div>
+                <div class="chatchat">
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                    <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                </div>
+                <div class="chatmessage">
+                    <textarea cols="100%" type="text" placeholder="Entrez votre message" ></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="footer">
         
         <div class="info">

@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.chatboxdisplay{
+    position: fixed;
+    bottom: -68%;
+    right: 0px;
+    width: 20%;
+    transition: 0.5s;
+
+    /* opacity: 0%; */
+}
+
+.chatboxdisplay:hover {
+    transform: translateY(-95%);
+}
+
+body > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatstatus {
+    position: absolute;
+    opacity: 0%;
+}
+
+.chatboxopen {
+    background-color: rgb(115, 79, 154);
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
+
+}
+
+
+
+.chattitle {
+    border-radius: 20px 20px 0px 0px;
+    background-color: rgb(34, 31, 87);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.chattitle p {
+    margin: 3%;
+}
+.chatchat {
+    color: white;
+    height: 30vw;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.messagebox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.messageother {
+    background-color: rgb(43, 42, 45);
+    margin-left: 5%;
+    border-radius: 10px 10px 10px 0px ;
+    text-align: center;
+    width: fit-content;
+    max-width: 40%;
+    word-wrap: break-word;
+}
+.self {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+.author {
+    margin-left: 5%;
+}
+
+.timestamp {
+    margin-left: 5%;
+    font-size: small;
+}
+
+.timestampself {
+    align-self: flex-end;
+    margin-right: 5%;
+    font-size: small;
+}
+.messageself {
+    width: fit-content;
+    max-width: 40%;
+    border: black solid 1px;
+    background-color: rgb(48, 22, 90);
+    color: rgb(255, 255, 255);
+    margin-right: 5%;
+    border-radius: 10px 10px 0px 10px ;
+    text-align: center;
+    align-self: flex-end;
+    word-wrap: break-word;
+}
+
+.chatchat .message {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chatmessage {
+    display: flex;
+}
+
+.chatmessage textarea {
+    width: 100%;
+    border: none;
+    outline: 0%;
+    background-color: lightgray;
+    resize: none;
+    bottom: 0;
+    border-radius: 0px 0px 20px 20px 
+}
+
+.chatmessage textarea:focus {
+    outline: none;
+}

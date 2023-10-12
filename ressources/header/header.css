@@ -5,6 +5,25 @@ body {
     padding: 0px;
     font-family: 'Gabarito';
 }
+.space {
+    height: 100%;
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list ul {
+    display: flex;
+    align-items: center;
+}
+.login {
+    display: flex;
+    align-items: center;
+}
+.title ul {
+    display: flex;
+    align-items: center;
+}
 .header {
     position: fixed;
     display: flex;
@@ -15,6 +34,7 @@ body {
     background-repeat: no-repeat;
     position: relative;
     height: 8vw;
+    padding-top: 3%;
 }
 .filter{
     position: absolute;
@@ -25,6 +45,7 @@ body {
     align-items: flex-end;
     justify-content: center;
     color: white;
+    margin-top: -3%;
 }
 .nav-login {
     display: flex;
