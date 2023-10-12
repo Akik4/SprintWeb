@@ -52,7 +52,7 @@
     align-items: center;
     padding-bottom: 5%;
 }
-input{
+.name, .email, .suj{
     background-color: rgba(39, 38, 69, 0.5);
     border: 0px ;
     padding: 12px 20px;
@@ -74,7 +74,7 @@ input{
     color: whitesmoke;
     font-family: "Gabarito";
     }
-textarea {
+.msg {
     background-color: rgba(39, 38, 69, 0.5);
     border: 0px ;
     padding: 12px 20px;
