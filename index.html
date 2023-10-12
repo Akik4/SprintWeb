@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/mais.css">
     <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="./chatbox/chatbox.css">
     <link rel="stylesheet" href="./ressources/header/header.css">
     <link rel="stylesheet" href="./ressources/footer/footer.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -32,7 +33,7 @@
                                         <li class="list-active">ACCUEIL</li>
                                         <li class="list-inactive">JEU</li>
                                         <li class="list-inactive" onclick="window.location='../score/score.html'">SCORE</li>
-                                        <li class="list-inactive">NOUS CONTACTER</li>
+                                        <li class="list-inactive" onclick="window.location='../contact/contact.html'">NOUS CONTACTER</li>
                                     </ul>
                                 </div>
                                 <div class="nav-login">
@@ -197,6 +198,35 @@
             </div>
            
         </section>
+
+        
+        <section class="chatbox">
+            <div class="chatboxdisplay">
+                <div class="chatboxopen">
+                    <div class="chattitle">
+                        <p>chat général</p>
+                    </div>
+                    <div class="chatchat">
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                    </div>
+                    <div class="chatmessage">
+                        <textarea cols="100%" type="text" placeholder="Entrez votre message" ></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <script src="/assets/javascript/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
