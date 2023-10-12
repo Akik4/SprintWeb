@@ -13,6 +13,26 @@ body {
 .theH {
     background-size: 100%;
     background-repeat: no-repeat;
+    position: relative;
+    height: 8vw;
+}
+.filter{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000076;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+}
+.nav-login {
+    display: flex;
+    align-items: center;
+}
+.nav-login button {
+    background-color: transparent;
+    border: none;
 }
 .navbar {
     width: 100%;
