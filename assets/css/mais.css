@@ -10,6 +10,7 @@
     --text-color: rgb(27, 27, 27);
     --title-color: black;
     --cercle-profil: rgb(162, 155, 254);
+    --bg-img: 
 }
 .darkMode{
     --section-color: rgb(16, 14, 46);
@@ -18,9 +19,6 @@
     --title-color: white;
     --cercle-profil: rgb(16, 14, 46);
 
-}
-body{
-    /* background: #636e72; */
 }
 .heroBanner{
     width: 100%;
@@ -86,6 +84,7 @@ body{
     background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
     background-repeat: no-repeat;
     background-size: contain;
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
 }
 .puce{
     padding-right: 10px;
@@ -103,8 +102,10 @@ body{
     background: var(--card-color);
     border-radius: 20px;
     margin: 40px;
-    width: 27% ;
-    height: 80%;
+    width: 30% ;
+    height: max-content;
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
+
 
 }
 .wrapper{
@@ -146,39 +147,34 @@ input{
 .img1{
     background-image: url('/assets/img/pexels-yurii-hlei-1365795.jpg');
     background-repeat: no-repeat;
-    background-size: 500px;
+    background-size: 112%;
     background-position: center;
     transition: 250ms linear all;
 }
 .img2{
     background-image: url('/assets/img/pexels-harsch-shivam-2007647.jpg');
     background-repeat: no-repeat;
-    background-size: 400px;
+    background-size: 100%;
     background-position: center;
     transition: 250ms linear all;
 }
 .img3{
     background-image: url('/assets/img/pexels-element-digital-1293261.jpg');
     background-repeat: no-repeat;
-    background-size: 400px;
+    background-size: 100%;
     background-position: center;
     transition: 250ms linear all;
 }
 .img1:hover{
-    background-size: 530px;
+    background-size: 117%;
 }
 .img2:hover, .img3:hover{
-    background-size: 410px
+    background-size: 105%
 }
 .img2{
     height: 300px;
 }
 
-/* 
-.text{
-    height: 200px;
-    width: 300px;
-} */
 
  
 /* stat */
@@ -195,7 +191,7 @@ input{
     background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
     background-repeat: no-repeat;
     background-size: contain;
-
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
 }
 .centerGrid{
     display: flex;
@@ -210,8 +206,6 @@ input{
     gap: 3%;
     width: 50%;
     height: 50%;
-    /* background: rgba(255, 0, 0, 0.214); */
-    
 }
 .imgStat{
     border-radius: 10px;
@@ -260,8 +254,6 @@ input{
 /* stat */
 
 
-
-
 .partie3{
     width: 100%;
     height: 100vh;
@@ -269,6 +261,7 @@ input{
     background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
     background-repeat: no-repeat;
     background-size: contain;
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
 
 }
 .partie4{
@@ -278,7 +271,7 @@ input{
     background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
     background-repeat: no-repeat;
     background-size: contain;
-    
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
 }
 .wrapper{
     display: flex;
@@ -286,11 +279,19 @@ input{
     height: 80vh;
     align-items: center;
 }
-.titleGraph{
+.titleGraph h1{
     text-align: center;
     text-transform: uppercase;
-    font-size: 34px;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
+    font-size: 50px;
+}
+.titleGraph p{
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    padding: 0px 10% 0px 10%;
+    padding-top: 2%;
+    
 }
 .allGraph{
     width: 100%;
@@ -305,13 +306,17 @@ input{
     display: flex;
     justify-content: center;
     border-radius: 20px;
-    width: 500px;
-    height: 450px;
+    width: 60%;
+    height: 65%;
     background: var(--card-color);
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
+    
     /* -webkit-box-shadow: 5px 5px 15px 5px rgb(10, 9, 36); 
     box-shadow: 5px 5px 15px 5px rgb(10, 9, 36); */
 }
-
+/* #myChartJS{
+    height: max-content;
+} */
 /* partie 4 */
 /* partie 4 */
 /* partie 4 */
@@ -327,9 +332,11 @@ input{
  
     margin: 40px;
     width: 300px;
-    height: 350px;
+    height: max;
     background: var(--card-color);
     border-radius: 20px;
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
+
 }
 .containerPdp{
     display: flex;
@@ -390,6 +397,7 @@ input{
     position: relative;
     bottom: 70px;
     outline: 20px solid  var(--cercle-profil);
+    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
     border: 1px solid white;
     background-image: url('/assets/img/pdp1');
     background-position: center;
