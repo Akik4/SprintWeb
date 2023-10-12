@@ -1,0 +1,407 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --section-color: #a29bfe;
+    --card-color: #ecf0f1; 
+    --text-color: rgb(27, 27, 27);
+    --title-color: black;
+    --cercle-profil: rgb(162, 155, 254);
+}
+.darkMode{
+    --section-color: rgb(16, 14, 46);
+    --card-color: rgb(39, 35, 109);
+    --text-color: rgb(255, 255, 255);
+    --title-color: white;
+    --cercle-profil: rgb(16, 14, 46);
+
+}
+body{
+    /* background: #636e72; */
+}
+.heroBanner{
+    width: 100%;
+    height: 100vh;
+    background-image: url('/assets/img/pexels-lucie-liz-3165335.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.darkFilter{
+    width: 100%;
+    height: 100vh;
+    background: #0000007e;
+    /* filter: ; */
+}
+
+.center{
+    position: absolute;
+    width: 70%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+}
+.titlePage{
+    color: white;
+    font-size: 84px;    
+    text-transform: uppercase;
+    text-align: center; 
+
+}
+
+.animTitle{
+    font-size: 150px;
+    color: #6c5ce7;
+}
+.sousTitle{
+    color: rgb(175, 175, 175);
+    text-align: center;
+    font-size: 24px;
+}
+.playGame{
+    margin: 20px;
+    background: orange;
+    padding: 20px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* seconde partie  */
+/* seconde partie  */
+/* seconde partie  */
+
+.partie2{
+    width: 100%;
+    height: 100vh;
+    background: var(--section-color);
+    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.puce{
+    padding-right: 10px;
+    font-size: 32px;
+    font-weight: 900;
+}
+.flex-img{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container{
+    background: var(--card-color);
+    border-radius: 20px;
+    margin: 40px;
+    width: 27% ;
+    height: 80%;
+
+}
+.wrapper{
+    display: flex;
+}
+input{
+    display: none;
+}
+#darkMode{
+    cursor: pointer;
+}
+.png{
+    background-color: white;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.shape{
+    width: max-content;
+    height: max-content;
+    background: #b92323;
+    transform: rotate(25deg);
+    position: absolute;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+}
+.img, .text{
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+    height: 300px;
+    color: var(--text-color);
+}
+.text{
+    padding: 20px;
+}
+.text h1{
+    color: var(--title-color);
+}
+.img1{
+    background-image: url('/assets/img/pexels-yurii-hlei-1365795.jpg');
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: center;
+    transition: 250ms linear all;
+}
+.img2{
+    background-image: url('/assets/img/pexels-harsch-shivam-2007647.jpg');
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: center;
+    transition: 250ms linear all;
+}
+.img3{
+    background-image: url('/assets/img/pexels-element-digital-1293261.jpg');
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: center;
+    transition: 250ms linear all;
+}
+.img1:hover{
+    background-size: 530px;
+}
+.img2:hover, .img3:hover{
+    background-size: 410px
+}
+.img2{
+    height: 300px;
+}
+
+/* 
+.text{
+    height: 200px;
+    width: 300px;
+} */
+
+ 
+/* stat */
+/* stat */
+/* stat */
+
+.stat{
+    width: 100%;
+    height: 100vh;
+    background: var(--section-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+.centerGrid{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 80vh;
+}
+.gridSystem{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3%;
+    width: 50%;
+    height: 50%;
+    /* background: rgba(255, 0, 0, 0.214); */
+    
+}
+.imgStat{
+    border-radius: 10px;
+    width: 45%;
+    height: 55%;
+    background: #b76363;
+    background-image: url('/assets/img/pexels-pixabay-260024.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.case{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.one{
+    background: #000;
+    border-radius: 10px;
+}
+.two{
+    background: green;
+    border-radius: 10px;
+}
+.three{
+    background: rgb(247, 154, 32);
+    border-radius: 10px;
+
+}
+.five{  
+    background: rgb(17, 120, 184);
+    border-radius: 10px;
+
+}
+.six{
+    background: rgb(95, 11, 228);
+    border-radius: 10px;
+
+}
+/* stat */
+/* stat */
+/* stat */
+
+
+
+
+.partie3{
+    width: 100%;
+    height: 100vh;
+    background: var(--section-color);
+    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+.partie4{
+    width: 100%;
+    height: 100vh;
+    background: var(--section-color);
+    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    align-items: center;
+}
+.titleGraph{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 34px;
+    letter-spacing: 2px;
+}
+.allGraph{
+    width: 100%;
+    height: 80vh;
+    /* background: #000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chartJS{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    width: 500px;
+    height: 450px;
+    background: var(--card-color);
+    /* -webkit-box-shadow: 5px 5px 15px 5px rgb(10, 9, 36); 
+    box-shadow: 5px 5px 15px 5px rgb(10, 9, 36); */
+}
+
+/* partie 4 */
+/* partie 4 */
+/* partie 4 */
+/* partie 4 */
+
+
+.titleSection4{
+    text-align: center;
+    font-size: 32px;
+    color: var(--text-color);
+}
+.container1{
+ 
+    margin: 40px;
+    width: 300px;
+    height: 350px;
+    background: var(--card-color);
+    border-radius: 20px;
+}
+.containerPdp{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* height: 30vh; */
+    
+}
+.logo{
+    background-image: url('/assets/img/Fichier\ 1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+.allBtn{
+    display: flex;
+    justify-content: center;
+    
+}
+.res{
+    margin: 20px;
+    border: none;
+    background: white;
+    padding: 5px 5px 3px 5px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    
+}
+.colorChange{
+    position: relative;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background: orange;
+}
+.infoUser{
+    color: var(--text-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.infoUser h1{
+    text-transform: uppercase;
+    padding: 3%;
+    color: var(--text-color);
+}
+.infoUser p{
+    color: var(--text-color);
+}
+.pdpProfil{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    position: relative;
+    bottom: 70px;
+    outline: 20px solid  var(--cercle-profil);
+    border: 1px solid white;
+    background-image: url('/assets/img/pdp1');
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+/* hover image  */
+/* hover image  */
+/* hover image  */
+
+
+
+

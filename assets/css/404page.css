@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.headPage{
+    position: absolute;
+    top: 0;
+    left:  0;
+    width: 100%;
+    height: 80px;
+    /* background: #0000005d; */
+}
+.menu{
+    display: flex;
+    
+    /* padding: 5px; */
+    align-items: center;
+    height: 100%;
+}
+.logo{
+    background-image: url('/assets/img/Fichier\ 1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+
+}
+.logo1{
+    display: flex;
+    align-items: center;
+}
+.logoPage{
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
+body{
+    background-image: url('/assets/img/Fichier\ 4.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    color: white;
+    font-size: 32px;
+    text-align: center;
+}
+.container h1{
+    letter-spacing: 3px;
+   
+}
+.BackHome{
+    padding: 10px 40px 10px 40px ;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 30px;
+    cursor: pointer;
+}
