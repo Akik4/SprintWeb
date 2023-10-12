@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.theH {
+    padding-top: 3%;
+}
+
 :root{
     --section-color: #a29bfe;
     --card-color: #ecf0f1; 

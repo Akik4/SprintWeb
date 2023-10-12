@@ -6,34 +6,44 @@
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/mais.css">
     <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="./ressources/header/header.css">
+    <link rel="stylesheet" href="./ressources/footer/footer.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Accueil</title>
 </head>
 <body>
     <main class="main">
-
-        <header class="headPage"> 
-            <nav class="menu">
-                <div class="logo1">
-                    <div class="logo"></div>
-                    <div class="logoPage">The power of memory</div>
-                </div>
-                <ul class="listMenu">
-                    <li class="head active">Accueil</li>
-                    <li class="head">Jeu</li>
-                    <li class="head">Scores</li>
-                    <li class="head">Nous contacter</li>
-                    <li class="head ">
-                        <input type="checkbox" id="darkMode" class="checkbox">
-                        <label for="darkMode" ><img class="png" src="/assets/img/nuit.png" alt=""> </label>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
         <!-- section 1: hero banner  -->
         <section class="heroBanner">
             <div class="darkFilter">
+                <div class="theH">
+                    <div>
+                        <div class="header">
+                            <nav class="navbar">
+                                <div class="space"></div>
+                                <div class="title">
+                                    <ul class="nav-element">
+                                        <img src="./assets/img/Fichier 1.png" height="30px" width="30px">
+                                        <li>The Power Of Memory</li>
+                                    </ul>
+                                </div>
+                                <div class="list">
+                                    <ul class="nav-element">
+                                        <li class="list-active">ACCUEIL</li>
+                                        <li class="list-inactive">JEU</li>
+                                        <li class="list-inactive" onclick="window.location='../score/score.html'">SCORE</li>
+                                        <li class="list-inactive">NOUS CONTACTER</li>
+                                    </ul>
+                                </div>
+                                <div class="nav-login">
+                                    <button><img src="../ressources/image/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
+                                </div>
+                                <div class="space"><input type="checkbox" id="darkMode" class="checkbox">
+                                    <label for="darkMode" ><img class="png" src="/assets/img/nuit.png" alt="" height="20px" width="20px"> </label></div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
                  <div class="center">
                 <h1 class="titlePage"> <span class="animTitle">B</span>ienvenue dans notre Studio !</h1>
                 <p class="sousTitle">Venez challenger les cerveaux les plus agiles !</p>
@@ -195,5 +205,36 @@
        
         <!-- <script src="/node_modules/animejs/lib/anime.min.js"></script> -->
     </main>
+    <div class="footer">
+        
+        <div class="info">
+            <p style="font-weight: bold;">Information</p>
+            <p>Quisque commodo facilisis purus, interdum volupat arcu viverra sed.</p>
+            <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
+            <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
+            <p><span class="footer-title">Location:</span> Paris</p>
+            <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../ressources/image/facebook.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/x.com'"><img src="../ressources/image/twitter.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/google.com'"><img src="../ressources/image/google.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../ressources/image/pinterest.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../ressources/image/Instagram.png" width="20px" height="20px"></button>  
+
+        </div>
+        <div class="other">
+            <div>
+                <p style="font-weight: bold;">Power Of Memory</p>
+                
+                    <p class="olist">Jouer !</p>
+                    <p class="olist">Les scores</p>
+                    <p class="olist">Nous contacter</p>
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="copyrig">
+        <span>Copyright © 2022 Tous droits réservés</span>
+    </div>
+
 </body>
 </html>

@@ -5,6 +5,10 @@
     height: 80px;
     /* background: #0000005d; */
 }
+
+.theH {
+    background-color: transparent;
+}
 .menu{
     display: flex;
     justify-content: space-evenly;
