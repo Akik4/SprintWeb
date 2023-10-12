@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../ressources/footer/footer.css">
-    <link rel="stylesheet" href="../ressources/header/header.css">
-    <link rel="stylesheet" href="../chatbox/chatbox.css">
-    <link rel="stylesheet" href="./score.css">
-    <title>Score</title>
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <title>Contact</title>
 </head>
 <body>
     <div class="theH">
         <div class="filter">
             <div>
-                <h1> SCORE </h1>
+                <h1> Contact </h1>
             </div>
         </div>
             <div>
@@ -28,54 +27,34 @@
                         </div>
                         <div class="list">
                             <ul class="nav-element">
-                                <li class="list-inactive" onclick="window.location='../index.html'">ACCUEIL</li>
+                                <li class="list-inactive" onclick="window.location='../'">ACCUEIL</li>
                                 <li class="list-inactive">JEU</li>
-                                <li class="list-active">SCORE</li>
-                                <li class="list-inactive" onclick="window.location='../contact/contact.html'">NOUS CONTACTER</li>
-                            </ul>
+                                <li class="list-inactive" onclick="window.location='../score/'">SCORE</li>
+                                <li class="list-inactive">NOUS CONTACTER</li>                            </ul>
                         </div>
                         <div class="nav-login">
-                            <button><img src="../ressources/image/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
+                            <button><img src="../assets/img/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
                         </div>
-                        <div class="space"></div>
+                        <div class="space"></div>   
                     </nav>
                 </div>
             </div>
     </div>
 
-    <div class="body">
-        <div class="tab">
-            <table>
-                <tr>
-                    <th>Utilisateur</th>
-                    <th>Temps</th>
-                    <th>Points</th>
-                    <th>Meilleur série</th>
-                </tr>
-                <tr>
-                    <td>Stefan</td>
-                    <td>2Min50</td>
-                    <td>50</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>Stefan</td>
-                    <td>2Min50</td>
-                    <td>50</td>
-                    <td>2</td>
-                </tr>                <tr>
-                    <td>Stefan</td>
-                    <td>2Min50</td>
-                    <td>50</td>
-                    <td>2</td>
-                </tr>                <tr>
-                    <td>Stefan</td>
-                    <td>2Min50</td>
-                    <td>50</td>
-                    <td>2</td>
-                </tr>
-            </table>
-        </div>
+    <div class="bodyContact">
+       <div class="wrapper-contact">
+            <div class="phone"><img src="../assets/img/phone.png" height="50px" width="50px"><p>06 05 04 03 02</p></div>
+            <div class="email"><img src="../assets/img/email.png" height="50px" width="50px"><p>support@powerofmemory.com</p></div>
+            <div class="location"><img src="../assets/img/location.png" height="50px" width="50px"><p>Paris</p></div>
+       </div>
+    <section class="form">
+        <form method="POST" action="traitement.php">
+            <input class="name" type="text" name="Nom" placeholder="Nom">
+            <input class="email" type="email" name="Email" placeholder="Email"><br>
+            <input class="suj" type="text" name="sujet" placeholder="Sujet"><br>
+            <textarea class="msg" placeholder="Message"></textarea><br>
+            <button class="button-5" role="button"> Envoyer </button>
+        </form>
     </div>
     <section class="chatbox">
         <div class="chatboxdisplay">
@@ -111,12 +90,11 @@
             <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
             <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
             <p><span class="footer-title">Location:</span> Paris</p>
-            <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../ressources/image/facebook.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/x.com'"><img src="../ressources/image/twitter.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/google.com'"><img src="../ressources/image/google.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../ressources/image/pinterest.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../ressources/image/Instagram.png" width="20px" height="20px"></button> 
- 
+            <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../assets/img/facebook.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/x.com'"><img src="../assets/img/twitter.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/google.com'"><img src="../assets/img/google.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../assets/img/pinterest.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../assets/img/Instagram.png" width="20px" height="20px"></button>  
 
         </div>
         <div class="other">
