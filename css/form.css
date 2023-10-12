@@ -10,10 +10,19 @@
     margin-top: 10%;
     margin-bottom: 10%;
 }
+.body a{
+    color: rgba(245, 245, 245, 0.5);
+}
 .theH {
     background-image: url("../ressources/image/pxfuel.jpg");
     background-size: 100%;
-    
+}
+
+.filter{
+    position: absolute;
+    width: 100%;
+    height: 7vh;
+    background: #0000004e;
 }
 span{
     color: rgba(245, 245, 245, 0.5);
