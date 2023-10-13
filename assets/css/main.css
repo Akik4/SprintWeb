@@ -641,6 +641,11 @@ transform: translateY(0);
 /* END Preview */
 
 /* BEGIN 404 */
+.p404 {
+    padding: 0;
+    margin: 0;
+}
+
 .headPage{
     position: absolute;
     top: 0;
