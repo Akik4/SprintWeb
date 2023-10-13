@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./assets/css/footer.css">
-    <link rel="stylesheet" href="./assets/css/header.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Accueil</title>
 </head>
@@ -30,15 +29,15 @@
                                     <ul class="nav-element">
                                         <li class="list-active">ACCUEIL</li>
                                         <li class="list-inactive">JEU</li>
-                                        <li class="list-inactive" onclick="window.location='../score/'">SCORE</li>
-                                        <li class="list-inactive" onclick="window.location='../contact/'">NOUS CONTACTER</li>
+                                        <li class="list-inactive" onclick="window.location='../score/score.html'">SCORE</li>
+                                        <li class="list-inactive" onclick="window.location='../contact/contact.html'">NOUS CONTACTER</li>
                                     </ul>
                                 </div>
                                 <div class="nav-login">
-                                    <button><img src="../assets/img/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
+                                    <button><img src="../ressources/image/login.png" height="45px" width="45px" onclick="window.location = '../login/login.html'"></button>
                                 </div>
                                 <div class="space"><input type="checkbox" id="darkMode" class="checkbox">
-                                    <label for="darkMode" ><img class="png" src="/assets/img/nuit.png" alt="" height="20px" width="20px"> </label></div>
+                                    <label for="darkMode" ><img class="png" src="/assets/img/nuit.png" alt="" height="40px" width="40px"> </label></div>
                             </nav>
                         </div>
                     </div>
@@ -46,7 +45,7 @@
                  <div class="center">
                 <h1 class="titlePage"> <span class="animTitle">B</span>ienvenue dans notre Studio !</h1>
                 <p class="sousTitle">Venez challenger les cerveaux les plus agiles !</p>
-                <button class="playGame"> Jouez</button>
+                <button class="playGame"> Play</button>
             </div>
             </div>
         </section>
@@ -85,13 +84,9 @@
 
         </section>
 
-
-
-
         <section class="stat">
             <div class="centerGrid">
                 <div class="imgStat">
-                    
                 </div>
                 <div class="gridSystem">
                     <div class="case two">
@@ -114,10 +109,6 @@
             </div>
         </section>
 
-
-
-
-
         <!-- partie 3 chartJs  -->
         <!-- partie 3 chartJs  -->
         <!-- partie 3 chartJs  -->
@@ -127,7 +118,6 @@
                 <h1>Chart JS</h1>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum assumenda id repellat optio maiores omnis quod rerum quas quisquam molestiae voluptas neque, ipsum, impedit error explicabo distinctio ea aliquam sequi?</p>
             </div>
-            <!-- <p style="text-align: center;">lorem ipsmum </p> -->
             <div class="allGraph">
                 
                  <div class="chartJS">
@@ -149,11 +139,11 @@
             </div>
             <div class="wrapper">
                  <div class="container1">
-                    <div class="containerPdp">
+                    <div class="containerPdp p1">
                         <div class="pdpProfil"></div>
                     </div>
                 <div class="infoUser">
-                    <h1>Jason Statham</h1>
+                    <h1>Stefan</h1>
                     <p>Games Developper</p>
                      <div class="allBtn">
                      <button class="res"><img src="/assets/img/facebookA.png" alt=""></button>
@@ -161,15 +151,14 @@
                     <button class="res"><img src="/assets/img/twitterA.png" alt=""></button>    
                 </div> 
                 </div>
-               
                 </div>
         
             <div class="container1">
                 <div class="containerPdp">
-                    <div class="pdpProfil"></div>
+                    <div class="pdpProfil p2"></div>
                 </div>
                  <div class="infoUser">
-                    <h1>Jason Statham</h1>
+                    <h1>GrandBidule</h1>
                     <p>Games Designer</p>
                     <div class="allBtn">
                         <button class="res"><img src="/assets/img/facebookA.png" alt=""></button>
@@ -180,11 +169,10 @@
             </div> 
             <div class="container1">
                 <div class="containerPdp">
-                    <div class="pdpProfil">
-                </div>
+                    <div class="pdpProfil p3"></div>
                 </div>  
                 <div class="infoUser">
-                    <h1>Jason Statham</h1>
+                    <h1>Nathan</h1>
                     <p>Games Developper</p>
                     <div class="allBtn">
                         <button class="res"><img src="/assets/img/facebookA.png" alt=""></button>
@@ -196,6 +184,18 @@
             </div>
             </div>
            
+            <button class="chatbutton" onclick="
+            chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
+            if(chatbox.opacity == '1'){
+                chatbox.bottom = '-1000px'
+                chatbox.visibility = 'hidden';
+                return chatbox.opacity = '0'
+            } 
+            chatbox.opacity = '1'
+            chatbox.bottom = '0px'
+            chatbox.visibility = 'visible'
+    
+             "><img src="./assets/img/chatbubble.png" width="25px" height="25px"></button>
         </section>
 
         
@@ -204,6 +204,18 @@
                 <div class="chatboxopen">
                     <div class="chattitle">
                         <p>chat général</p>
+                        <button class="cross" onclick="
+                        chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
+                        if(chatbox.opacity == '1'){
+                            chatbox.bottom = '-1000px'
+                            chatbox.visibility = 'hidden';
+                            return chatbox.opacity = '0'
+                        } 
+                        chatbox.opacity = '1'
+                        chatbox.bottom = '0px'
+                        chatbox.visibility = 'visible'
+                
+                         "><img src="./assets/img/chatbubble.png" width="25px" height="25px"></button>
                     </div>
                     <div class="chatchat">
                         <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
@@ -241,11 +253,11 @@
             <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
             <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
             <p><span class="footer-title">Location:</span> Paris</p>
-            <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../assets/img/facebook.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/x.com'"><img src="../assets/img/twitter.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/google.com'"><img src="../assets/img/google.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../assets/img/pinterest.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../assets/img/Instagram.png" width="20px" height="20px"></button>  
+            <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../ressources/image/facebook.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/x.com'"><img src="../ressources/image/twitter.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/google.com'"><img src="../ressources/image/google.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../ressources/image/pinterest.png" width="20px" height="20px"></button> 
+            <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../ressources/image/Instagram.png" width="20px" height="20px"></button>  
 
         </div>
         <div class="other">

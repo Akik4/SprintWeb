@@ -2,8 +2,8 @@
 
 function animate(){
     anime({
-        targets: ".headPage",
-        top: "0px",
+        targets: ".header",
+        top: "10px",
         easing: "easeInOutBack",
         duration: 1500,
     });
