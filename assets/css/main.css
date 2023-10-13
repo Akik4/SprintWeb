@@ -3,13 +3,9 @@
 }
 
 /* BEGIN ACCUEIL */
-/* * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  } */
 *{
     scroll-behavior: smooth;
+    
 }
 .main H1 {
  margin:  0;
@@ -17,6 +13,7 @@
 
   body {
     overscroll-behavior: none;
+    overflow-x: hidden;
   }
   /* variable  */
   /* variable  */
