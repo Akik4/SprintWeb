@@ -1020,3 +1020,35 @@ transform: translateY(0);
     height: 35vh;
     background: rgb(255, 255, 255);
 }
+
+/* GAME PRIVEW */
+
+.play img{
+    width: 15.5vh;
+    height: 15.5vh;
+    border-collapse: collapse;
+    border: 1px black;
+}
+.body_ant {
+    display: flex;
+    justify-content: center;
+    background: url(../img/grass_texture.avif) center / 100% no-repeat;
+}
+.body_op{
+    display: flex;
+    justify-content: center;
+    background: url(../img/op_back.jpg) center / 100% no-repeat;
+}
+.body_HOW{
+    display: flex;
+    justify-content: center;
+    background: url(../img/halloween_back2.jpg) center / 100% no-repeat;
+}
+.douze img{
+    width: 10vh;
+    height: 10vh;
+    border-collapse: collapse;
+    border: 1px black;
+
+}
+/* END GAME PREVIEW */
