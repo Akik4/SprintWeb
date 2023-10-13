@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Gabarito");
 
+
 body {
     margin: 0px;
     padding: 0px;
@@ -30,12 +31,19 @@ body {
     width: 100%;
     top: -60px;
 }
+.headerGame {
+    display: flex;
+    width: 100%;
+}
 .theH, .theHs {
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
     height: 8vw;
     padding-top: 3%;
+}
+.theH {
+    background-image: url("../img/pxfuel.jpg");
 }
 .filter{
     position: absolute;
