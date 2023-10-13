@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/header.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Accueil</title>
 </head>
 <body>
@@ -28,13 +27,13 @@
                                 <div class="list">
                                     <ul class="nav-element">
                                         <li class="list-active">ACCUEIL</li>
-                                        <li class="list-inactive">JEU</li>
-                                        <li class="list-inactive" onclick="window.location='../score/score.html'">SCORE</li>
-                                        <li class="list-inactive" onclick="window.location='../contact/contact.html'">NOUS CONTACTER</li>
+                                        <li class="list-inactive" onclick="window.location='../game_preview'">JEU</li>
+                                        <li class="list-inactive" onclick="window.location='../score/'">SCORE</li>
+                                        <li class="list-inactive" onclick="window.location='../contact/'">NOUS CONTACTER</li>
                                     </ul>
                                 </div>
                                 <div class="nav-login">
-                                    <button><img src="/assets/img/login.png" height="45px" width="45px" onclick="window.location = '../login/login.html'"></button>
+                                    <button><img src="./assets/img/login.png" height="20px" width="20px" onclick="window.location = './login/'"></button>
                                 </div>
                                 <div class="space"><input type="checkbox" id="darkMode" class="checkbox">
                                     <label for="darkMode" ><img class="png" src="/assets/img/nuit.png" alt=""> </label></div>
@@ -215,7 +214,7 @@
                         chatbox.bottom = '0px'
                         chatbox.visibility = 'visible'
                 
-                         "><img src="./assets/img/chatbubble.png" width="25px" height="25px"></button>
+                         "><img width="25px" height="25px"></button>
                     </div>
                     <div class="chatchat">
                         <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
@@ -241,7 +240,8 @@
         <script src="/assets/javascript/chart.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="/assets/javascript/app.js"></script>
-        <script src="/assets/javascript/simpleParallax.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
        
         <!-- <script src="/node_modules/animejs/lib/anime.min.js"></script> -->
     </main>
