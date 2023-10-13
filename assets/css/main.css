@@ -7,42 +7,43 @@ body {
 }
 
 /* BEGIN ACCUEIL */
-*{
+/* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-:root{
+  } */
+  body {
+    overscroll-behavior: none;
+  }
+  /* variable  */
+  /* variable  */
+  :root {
     --section-color: #a29bfe;
-    --card-color: #ecf0f1; 
+    --card-color: #ecf0f1;
     --text-color: rgb(27, 27, 27);
     --title-color: black;
     --cercle-profil: rgb(162, 155, 254);
-    --bg-img: 
-}
-.darkMode{
+    --anim: all 250ms cubic-bezier(.71,.17,.83,.67) ;
+  }
+  
+  .darkMode {
     --section-color: rgb(16, 14, 46);
     --card-color: rgb(39, 35, 109);
     --text-color: rgb(255, 255, 255);
     --title-color: white;
     --cercle-profil: rgb(16, 14, 46);
-
-}
-.heroBanner{
+  }
+  .heroBanner {
     width: 100%;
     height: 100vh;
-    background-image: url('/assets/img/pexels-lucie-liz-3165335.jpg') ;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.darkFilter{
+    background: url("/assets/img/pexels-lucie-liz-3165335.jpg") center / cover no-repeat;
+  }
+  .darkFilter {
     width: 100%;
     height: 100vh;
-    background: #0000007e;
-}
-
-.center{
+    background: rgba(0, 0, 0, 0.4941176471);
+  }
+  .center {
     position: absolute;
     width: 70%;
     top: 60%;
@@ -52,27 +53,29 @@ body {
     flex-direction: column;
     align-items: center;
     opacity: 0;
-}
-.titlePage{
+  }
+  
+  .titlePage {
     color: white;
-    font-size: 84px;    
+    font-size: 84px;
     text-transform: uppercase;
-    text-align: center; 
-
-}
-
-.animTitle{
+    text-align: center;
+  }
+  
+  .animTitle {
     font-size: 150px;
     color: #6c5ce7;
-}
-.sousTitle{
+  }
+  
+  .sousTitle {
     color: rgb(175, 175, 175);
     text-align: center;
     font-size: 24px;
-}
-.playGame{
+  }
+  
+  .playGame {
     margin: 20px;
-    background: orange;
+    background: orange url('/assets/img/Fichier\ 1.png') 80% 50% / 30% no-repeat;
     padding: 20px;
     width: 150px;
     border: none;
@@ -80,153 +83,159 @@ body {
     color: white;
     cursor: pointer;
     font-size: 18px;
-}
-
-.checkbox {
-    display: none;
-}
-
-/* seconde partie  */
-/* seconde partie  */
-/* seconde partie  */
-
-.partie2{
+    text-align: left;
+    text-shadow: black 2px 2px ;
+    text-transform: uppercase;
+    transition: all ease 200ms;
+  }
+  .playGame::before{
+    content: "now!";
+    display: block;
+    text-transform: uppercase;
+    position: absolute;
+    left: 55%;
+    color: white;
+    opacity: 0;
+    font-weight: 900;
+    text-shadow: black 2px 2px ;
+    transition: all 250ms ease;
+  }
+  .playGame:hover::before{
+    left: 51%;
+    opacity: 1;
+  }
+  .playGame:hover{
+    color: transparent;
+    background-size: 60%;
+    background-position:10% 40%;
+    right: 40%;
+  }
+  
+  /* seconde partie  */
+  /* seconde partie  */
+  /* seconde partie  */
+  .partie2 {
     width: 100%;
     height: 100vh;
-    background: var(--section-color);
-    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
-}
-.puce{
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat;
+    transition: var(--anim);
+  }
+  
+  .puce {
     padding-right: 10px;
     font-size: 32px;
     font-weight: 900;
-}
-.flex-img{
+  }
+  
+  .flex-img {
     display: flex;
     justify-content: center;
     height: 100vh;
     align-items: center;
     flex-wrap: wrap;
-}
-.container{
+  }
+  
+  .container {
     background: var(--card-color);
     border-radius: 20px;
     margin: 40px;
-    width: 30% ;
+    width: 30%;
+    height: -moz-max-content;
     height: max-content;
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
-
-
-}
-.wrapper{
+    transition: var(--anim);
+  }
+  
+  .wrapper {
     display: flex;
-}
-#darkMode{
+  }
+  
+  input {
+    display: none;
+  }
+  
+  #darkMode {
     cursor: pointer;
-}
-.png{
+  }
+  
+  .png {
     background-color: white;
     border-radius: 50%;
     padding: 8px;
     cursor: pointer;
-}
-
-.shape{
-    width: max-content;
-    height: max-content;
-    background: #b92323;
-    transform: rotate(25deg);
-    position: absolute;
-    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
-}
-.img, .text{
+  }
+  
+  .img, .text {
     border-radius: 20px 20px 0px 0px;
     width: 100%;
     height: 300px;
     color: var(--text-color);
-}
-.text{
+  }
+  
+  .text {
     padding: 20px;
-}
-.text h1{
+  }
+  
+  .text h1 {
     color: var(--title-color);
-}
-.img1{
-    background-image: url('/assets/img/pexels-yurii-hlei-1365795.jpg');
-    background-repeat: no-repeat;
-    background-size: 112%;
-    background-position: center;
+  }
+  
+  .img1 {
+    background: url("/assets/img/pexels-yurii-hlei-1365795.jpg") center / 100% no-repeat;
     transition: 250ms linear all;
-}
-.img2{
-    background-image: url('/assets/img/pexels-harsch-shivam-2007647.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
+  }
+  .img2 {
+    background: url("/assets/img/pexels-harsch-shivam-2007647.jpg") center / 100% no-repeat;
     transition: 250ms linear all;
-}
-.img3{
-    background-image: url('/assets/img/pexels-element-digital-1293261.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
+  }
+  .img3 {
+    background: url("/assets/img/pexels-element-digital-1293261.jpg") center / 100% no-repeat;
     transition: 250ms linear all;
-}
-.img1:hover{
+  }
+  .img1:hover {
     background-size: 117%;
-}
-.img2:hover, .img3:hover{
-    background-size: 105%
-}
-.img2{
+  }
+  .img2:hover, .img3:hover {
+    background-size: 105%;
+  }
+  .img2 {
     height: 300px;
-}
-
-
- 
-/* stat */
-/* stat */
-/* stat */
-
-.stat{
+  }
+  /* stat */
+  /* stat */
+  .stat {
     width: 100%;
     height: 100vh;
-    background: var(--section-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
-}
-.centerGrid{
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat;
+    transition: var(--anim);
+  }
+  
+  .centerGrid {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
     height: 80vh;
-}
-.gridSystem{
+  }
+  
+  .gridSystem {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3%;
     width: 50%;
     height: 50%;
-}
-.imgStat{
+  }
+  
+  .imgStat {
     border-radius: 10px;
     width: 45%;
     height: 55%;
-    background: #b76363;
-    background-image: url('/assets/img/pexels-pixabay-260024.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.case{
+    background: #b76363 url("/assets/img/pexels-pixabay-260024.jpg") center / cover no-repeat;
+  }
+  
+  .case {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -234,84 +243,76 @@ body {
     color: white;
     font-size: 24px;
     cursor: pointer;
-}
-
-.one{
+    border-radius: 10px;
+  }
+  .one {
     background: #000;
-    border-radius: 10px;
-}
-.two{
+  }
+  
+  .two {
     background: green;
-    border-radius: 10px;
-}
-.three{
+  }
+  
+  .three {
     background: rgb(247, 154, 32);
-    border-radius: 10px;
-
-}
-.five{  
+  }
+  
+  .five {
     background: rgb(17, 120, 184);
-    border-radius: 10px;
-
-}
-.six{
+  }
+  
+  .six {
     background: rgb(95, 11, 228);
-    border-radius: 10px;
-
-}
-/* stat */
-/* stat */
-/* stat */
-
-
-.partie3{
+  }
+  
+  /* stat */
+  /* stat */
+  /* stat */
+  .partie3 {
     width: 100%;
     height: 100vh;
-    background: var(--section-color);
-    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
-
-}
-.partie4{
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat;
+    transition: var(--anim);
+  }
+  
+  .partie4 {
     width: 100%;
     height: 100vh;
-    background: var(--section-color);
-    background-image: url('/assets/img/Plan\ de\ travail\ 11.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
-}
-.wrapper{
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat ;
+    transition: var(--anim);
+  }
+  
+  .wrapper {
     display: flex;
     justify-content: center;
     height: 80vh;
     align-items: center;
-}
-.titleGraph h1{
+  }
+  
+  .titleGraph h1 {
     text-align: center;
+    color: var(--text-color);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 50px;
-}
-.titleGraph p{
+  }
+  
+  .titleGraph p {
     font-size: 20px;
     text-align: center;
-    color: black;
+    color: var(--text-color);
     padding: 0px 10% 0px 10%;
-    padding-top: 2%;
-    
-}
-.allGraph{
+  }
+  
+  .allGraph {
     width: 100%;
     height: 80vh;
-    /* background: #000; */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.chartJS{
+  }
+  
+  .chartJS {
     margin: 50px;
     display: flex;
     justify-content: center;
@@ -319,57 +320,45 @@ body {
     width: 60%;
     height: 65%;
     background: var(--card-color);
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
-    
-    /* -webkit-box-shadow: 5px 5px 15px 5px rgb(10, 9, 36); 
-    box-shadow: 5px 5px 15px 5px rgb(10, 9, 36); */
-}
-/* #myChartJS{
-    height: max-content;
-} */
-/* partie 4 */
-/* partie 4 */
-/* partie 4 */
-/* partie 4 */
-
-
-.titleSection4{
+    transition: var(--anim);
+  }
+  
+  /* partie 4 */
+  /* partie 4 */
+  /* partie 4 */
+  /* partie 4 */
+  .titleSection4 {
     text-align: center;
     font-size: 32px;
     color: var(--text-color);
-}
-.container1{
- 
+  }
+  
+  .container1 {
     margin: 40px;
     width: 300px;
-    height: max;
+    height: 400px;
     background: var(--card-color);
     border-radius: 20px;
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
-
-}
-.containerPdp{
+    transition: all 250ms cubic-bezier(0.71, 0.17, 0.83, 0.67);
+  }
+  
+  .containerPdp {
     display: flex;
     justify-content: center;
     width: 100%;
-    /* height: 30vh; */
-    
-}
-.logo{
-    background-image: url('/assets/img/Fichier\ 1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+  }
+  
+  .logo {
+    background: url("/assets/img/Fichier 1.png") center / contain no-repeat;
     width: 50px;
     height: 50px;
     margin: 5px;
-}
-.allBtn{
+  }
+  .allBtn {
     display: flex;
     justify-content: center;
-    
-}
-.res{
+  }
+  .res {
     margin: 20px;
     border: none;
     background: white;
@@ -377,47 +366,43 @@ body {
     border-radius: 10px;
     color: white;
     cursor: pointer;
-    
-}
-.colorChange{
+  }
+  .colorChange {
     position: relative;
     top: 0;
     width: 50px;
     height: 50px;
     background: orange;
-}
-.infoUser{
+  }
+  .infoUser {
     color: var(--text-color);
     text-align: center;
     display: flex;
     flex-direction: column;
-}
-.infoUser h1{
+  }
+  
+  .infoUser h1 {
     text-transform: uppercase;
     padding: 3%;
-    color: var(--text-color);
-}
-.infoUser p{
-    color: var(--text-color);
-}
-.pdpProfil{
+  }
+  .pdpProfil {
     width: 175px;
     height: 175px;
     border-radius: 50%;
     position: relative;
     bottom: 70px;
-    outline: 20px solid  var(--cercle-profil);
-    transition: all 250ms cubic-bezier(.71,.17,.83,.67);
+    outline: 20px solid var(--cercle-profil);
+    transition: all 250ms cubic-bezier(0.71, 0.17, 0.83, 0.67);
     border: 1px solid white;
-    background-image: url('/assets/img/pdp1');
-    background-position: center;
-    background-size: cover;
+    background:  url("/assets/img/pdp1") center / cover no-repeat;
     cursor: pointer;
-}
-
-/* hover image  */
-/* hover image  */
-/* hover image  */
+  }
+  .p2{
+    background-image: url("/assets/img/pexels-muhd-emir-3796217.jpg");
+  }
+  .p3{
+    background-image: url("/assets/img/pexels-pixabay-220453.jpg");
+  }
 
 /* END ACCUEIl */
 
