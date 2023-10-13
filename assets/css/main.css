@@ -2,16 +2,19 @@
     background-image: url("../img/pxfuel.jpg") ;
 }
 
-body {
-    overscroll-behavior: none;
-}
-
 /* BEGIN ACCUEIL */
 /* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   } */
+*{
+    scroll-behavior: smooth;
+}
+.main H1 {
+ margin:  0;
+}
+
   body {
     overscroll-behavior: none;
   }
@@ -149,7 +152,7 @@ body {
     display: flex;
   }
   
-  input {
+  .checkbox {
     display: none;
   }
   
@@ -385,7 +388,7 @@ body {
     text-transform: uppercase;
     padding: 3%;
   }
-  .pdpProfil {
+  .pdpProfil1 {
     width: 175px;
     height: 175px;
     border-radius: 50%;
@@ -854,7 +857,6 @@ transform: translateY(0);
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
     overflow: hidden;
 }
 
@@ -894,7 +896,7 @@ transform: translateY(0);
     border-radius: 2px;
     padding: 2%;
     width: 80%;
-    margin: 40px;
+    margin: 30px 0px 30px 0px;
     cursor: pointer;
     font-size: 24px;
     text-align: left;
@@ -999,7 +1001,7 @@ transform: translateY(0);
     height: 100%;
     background: rgb(255, 255, 255);
 }
-.container1{
+.containerS{
     display: flex;
     justify-content: center;
     width: 80%;
