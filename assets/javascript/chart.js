@@ -3,7 +3,7 @@ let ctx1 = document.getElementById('myChart2').getContext('2d');
 
 
 let data = {
-    labels: ["lorem", "lorem"],
+    labels: ["stat", "stat"],
     datasets : [{
         label: "Joueur Inscrits",
         data: [20, 80],
@@ -31,7 +31,7 @@ let myChart = new Chart(ctx, {
 
 
 let data2 = {
-    labels: ["lorem", "lorem"],
+    labels: ["stat", "stat"],
     datasets : [{
         label: "Joueur Inscrits",
         data: [30, 70, 23],

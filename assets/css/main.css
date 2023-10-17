@@ -2,10 +2,54 @@
     background-image: url("../img/pxfuel.jpg") ;
 }
 
+/* @mediaqueries  */
+/* @mediaqueries  */
+@media screen and (max-width: 768px) {
+  .wrapper{
+    flex-direction: column;
+  }
+  .wrapper .text{
+    display: none;
+  }
+  .wrapper .img{
+    width: 100%;
+    height: 100%;
+  }
+  .heroBanner{
+    max-width: 100%;
+  }
+  /* .wrapper{
+    display: flex;
+    flex-direction: column;
+  } */
+  .containerA{
+      min-width: 80%;
+      min-height: 30%;
+      overflow: hidden;
+  }
+  .centerGrid{
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+  .gridSystem{
+    min-height: 50%;
+  }
+  .allGraph{
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
 /* BEGIN ACCUEIL */
 *{
     scroll-behavior: smooth;
-    
+    /* overflow-x: ; */
+    overscroll-behavior: none;
 }
 .main H1 {
  margin:  0;
@@ -18,7 +62,7 @@
   /* variable  */
   /* variable  */
   :root {
-    --section-color: #a29bfe;
+    --section-color: #a099fc;
     --card-color: #ecf0f1;
     --text-color: rgb(27, 27, 27);
     --title-color: black;
@@ -45,7 +89,7 @@
   }
   .center {
     position: absolute;
-    width: 70%;
+    width: 80%;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -57,20 +101,20 @@
   
   .titlePage {
     color: white;
-    font-size: 84px;
+    font-size: 8vw;
     text-transform: uppercase;
     text-align: center;
   }
   
   .animTitle {
-    font-size: 150px;
+    font-size: 12vw;
     color: #6c5ce7;
   }
   
   .sousTitle {
     color: rgb(175, 175, 175);
     text-align: center;
-    font-size: 24px;
+    font-size: 3vw;
   }
   
   .playGame {
@@ -117,8 +161,9 @@
   .partie2 {
     width: 100%;
     height: 100vh;
-    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat;
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / cover no-repeat;
     transition: var(--anim);
+
   }
   
   .puce {
@@ -126,27 +171,31 @@
     font-size: 32px;
     font-weight: 900;
   }
-  
+/*   
   .flex-img {
     display: flex;
     justify-content: center;
     height: 100vh;
     align-items: center;
     flex-wrap: wrap;
-  }
+  } */
   
   .containerA {
     background: var(--card-color);
     border-radius: 20px;
-    margin: 40px;
+    margin: 2%;
     width: 30%;
-    height: -moz-max-content;
-    height: max-content;
+    max-width: 30%;
+    /* min-width: 10%; */
+    height: 80%;
     transition: var(--anim);
   }
   
   .wrapper {
     display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
   }
   
   .checkbox {
@@ -172,11 +221,16 @@
   }
   
   .text {
-    padding: 20px;
+    padding-right: 6%;
+    padding: 5%;
+    width: 90%;
   }
   
   .text h1 {
     color: var(--title-color);
+  }
+  .text .puce{
+    vertical-align: middle;
   }
   
   .img1 {
@@ -208,7 +262,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat;
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / cover no-repeat;
     transition: var(--anim);
   }
   
@@ -216,7 +270,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 90%;
     height: 80vh;
   }
   
@@ -224,13 +278,13 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3%;
-    width: 50%;
-    height: 50%;
+    width: 90%;
+    height: max-content;
   }
   
   .imgStat {
     border-radius: 10px;
-    width: 45%;
+    width: 100%;
     height: 55%;
     background: #b76363 url("/assets/img/pexels-pixabay-260024.jpg") center / cover no-repeat;
   }
@@ -241,7 +295,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 24px;
+    font-size: 2vw;
     cursor: pointer;
     border-radius: 10px;
   }
@@ -271,21 +325,22 @@
   .partie3 {
     width: 100%;
     height: 100vh;
-    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat;
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / cover no-repeat;
     transition: var(--anim);
   }
   
   .partie4 {
     width: 100%;
     height: 100vh;
-    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / contain no-repeat ;
+    background: var(--section-color) url("/assets/img/Plan de travail 11.png") center / cover no-repeat ;
     transition: var(--anim);
   }
   
-  .wrapper {
+  .wrapper1 {
     display: flex;
     justify-content: center;
     height: 80vh;
+    width: 100%;
     align-items: center;
   }
   
@@ -294,11 +349,11 @@
     color: var(--text-color);
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 50px;
+    font-size: 8vw;
   }
   
   .titleGraph p {
-    font-size: 20px;
+    font-size: 2vw;
     text-align: center;
     color: var(--text-color);
     padding: 0px 10% 0px 10%;
@@ -313,7 +368,8 @@
   }
   
   .chartJS {
-    margin: 50px;
+    padding: 3%;
+    margin: 10%;
     display: flex;
     justify-content: center;
     border-radius: 20px;
@@ -329,16 +385,16 @@
   /* partie 4 */
   .titleSection4 {
     text-align: center;
-    font-size: 32px;
+    font-size: 3vw;
     color: var(--text-color);
   }
   
   .container1A {
     margin: 40px;
-    width: 300px;
-    height: 400px;
+    width: 20%;
+    height: 50%;
     background: var(--card-color);
-    border-radius: 20px;
+    border-radius: 5%;
     transition: all 250ms cubic-bezier(0.71, 0.17, 0.83, 0.67);
   }
   
@@ -653,7 +709,6 @@ transform: translateY(0);
 }
 .menu{
     display: flex;
-    
     /* padding: 5px; */
     align-items: center;
     height: 100%;
@@ -680,7 +735,7 @@ transform: translateY(0);
 
 .containerE{
     color: white;
-    font-size: 32px;
+    font-size: 2vw;
     text-align: center;
 }
 .containerE h1{
