@@ -155,14 +155,3 @@ where nickname like "%i%";
 select points, nickname from score
 INNER JOIN user on (score.user_id=user.user_id) 
 where nickname like "%o%";
-
-
-
-
-
-
-
-
-
-
-
