@@ -59,38 +59,38 @@ INSERT INTO user (email, psw, nickname) values
 
 
 INSERT INTO score (user_id, game_id, difficulty, points) values 
-    ("5", "1", "1", "120"),
-    ("5", "1", "3", "450"),
-    ("5", "1", "2", "150"),
-    ("5", "1", "2", "164"),
-    ("5", "1", "1", "95");
+    (5, 1, 1, 120),
+    (5, 1, 3, 450),
+    (5, 1, 2, 150),
+    (5, 1, 2, 164),
+    (5, 1, 1, 95);
 
 INSERT INTO chat(sender_id, game_id, content) values
-    ("1", "1", "hey"),
-    ("2", "1", "boom"),
-    ("3", "1", "boom"),
-    ("4", "1", "bien"),
-    ("5", "1", "gagner"),
-    ("1", "1", "trop cool"),
-    ("2", "1", "trop cool"),
-    ("3", "1", "trop cool"),
-    ("4", "1", "trop cool"),
-    ("5", "1", "trop bien"),
-    ("1", "1", "GG"),
-    ("2", "1", "GG"),
-    ("3", "1", "GG"),
-    ("4", "1", "GGWP"),
-    ("5", "1", "THX"),
-    ("1", "1", "THX"),
-    ("2", "1", "LOL"),
-    ("3", "1", "WIN"),
-    ("4", "1", "GG"),
-    ("5", "1", "xD"),
-    ("1", "1", "OTG"),
-    ("2", "1", "LOL"),
-    ("3", "1", "Np"),
-    ("4", "1", "yeah"),
-    ("5", "1", "WP");
+    (1, 1, "hey"),
+    (2, 1, "boom"),
+    (3, 1, "boom"),
+    (4, 1, "bien"),
+    (5, 1, "gagner"),
+    (1, 1, "trop cool"),
+    (2, 1, "trop cool"),
+    (3, 1, "trop cool"),
+    (4, 1, "trop cool"),
+    (5, 1, "trop bien"),
+    (1, 1, "GG"),
+    (2, 1, "GG"),
+    (3, 1, "GG"),
+    (4, 1, "GGWP"),
+    (5, 1, "THX"),
+    (1, 1, "THX"),
+    (2, 1, "LOL"),
+    (3, 1, "WIN"),
+    (4, 1, "GG"),
+    (5, 1, "xD"),
+    (1, 1, "OTG"),
+    (2, 1, "LOL"),
+    (3, 1, "Np"),
+    (4, 1, "yeah"),
+    (5, 1, "WP");
 
 -- Story 3
 INSERT INTO user(email, pwd, nickname)
@@ -111,7 +111,7 @@ INSERT INTO table game ('The Power Of Memory');
 
 -- 7eme story 
 SELECT id, difficulty, points, gamemode_name, nickname from score
- INNER JOIN game as game_id 
+ INNER JOIN game 
     ON (game_id=gamemode_id) 
  INNER JOIN user 
     ON (score.user_id=user.user_id) 
@@ -119,16 +119,21 @@ ORDER BY gamemode_name ASC, difficulty ASC, points ASC;
 
 -- 8eme story 
 SELECT id, difficulty, points, gamemode_name, nickname from score
- INNER JOIN game as game_id 
+ INNER JOIN game
     ON (game_id=gamemode_id) 
  INNER JOIN user 
     ON (score.user_id=user.user_id) 
-where gamemode_name ="memory" and nickname = "roro" and difficulty = "2"
+where gamemode_name ="memory" and nickname = "roro" and difficulty = 2
 ORDER BY gamemode_name ASC, difficulty ASC, points ASC;
 
 -- 9eme story 
 
-UPDATE points from score WHERE user_id = "1" and difficulty = "1" and game_id = "1" SET 495
+delete from score WHERE user_id = 2 and difficulty = 1 and game_id = 1;
+
+UPDATE points from score WHERE user_id = 1 and difficulty = 1 and game_id = 1 SET 495;
+
+INSERT INTO score FROM score(user_id, difficulty, game_id, points)
+value (1, 2, 1, 43);
 
 -- 10 story 
 

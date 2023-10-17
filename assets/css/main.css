@@ -422,7 +422,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 1000px;
+    height: 100vh;
 }
 .body th, td {
     text-align: center;
@@ -449,58 +449,74 @@
 
 /* BEGIN CONTACT */
 
+.contact {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-flow: column;
+}
+
 .bodyContact {
     width: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(16,14,46);
     color: white;
     justify-content: center;
+    
 }
 
 .wrapper-contact {
     padding-top: 3%;
-    margin-bottom: 1%;
+    padding-bottom: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 20vh;
+    flex-wrap: wrap;
 }
 
 .wrapper-contact div {
     height: 100%;
     width: 100%;
+    flex: 30%;
     background-color: rgb(13, 11, 38);
-    margin-right: 20px;
+    margin-right: 1vw; margin-left: 1vw;
     display: flex;
+    width: 30vw;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .wrapper-contact img {
     background-color: orange;
     border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
 }
 
 
 .form{
-    margin-top: 5%;
+    padding-top: 5vh;
     display: flex;
     justify-content: center;
-    height: 30vh;
+    height: 30%;
     align-items: center;
-    padding-bottom: 5%;
+    padding-bottom: 5vh;
 }
-.name, .email, .suj{
+.name, .mail, .suj{
     background-color: rgba(39, 38, 69, 0.5);
     border: 0px ;
     padding: 12px 20px;
     margin: 8px 0;
+    width: 30vw;
+    height: 3vw;
     box-sizing: border-box;
-    width: 300px;
-    height: fit-content;
-    color: whitesmoke;
     font-family: "Gabarito";
     }
 .suj{
@@ -509,7 +525,8 @@
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    width: 604px;
+    width: 100%;
+    height: 3vw;
     height: fit-content;
     color: whitesmoke;
     font-family: "Gabarito";
@@ -520,10 +537,11 @@
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    width: 604px;
-    height: fit-content;
+    width: 100%;
+    height: 4vw;
     color: whitesmoke;
     font-family: "Gabarito";
+    resize: none;
     }
 .button-5 {
     align-items: center;
@@ -577,8 +595,8 @@ transform: translateY(0);
 .bodyForm {
     background-color: rgb(16,14,46);
 
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 .bodyForm a{
     color: rgba(245, 245, 245, 0.5);
@@ -590,8 +608,9 @@ transform: translateY(0);
 .form{
     display: flex;
     justify-content: center;
-    height: 30vh;
+    height: 30;
     align-items: center;
+    padding-bottom: 10vh;
 }
 .pseudo, .nomarginb{
     background-color: rgba(39, 38, 69, 0.5);
