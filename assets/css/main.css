@@ -442,7 +442,6 @@
 .body table {
     width: 50%;
     border-radius: 50%;
-    /* border:solid black 5px; */
     border-radius:20px;
     overflow: hidden;
   border-collapse: collapse;
@@ -503,15 +502,6 @@
     width: 10vh;
 }
 
-
-.form{
-    padding-top: 5vh;
-    display: flex;
-    justify-content: center;
-    height: 30%;
-    align-items: center;
-    padding-bottom: 5vh;
-}
 .name, .mail, .suj{
     background-color: rgba(39, 38, 69, 0.5);
     border: 0px ;
@@ -611,7 +601,7 @@ transform: translateY(0);
 .form{
     display: flex;
     justify-content: center;
-    height: 30;
+    height: 30%;
     align-items: center;
     padding-bottom: 10vh;
 }
@@ -995,6 +985,7 @@ transform: translateY(0);
     border-radius: 5px;
     width: 90%;
     border: none;
+    resize: none;
 }
 .border{
     height: 2px;
@@ -1014,6 +1005,7 @@ transform: translateY(0);
 }
 .aStatus:hover{
     -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 .imgStatus{
     padding: 10%;
