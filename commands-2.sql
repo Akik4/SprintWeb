@@ -47,13 +47,13 @@ order by date_service desc, ville asc;
 
 -- 17
 
-        select services.*, services_utilisateurs.date_inscription, utilisateurs.pseudo, (
-            select distinct pseudo from utilisateurs where id = 10) as cu from services_utilisateurs 
+        select services.*, services_utilisateurs.date_inscription, utilisateurs.*, (
+            select distinct pseudo from utilisateurs where id = services.id_utilisateur) as cu from services_utilisateurs 
         LEFT JOIN services
         ON services.id = services_utilisateurs.id_service
         LEFT JOIN utilisateurs 
-        ON utilisateurs.id = services.id_utilisateur
-        where services_utilisateurs.id_utilisateur = 8
+        ON utilisateurs.id = services_utilisateurs.id_utilisateur
+        where services_utilisateurs.id_utilisateur = 9
         ORDER BY services_utilisateurs.date_inscription ASC 
         LIMIT 1;
 
