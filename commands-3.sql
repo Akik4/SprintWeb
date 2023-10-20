@@ -477,10 +477,7 @@ SELECT espece as current_espece, nom, (
 WHERE espece = "Zèbre" OR espece = "Lion" OR espece = "Pinguin"
 
 -- Story 9
-SELECT year(date) as annee, (
-    SELECT sum(montant) from historique
-    where year(date) = annee
-) from historique
+SELECT year(date) as annee, sum(montant) from historique
 order by annee ASC;
 
 -- Story 10
@@ -518,3 +515,60 @@ left join enclos
 on enclos_animaux.id_enclot = enclos.id
 where enclos.nom = "VonRueden" and animaux.sexe = "F" and YEAR(enclos_animaux.date_entree) > "4"
 order by animaux.espece, year(enclos_animaux.date_entree)
+
+
+-- Story 14 (j'y crois pas)
+
+SELECT DISTINCT year(date) as annee, sum(montant), (
+    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Girafe" and year(date) = year(enclos_animaux.date_entree)) as girafe ,
+    
+    
+    (    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Lion" and year(date) = year(enclos_animaux.date_entree)) as lion, 
+    (    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Chèvre" and year(date) = year(enclos_animaux.date_entree)) as chèvre,
+    (    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Hippopotame" and year(date) = year(enclos_animaux.date_entree)) as Hippopotame from historique
+left join enclos_animaux 
+ON year(date) = year(enclos_animaux.date_entree)
+left join animaux
+ON enclos_animaux.id_animal = animaux.id
+group by year(date)
+order by sum(montant) DESC limit 1;
+
+SELECT DISTINCT year(date) as annee, sum(montant), (
+    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Girafe" and year(date) = year(enclos_animaux.date_entree)) as girafe ,
+    
+    
+    (    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Lion" and year(date) = year(enclos_animaux.date_entree)) as lion, 
+    (    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Chèvre" and year(date) = year(enclos_animaux.date_entree)) as chèvre,
+    (    select count(animaux.espece) from animaux
+    left join enclos_animaux 
+ON animaux.id = enclos_animaux.id_animal
+   where animaux.espece="Hippopotame" and year(date) = year(enclos_animaux.date_entree)) as Hippopotame from historique
+
+
+left join enclos_animaux 
+ON year(date) = year(enclos_animaux.date_entree)
+left join animaux
+ON enclos_animaux.id_animal = animaux.id
+group by year(date)
+order by sum(montant) ASC limit 1;
