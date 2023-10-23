@@ -89,19 +89,39 @@
                 </div>
                 <div class="gridSystem">
                     <div class="case two">
-                        <h1>310</h1>
+                        <h1>
+                            <?php 
+                            include "./utils/database.php";
+                            $db = dataconnect();
+                            $result = $db->query("SELECT count(id) FROM score WHERE user_id = 5")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
+                            ?>
+                        </h1>
                         <p>Parties Jouées</p>
                     </div>
                     <div class="case three">
-                        <h1>1020</h1>
+
+                        <h1>999999</h1>
                         <p>Joueurs Connectée</p>
                     </div>
                     <div class="case five">
-                        <h1>10 sec</h1>
+                        <h1><?php 
+                            $result = $db->query("SELECT min(points) FROM score WHERE user_id = 5")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
+                            ?>sec</h1>
                         <p>Temps Records</p>
                     </div>
                     <div class="case six">
-                        <h1>21 300</h1>
+                        <h1><?php 
+                            $result = $db->query("SELECT count(id) FROM user")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
+                            ?></h1>
                         <p>Joueurs Inscrits</p>
                     </div>
                 </div>

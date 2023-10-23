@@ -1,28 +1,32 @@
 <?php 
-$dbname = 'memory';
-$host = 'localhost';
-$dsn = "mysql:dbname=$dbname;host=$host;charset=utf8";
-$user = 'root';
-$pass = '';
+// require_once("./common.php");
 
-$driver_options = [
-PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
-];
+function dataconnect(){
+    $dbname = 'memory';
+    $host = 'localhost';
+    $dsn = "mysql:dbname=$dbname;host=$host;port=3307;charset=utf8";
+    
+    $user = 'root';
+    $pass = '';
 
-try {
-$pdo = new PDO($dsn, $user, $pass, $driver_options);
-return $pdo;
-} catch (PDOException $e) {
-echo 'La connexion à la base de données a échouée.';
+    $driver_options = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Disable errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, // Make the default fetch be an associative array
+      ];
+
+    try {
+    $pdo = new PDO($dsn, $user, $pass, $driver_options);
+    return $pdo;
+    } catch (PDOException $e) {
+    echo 'La connexion à la base de données a échouée.';
+    }
 }
 
-$pdo = connectToDbAndGetPdo();
-$pdoStatement = $pdo->prepare('INSERT INTO user (email, password, nickName) VALUES
-(:email, :password, :nickName)');
-$userHasBeenInserted = $pdoStatement->execute([
-':email' => $email,
-':password' => hashPassword($password),
-':nickName' => $nickName,
-]);
-?>
+$DB = dataconnect();
+
+// $result = $DB->query("SELECT * FROM USER")->fetchAll();
+
+// foreach ($result as $row) {
+//     $test = get_object_vars($row);
+//     echo $test['id'] ." ". $test['nickname']  ." ". $test['email'] ."<br />\n";
+// }
