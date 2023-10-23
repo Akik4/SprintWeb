@@ -24,7 +24,7 @@ function dataconnect(){
 
 $DB = dataconnect();
 
-// $result = $DB->query("SELECT * FROM USER")->fetchAll();
+$result = $DB->query("SELECT * FROM USER")->fetchAll();
 
 // foreach ($result as $row) {
 //     $test = get_object_vars($row);

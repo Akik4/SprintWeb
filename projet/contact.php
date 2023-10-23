@@ -1,3 +1,9 @@
+<?php 
+include './utils/common.php';
+require './partials/header.php';
+use utils\Header;
+
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,40 +16,7 @@
 </head>
 <body>
     <div class="contact">
-        <div class="theH">
-            <div class="filter">
-                <div>
-                    <div>
-                        <div class="header">
-                            <nav class="navbar">
-                                <div class="space"></div>
-                                <div class="title">
-                                    <ul class="nav-element">
-                                        <img src="../assets/img/Fichier 1.png" height="30px" width="30px">
-                                        <li>The Power Of Memory</li>
-                                    </ul>
-                                </div>
-                                <div class="list">
-                                    <ul class="nav-element">
-                                        <li class="list-inactive" onclick="window.location='../'">ACCUEIL</li>
-                                        <li class="list-inactive" onclick="window.location='../game_preview'">JEU</li>
-                                        <li class="list-inactive" onclick="window.location='../score/'">SCORE</li>
-                                        <li class="list-active">NOUS CONTACTER</li></ul>
-                                </div>
-                                <div class="nav-login">
-                                    <button><img src="../assets/img/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
-                                </div>
-                                <div class="space"></div>   
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <div class="nav-page-title">
-                    <h1> Contact </h1>
-                </div>
-            </div>
-        </div>
-
+    <?php echo Header::addClassic(4, "CONTACT"); ?>
         <div class="bodyContact">
         <div class="wrapper-contact">
                 <div class="phone"><img src="../assets/img/phone.png" height="50px" width="50px"><p>06 05 04 03 02</p></div>
