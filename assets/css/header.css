@@ -102,12 +102,12 @@ body {
 .list-inactive:hover {
     transform: translateY(-5px);
     transition: 0.5s;
-    color: aqua;
+    color: orange;
     cursor: pointer;
 }
 
 
-.list-active {
+.kiwi {
     margin-right: 2vw;
     color: orange;
     border-top: solid 2px orange;
