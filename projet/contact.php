@@ -1,11 +1,13 @@
-<?php 
+<?php
 include './utils/common.php';
 require './partials/header.php';
+
 use utils\Header;
 
- ?>
+?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,24 +16,31 @@ use utils\Header;
     <link rel="stylesheet" href="../assets/css/main.css">
     <title>Contact</title>
 </head>
+
 <body>
     <div class="contact">
-    <?php echo Header::addClassic(4, "CONTACT"); ?>
+        <?php echo Header::addClassic(4, "CONTACT"); ?>
         <div class="bodyContact">
-        <div class="wrapper-contact">
-                <div class="phone"><img src="../assets/img/phone.png" height="50px" width="50px"><p>06 05 04 03 02</p></div>
-                <div class="email"><img src="../assets/img/email.png" height="50px" width="50px"><p>support@powerofmemory.com</p></div>
-                <div class="location"><img src="../assets/img/location.png" height="50px" width="50px"><p>Paris</p></div>
-        </div>
-        <section class="form">
-            <form method="POST" action="traitement.php">
-                <input class="name" type="text" name="Nom" placeholder="Nom">
-                <input class="mail" type="email" name="Email" placeholder="Email"><br>
-                <input class="suj" type="text" name="sujet" placeholder="Sujet"><br>
-                <textarea class="msg" placeholder="Message"></textarea><br>
-                <button class="button-5" role="button"> Envoyer </button>
-            </form>
-            <button class="chatbutton" onclick="
+            <div class="wrapper-contact">
+                <div class="phone"><img src="../assets/img/phone.png" height="50px" width="50px">
+                    <p>06 05 04 03 02</p>
+                </div>
+                <div class="email"><img src="../assets/img/email.png" height="50px" width="50px">
+                    <p>support@powerofmemory.com</p>
+                </div>
+                <div class="location"><img src="../assets/img/location.png" height="50px" width="50px">
+                    <p>Paris</p>
+                </div>
+            </div>
+            <section class="form">
+                <form method="POST" action="traitement.php">
+                    <input class="name" type="text" name="Nom" placeholder="Nom">
+                    <input class="mail" type="email" name="Email" placeholder="Email"><br>
+                    <input class="suj" type="text" name="sujet" placeholder="Sujet"><br>
+                    <textarea class="msg" placeholder="Message"></textarea><br>
+                    <button class="button-5" role="button"> Envoyer </button>
+                </form>
+                <button class="chatbutton" onclick="
             chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
             if(chatbox.opacity == '1'){
                 chatbox.bottom = '-1000px'
@@ -63,49 +72,73 @@ use utils\Header;
                         "><img width="25px" height="25px"></button>
                     </div>
                     <div class="chatchat">
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="author">test</span><div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span></div>
-                        <div class="messagebox"><span class="self">test</span><div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span></div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="self">test</span>
+                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="self">test</span>
+                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="self">test</span>
+                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="author">test</span>
+                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                        </div>
+                        <div class="messagebox"><span class="self">test</span>
+                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
+                        </div>
                     </div>
                     <div class="chatmessage">
-                        <textarea cols="100%" type="text" placeholder="Entrez votre message" ></textarea>
+                        <textarea cols="100%" type="text" placeholder="Entrez votre message"></textarea>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <div class="footer">
-            
+
             <div class="info">
                 <p style="font-weight: bold;">Information</p>
                 <p>Quisque commodo facilisis purus, interdum volupat arcu viverra sed.</p>
                 <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
                 <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
                 <p><span class="footer-title">Location:</span> Paris</p>
-                <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../assets/img/facebook.png" width="20px" height="20px"></button> 
-                <button onclick="window.location = 'https:\/\/x.com'"><img src="../assets/img/twitter.png" width="20px" height="20px"></button> 
-                <button onclick="window.location = 'https:\/\/google.com'"><img src="../assets/img/google.png" width="20px" height="20px"></button> 
-                <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../assets/img/pinterest.png" width="20px" height="20px"></button> 
-                <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../assets/img/Instagram.png" width="20px" height="20px"></button>  
+                <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../assets/img/facebook.png" width="20px" height="20px"></button>
+                <button onclick="window.location = 'https:\/\/x.com'"><img src="../assets/img/twitter.png" width="20px" height="20px"></button>
+                <button onclick="window.location = 'https:\/\/google.com'"><img src="../assets/img/google.png" width="20px" height="20px"></button>
+                <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../assets/img/pinterest.png" width="20px" height="20px"></button>
+                <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../assets/img/Instagram.png" width="20px" height="20px"></button>
 
             </div>
             <div class="other">
                 <div>
                     <p style="font-weight: bold;">Power Of Memory</p>
-                    
-                        <p class="olist">Jouer !</p>
-                        <p class="olist">Les scores</p>
-                        <p class="olist">Nous contacter</p>
-                    
+
+                    <p class="olist">Jouer !</p>
+                    <p class="olist">Les scores</p>
+                    <p class="olist">Nous contacter</p>
+
                 </div>
             </div>
 
@@ -117,4 +150,5 @@ use utils\Header;
         <script src="../assets/javascript/app.js"></script>
     </div>
 </body>
+
 </html>
