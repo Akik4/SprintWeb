@@ -77,10 +77,10 @@ use utils\Header;
                 <div class="gridSystem">
                     <div class="case two">
                         <h1>
-                            <?php
+                            <?php 
                             include "./utils/database.php";
                             $db = dataconnect();
-                            $result = $db->query("SELECT points FROM score WHERE id = 2")->fetch();
+                            $result = $db->query("SELECT count(id) FROM score")->fetch();
                             foreach ($result as $row) {
                                 echo $row;
                             }
@@ -90,15 +90,25 @@ use utils\Header;
                     </div>
                     <div class="case three">
 
-                        <h1>999999</h1>
+                        <h1><?php echo (sizeof(scandir(session_save_path()))) - 2; ?></h1>
                         <p>Joueurs Connectée</p>
                     </div>
                     <div class="case five">
-                        <h1>sec</h1>
+                        <h1><?php 
+                            $result = $db->query("SELECT min(points) FROM score")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
+                            ?>sec</h1>
                         <p>Temps Records</p>
                     </div>
                     <div class="case six">
-                        <h1></h1>
+                        <h1><?php 
+                            $result = $db->query("SELECT count(id) FROM user")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
+                            ?></h1>
                         <p>Joueurs Inscrits</p>
                     </div>
                 </div>

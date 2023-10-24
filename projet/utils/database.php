@@ -30,6 +30,7 @@ $result = $DB->query("SELECT * FROM USER")->fetchAll();
 
 // foreach ($result as $row) {
 //     $test = get_object_vars($row);
+
 //     echo $test['id'] . " " . $test['nickname']  . " " . $test['email'] . "<br />\n";
 // }
 ?>
