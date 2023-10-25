@@ -3,7 +3,7 @@
 
 function dataconnect()
 {
-    $dbname = 'chut';
+    $dbname = 'memory';
     $host = 'localhost';
     $dsn = "mysql:dbname=$dbname;host=$host;port=3307;charset=utf8";
 
@@ -23,30 +23,3 @@ function dataconnect()
         echo 'La connexion à la base de données a échouée.';
     }
 }
-
-$DB = dataconnect();
-
-$result = $DB->query("SELECT * FROM USER")->fetchAll();
-
-// foreach ($result as $row) {
-//     $test = get_object_vars($row);
-
-//     echo $test['id'] . " " . $test['nickname']  . " " . $test['email'] . "<br />\n";
-// }
-?>
-
-<?php
-
-// $dsn = "mysql:host=localhost;dbname=myfirstdatabase";
-// $dbusername = "root";
-// $dbpassword = "";
-
-// try{
-//     $pdo = new PDO($dsn, $dbusername, $dbpassword);
-//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// }catch(PDOException $e){
-//     echo "Connection Failed; " . $e->getMessage();
-// }
-
-
-?>

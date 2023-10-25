@@ -82,10 +82,10 @@ use utils\Header;
                             <?php
                             include "./utils/database.php";
                             $db = dataconnect();
-                            $result = $db->query("SELECT count(id) FROM score")->fetch();
-                            foreach ($result as $row) {
-                                echo $row;
-                            }
+                            $getGamePlayedFromSQL = $db->prepare("SELECT count(id) as sizeof FROM score");
+                            $getGamePlayedFromSQL->execute();
+                            $gamePlayed = $getGamePlayedFromSQL->fetch();
+                            echo $gamePlayed->sizeof;
                             ?>
                         </h1>
                         <p>Parties Jouées</p>
@@ -96,20 +96,20 @@ use utils\Header;
                         <p>Joueurs Connectée</p>
                     </div>
                     <div class="case five">
-                        <h1><?php
-                            $result = $db->query("SELECT min(points) FROM score")->fetch();
-                            foreach ($result as $row) {
-                                echo $row;
-                            }
+                        <h1><?php 
+                            $getBestTimeFromSQL = $db->prepare("SELECT min(points) as points FROM score");
+                            $getBestTimeFromSQL->execute();
+                            $bestTime = $getBestTimeFromSQL->fetch();
+                            echo $bestTime->points;
                             ?>sec</h1>
                         <p>Temps Records</p>
                     </div>
                     <div class="case six">
-                        <h1><?php
-                            $result = $db->query("SELECT count(id) FROM user")->fetch();
-                            foreach ($result as $row) {
-                                echo $row;
-                            }
+                        <h1><?php 
+                            $getPlayerCountFromSQL = $db->prepare("SELECT count(id) as sizeof FROM user");
+                            $getPlayerCountFromSQL->execute();
+                            $countPlayer = $getPlayerCountFromSQL->fetch();
+                            echo $countPlayer->sizeof;
                             ?></h1>
                         <p>Joueurs Inscrits</p>
                     </div>
