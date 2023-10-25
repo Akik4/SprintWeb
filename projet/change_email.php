@@ -44,6 +44,9 @@
     </div>
     <div class="body">
         <section class="form">
+            <?php
+                
+            ?>
             <form method="POST" action="traitement.php">
                 <input class="pseudo" type="email" name="ancien Email"placeholder="Ancien Email"><br>
                 <input class="pseudo" type="email" name="nouvelle Email" placeholder="Nouvelle Email"><br>

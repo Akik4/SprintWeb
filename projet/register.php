@@ -82,7 +82,6 @@
                 elseif (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
                     echo 'Email invalide';
                 }
-
                 else{
                     $pdoStatement = $DB->prepare('INSERT INTO user (email, psw, nickname) VALUES
                     (:email, :psw, :nickName)');

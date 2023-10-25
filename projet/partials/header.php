@@ -34,11 +34,62 @@ class Header
                             </ul>
                         </div>
                         <div class="nav-login">
-                            <button><img src="../assets/img/login.png" height="20px" width="20px" onclick="window.location = './login/'"></button>
+                            <div class="space"><input type="checkbox" id="darkMode" class="checkbox">
+                                <label for="darkMode"><img class="png" src="../assets/img/nuit.png" alt=""> </label>
+                            </div>
+                            <?php
+
+                            include './utils/database.php';
+                            $db = dataconnect();
+                            $imgPdp = $db->query('SELECT imgPdp FROM user');
+                            ?>
+                            <button>
+                                <?php
+                                if ($_SESSION['id'] >= 1) {
+                                ?>
+                                    <img class="pdpUser" src="../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = 'myAccount.php'">
+                                    <style>
+                                        .pdpUser {
+                                            border-radius: 50%;
+                                            cursor: pointer;
+                                            width: 40px;
+                                            height: 40px;
+                                        }
+                                    </style>
+                                <?php
+
+                                } else {
+                                ?>
+                                    <img src="../assets/img/login.png" height="20px" width="20px" onclick="window.location = 'login.php'">
+                                <?php
+                                }
+
+                                ?>
+                            </button>
+                            <a href="disconnect.php">
+                                <input style="cursor: pointer;" id="disconnect" type="submit" name="destroy">
+                                <style>
+                                    #disconnect {
+                                        display: none;
+
+                                    }
+
+                                    .btnDisconnect {
+                                        cursor: pointer;
+                                        background: white;
+                                        width: 40px;
+                                        height: 40px;
+                                        border-radius: 50%;
+                                        /* -webkit-filter: invert(100); */
+                                    }
+                                </style>
+                                <label for="disconnect">
+                                    <img class="btnDisconnect" src="../assets/img/deconnexion.png" alt="" width="30px" height="30px">
+
+                                </label>
+                            </a>
                         </div>
-                        <div class="space"><input type="checkbox" id="darkMode" class="checkbox">
-                            <label for="darkMode"><img class="png" src="../assets/img/nuit.png" alt=""> </label>
-                        </div>
+
                     </nav>
                 </div>
             </div>
