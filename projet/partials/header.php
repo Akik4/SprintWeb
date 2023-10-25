@@ -41,7 +41,7 @@ class Header
 
                             include './utils/database.php';
                             $db = dataconnect();
-                            // $imgPdp = $db->query('SELECT imgPdp FROM user');
+                            $imgPdp = $db->query('SELECT imgPdp FROM user');
                             ?>
                             <button>
                                 <?php

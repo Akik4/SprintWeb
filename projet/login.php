@@ -2,14 +2,14 @@
 
 session_start();
 
-$DB = new PDO('mysql:host=localhost;dbname=chut;charset=utf8;', 'root', '');
+$DB = new PDO('mysql:host=localhost;dbname=memory;charset=utf8;', 'root', '');
 if (isset($_POST['envoie'])) {
     if (!empty($_POST['Pseudo']) && !empty($_POST['Motdepasse'])) {
         $pseudo = $_POST['Pseudo'];
-        $psw = $_POST['Motdepasse'];
+        $psw = password_hash($_POST['Motdepasse'],PASSWORD_DEFAULT);
 
         $recupUser = $DB->prepare('SELECT * FROM user WHERE nickname = ? AND psw = ?'); //test
-        $recupImg = $DB->query('SELECT imgPdp FROM user'); //test
+        $recupImg = $DB->query('SELECT imgPdp FROM user'); 
         $recupUser->execute(array($pseudo, $psw)); //test
 
         if ($recupUser->rowCount() > 0) {
