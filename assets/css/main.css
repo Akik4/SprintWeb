@@ -10,7 +10,6 @@
 .main H1 {
  margin:  0;
 }
-
   body {
     overscroll-behavior: none;
     overflow-x: hidden;
@@ -439,12 +438,17 @@
 .body tr:nth-of-type(even) td {
     background-color: rgb(29, 26, 47);
 }
-.body table {
+.body .table1 {
     width: 50%;
     border-radius: 50%;
     border-radius:20px;
     overflow: hidden;
-  border-collapse: collapse;
+    border-collapse: collapse;
+    visibility: visible;
+}
+.body  .non{
+    visibility: hidden;
+    display: none;
 }
 
 /* END SCORE */
@@ -865,176 +869,188 @@ transform: translateY(0);
 /* BEGIN PROFIL */
 
 .test {
-    background: rgb(0, 0, 14);
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+  background: rgb(0, 0, 14);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .containerS1 {
-    display: flex;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  width: 100%;
+  height: 100vh;
 }
 .sidebatProfil {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
-    height: 100%;
-    background: rgb(162, 155, 254);
-    border-radius: 10px 0px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  background: rgb(162, 155, 254);
 }
 .sidebatProfil .pdpProfil{
-    width: 150px;
-    height: 150px;
-    background-image: url('/assets/img/pdp1');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 50%;
-    margin: 30px;
+  width: 150px;
+  height: 150px;
+  background-image: url('/assets/img/pdp1');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  margin: 30px;
 
 }
 .listPara{
-    width: 100%;
+  width: 100%;
 }
 .active{
-    background: #697ed3;
+  background: #697ed3;
 }
 .params1{
-    list-style: none;
-    border-radius: 2px;
-    padding: 2%;
-    width: 80%;
-    margin: 30px 0px 30px 0px;
-    cursor: pointer;
-    font-size: 24px;
-    text-align: left;
-    border-radius: 10px;
-    transition: all 100ms linear;
+  list-style: none;
+  border-radius: 2px;
+  padding: 2%;
+  width: 80%;
+  margin: 30px 0px 30px 0px;
+  cursor: pointer;
+  font-size: 24px;
+  text-align: left;
+  border-radius: 10px;
+  transition: all 100ms linear;
 }
 .params1:hover{
-    background: #697ed3;
-    color: white;
+  background: #697ed3;
+  color: white;
 }
 
 .containerS2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 75%;
-    height: 100%;
-    background: rgb(39, 35, 109) url('../img/Plan\ de\ travail\ 11.png');
-    border-radius: 0px 10px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  background: rgb(39, 35, 109) url('../img/Plan\ de\ travail\ 11.png');
+  border-radius: 0px 10px 10px 0px;
 }
 .result{
-    width: 90%;
-    height: 80vh;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  background: #f1f5f9;
+  overflow-y: scroll;
 }
 .home{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 80vh;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  background: #f1f5f9;
+  margin-bottom: 10px;
 }
 .statc{
-    width: 100%;
-    height: 80vh;
-    background: rgb(250, 246, 246);
-    margin-bottom: 10px;
+  width: 100%;
+  height: 80vh;
+  background: #f1f5f9;
+  margin-bottom: 10px;
 
 }
 .profil{
-    padding-bottom: 20px;
-    width: 60%;
+  background: white;
+  padding-bottom: 20px;
+  width: 80%;
 }
 .imgChange{
-    width: 200px;
-    height: 200px;
-    background-image: url('/assets/img/pdp1');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-image: url('/assets/img/pdp1');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
 }
 .inputStatus {
-    background: #b2b2b2;
-    border: 1px solid rgb(208, 208, 208);
-    width: 100%;
-    padding: 12px;
-    border-radius: 5px;
+  background: #b2b2b2;
+  border: 1px solid rgb(208, 208, 208);
+  width: 90%;
+  padding: 12px;
+  border-radius: 5px;
 }
 .margin{
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 .TaS {
-    background: #b2b2b2;
-    border-radius: 5px;
-    width: 90%;
-    border: none;
-    resize: none;
+  background: #b2b2b2;
+  border-radius: 5px;
+  width: 90%;
+  border: none;
+  resize: none;
 }
 .border{
-    height: 2px;
-    background: #000;
-    border-radius: 2px;
-    border: none;
+  height: 2px;
+  background: #000;
+  border-radius: 2px;
+  border: none;
 }
 .para{
-    font-size: 10px;
-    color: rgb(71, 71, 71);
+  font-size: 10px;
+  color: rgb(71, 71, 71);
 }
 .aStatus{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    display: flex;
-    align-items: center;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
 }
 .aStatus:hover{
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
 .imgStatus{
-    padding: 10%;
+  padding: 10%;
 }
 .container24{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #f1f5f9;
 }
 .containerS{
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    height: 35vh;
-    background: rgba(181, 31, 31, 0);
-    border-radius: 50px;
-    border-radius: 20px;
-
+  display: flex;
+  justify-content: center;
+  width: 75%;
+  height: 50%;
+  background: rgb(255, 255, 255);
+  box-shadow:  0px 8px 13px -3px rgba(0, 0, 0, 0.07);
+}
+.containerGraph1{
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  width: 50%;
+  background: #ffffff;
+  box-shadow:  0px 8px 13px -3px rgba(0, 0, 0, 0.07);
+}
+.containerGraph2{
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  width: 50%;
+  background: #ffffff;
+  box-shadow:  0px 8px 13px -3px rgba(0, 0, 0, 0.07);
 }
 .containerGraph{
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    height: 35vh;
-    background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 35vh;
+  background: #f1f5f9;
 }
 
 /* GAME PRIVEW */

@@ -17,6 +17,8 @@ use utils\Header;
     <title>Accueil</title>
 </head>
 
+
+
 <body>
     <main class="main">
         <!-- section 1: hero banner  -->
@@ -77,7 +79,7 @@ use utils\Header;
                 <div class="gridSystem">
                     <div class="case two">
                         <h1>
-                            <?php 
+                            <?php
                             include "./utils/database.php";
                             $db = dataconnect();
                             $result = $db->query("SELECT count(id) FROM score")->fetch();
@@ -94,7 +96,7 @@ use utils\Header;
                         <p>Joueurs Connectée</p>
                     </div>
                     <div class="case five">
-                        <h1><?php 
+                        <h1><?php
                             $result = $db->query("SELECT min(points) FROM score")->fetch();
                             foreach ($result as $row) {
                                 echo $row;
@@ -103,7 +105,7 @@ use utils\Header;
                         <p>Temps Records</p>
                     </div>
                     <div class="case six">
-                        <h1><?php 
+                        <h1><?php
                             $result = $db->query("SELECT count(id) FROM user")->fetch();
                             foreach ($result as $row) {
                                 echo $row;
