@@ -78,7 +78,7 @@ use utils\Header;
                     <div class="case two">
                         <h1>
                             <?php 
-                            include "./utils/database.php";
+                            include "./utils/database.php";             
                             $db = dataconnect();
                             $result = $db->query("SELECT count(id) FROM score")->fetch();
                             foreach ($result as $row) {
