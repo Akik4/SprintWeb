@@ -16,7 +16,7 @@ if (isset($_POST['envoie'])) {
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['psw'] = $psw;
             $_SESSION['id'] = $recupUser->fetch()['id'];
-            // $_SESSION['imgPdp'] = $recupImg->fetch()['imgPdp'];
+            $_SESSION['imgPdp'] = $recupImg->fetch()['imgPdp'];
             header('Location: index.php');
         } else {
             $alert = <<<HTML

@@ -17,6 +17,8 @@ use utils\Header;
     <title>Accueil</title>
 </head>
 
+
+
 <body>
     <main class="main">
         <!-- section 1: hero banner  -->
@@ -77,8 +79,8 @@ use utils\Header;
                 <div class="gridSystem">
                     <div class="case two">
                         <h1>
-                            <?php 
-                            include "./utils/database.php";             
+                            <?php
+                            include "./utils/database.php";
                             $db = dataconnect();
                             $getGamePlayedFromSQL = $db->prepare("SELECT count(id) as sizeof FROM score");
                             $getGamePlayedFromSQL->execute();
