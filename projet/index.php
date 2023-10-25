@@ -78,7 +78,7 @@ use utils\Header;
                     <div class="case two">
                         <h1>
                             <?php 
-                            include "./utils/database.php";
+                            include "./utils/database.php";             
                             $db = dataconnect();
                             $getGamePlayedFromSQL = $db->prepare("SELECT count(id) as sizeof FROM score");
                             $getGamePlayedFromSQL->execute();

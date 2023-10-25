@@ -22,7 +22,7 @@ use utils\Header;
     <div class="theH">
         <div class="filter">
             <div>
-                <?php echo Header::add(1); ?>
+                <?php echo Header::addClassic(2, "jeu"); ?>
             </div>
             <div class="nav-page-title">
                 <h1> Choisissez votre thême </h1>

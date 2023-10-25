@@ -1,8 +1,8 @@
 <?php
 // require_once("./common.php");
 
-function dataconnect()
-{
+function dataconnect(): object{
+
     $dbname = 'memory';
     $host = 'localhost';
     $dsn = "mysql:dbname=$dbname;host=$host;port=3307;charset=utf8";

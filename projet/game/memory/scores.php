@@ -40,93 +40,60 @@ use utils\Header;
         </nav>
 
         <div class="body">
-            <!-- <div class="tab"> -->
-            <?php
+            <div class="pop">
 
-            include "../../utils/database.php";
-            $db = dataconnect();
-            $request = $db->query('SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id')->fetchALL();
-            print_r($request);
-            foreach ($request as $req => $reqs) {
-                print_r($reqs->nickname);
-                $l = $reqs->nickname;
-                if ($_GET['search'] === $l) {
-            ?>
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Description</th>
-                            <th>Description</th>
-                        </tr>
-                        <tr>
-                            <td><?= $l ?></td>
-                            <td><?= $reqs->difficulty ?></td>
-                            <td><?= $l ?></td>
-                            <td><?= $l ?></td>
-                        </tr>
+                <?php
+                include "../../utils/database.php";
+                $DB = dataconnect();
+                if (isset($_GET['submit'])) {
+                    $str = $_GET['search'];
+                    // print_r($str);
+                    $request = $DB->query("SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id WHERE nickname like '%$str%' ")->fetchALL();
 
-                    </table>
-            <?php
+                    if ($_GET['search']) {
+                        foreach ($request as $req => $reqs) {
+                            $l = $reqs->nickname;
+                ?>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td><?= $reqs->nickname ?></td>
+                                    <td><?= $reqs->difficulty ?></td>
+                                    <td><?= $reqs->points ?></td>
+                                    <td><?= $reqs->date_played ?></td>
+                                </tr>
+                            </table>
+                    <?php
+                        }
+                    }
+                } else {
+                    ?>
+                    <p> Cherchez un utilisateur </p>
+                <?php
                 }
-            };
-            ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Utilisateur</th>
-                        <th>Niveau de difficulté</th>
-                        <th>Points</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-
-                    <?php $users = $db->query('SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id')->fetchALL(); ?>
-                    <br>
-                    <br>
-                    <?php foreach ($users as $user => $username) : ?>
-                        <br>
-                        <br>
-                        <!-- <?php print_r($user) ?> -->
-                        <!-- <?php print_r($username) ?> -->
-
+                ?>
+                <table class=" table1 <?php if (isset($_GET['submit'])) :  ?>non <?php endif ?>" style="width: 100%;">
+                    <thead>
                         <tr>
-                            <td> <?= $username->nickname ?> </td>
-                            <td> <?= $username->difficulty ?> </td>
-                            <td> <?= $username->points ?> </td>
-                            <td> <?= $username->date_played ?> </td>
+                            <th>Utilisateur</th>
+                            <th>Niveau de difficulté</th>
+                            <th>Points</th>
+                            <th>Date</th>
                         </tr>
-                    <?php endforeach; ?>
+                    </thead>
+                    <tbody>
+                        <?php $users = $DB->query('SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id')->fetchALL(); ?>
+                        <?php foreach ($users as $user => $username) : ?>
+                            <tr>
+                                <td> <?= $username->nickname ?> </td>
+                                <td> <?= $username->difficulty ?> </td>
+                                <td> <?= $username->points ?> </td>
+                                <td> <?= $username->date_played ?> </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
 
-
-                    <!-- <tr>
-                        <td>Stefan</td>
-                        <td>2Min50</td>
-                        <td>50</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>Stefan</td>
-                        <td>2Min50</td>
-                        <td>50</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>Stefan</td>
-                        <td>2Min50</td>
-                        <td>50</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>Stefan</td>
-                        <td>2Min50</td>
-                        <td>50</td>
-                        <td>2</td>
-                    </tr> -->
-                </tbody>
-            </table>
             <!-- </div> -->
             <button class="chatbutton" onclick="
             chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
