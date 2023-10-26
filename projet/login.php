@@ -5,23 +5,23 @@ require './partials/header.php';
 use utils\Header;
 
 // session_start();
-
-$DB = new PDO('mysql:host=localhost;dbname=memory;charset=utf8;', 'root', '');
+require_once("./utils/database.php");
+$DB = dataconnect();
 if (isset($_POST['envoie'])) {
     if (!empty($_POST['Pseudo']) && !empty($_POST['Motdepasse'])) {
         $pseudo = $_POST['Pseudo'];
         $psw = $_POST['Motdepasse'];
         // password_hash
         // PASSWORD_DEFAULT 
-        $recupUser = $DB->prepare('SELECT * FROM user WHERE nickname = ? AND psw = ?'); //test
-        $recupImg = $DB->query('SELECT imgPdp FROM user'); //test
-        $recupUser->execute(array($pseudo, $psw)); //test
+        $recupUser = $DB->prepare('SELECT * FROM user WHERE nickname = :pseudo'); //test
+        $recupImg = $DB->query('SELECT imgPdp FROM user');
+        $recupUser->execute([":pseudo" => $pseudo]); //test
 
         if ($recupUser->rowCount() > 0) {
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['psw'] = $psw;
-            $_SESSION['id'] = $recupUser->fetch()['id'];
-            $_SESSION['imgPdp'] = $recupImg->fetch()['imgPdp'];
+            $_SESSION['id'] = $recupUser->fetch()->id;
+            $_SESSION['imgPdp'] = $recupImg->fetch()->imgPdp;
             header('Location: index.php');
         } else {
             $alert = <<<HTML

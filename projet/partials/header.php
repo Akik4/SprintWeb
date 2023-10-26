@@ -45,10 +45,10 @@ class Header
                             ?>
                             <button>
                                 <?php
-                                if ($_SESSION['id'] >= 1) {
+                                if (isset($_SESSION['id'])) { // probleme
                                 ?>
-                                    <img class="pdpUser" src="../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = 'myAccount.php'">
-                                    <a href="disconnect.php">
+                                    <img class="pdpUser" src="<?php echo PROJECT_FOLDER ?>../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = 'myAccount.php'">
+                                    <a href="<?php echo PROJECT_FOLDER ?>disconnect.php">
                                         <input style="cursor: pointer;" id="disconnect" type="submit" name="destroy">
                                         <style>
                                             #disconnect {
@@ -64,7 +64,7 @@ class Header
                                             }
                                         </style>
                                         <label for="disconnect">
-                                            <img class="btnDisconnect" src="../assets/img/deconnexion.png" alt="" width="30px" height="30px">
+                                            <img class="btnDisconnect" src="<?php echo PROJECT_FOLDER ?>../assets/img/deconnexion.png" alt="" width="30px" height="30px">
 
                                         </label>
                                     </a>
@@ -127,7 +127,7 @@ class Header
                                                     echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>contact.php'">NOUS CONTACTER</li>
                                 </div>
                                 <div class="nav-login">
-                                    <button><img src="<?php echo PROJECT_FOLDER ?>../assets/img/login.png" height="20px" width="20px" onclick="window.location = '../../login.php'"></button>
+                                    <button><img src="<?php echo PROJECT_FOLDER ?>../assets/img/login.png" height="20px" width="20px" onclick="window.location = '<?php echo PROJECT_FOLDER; ?>login.php'"></button>
                                 </div>
                                 <div class="space"></div>
                             </nav>

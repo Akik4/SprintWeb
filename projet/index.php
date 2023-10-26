@@ -4,6 +4,7 @@ require './partials/header.php';
 
 use utils\Header;
 
+// session_start()
 ?>
 <?php require './partials/head.php' ?>
 

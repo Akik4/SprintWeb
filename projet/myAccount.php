@@ -56,11 +56,7 @@ foreach ($query as $data) {
                         }
                     </style>
                     <label for="fileUpload">
-                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="upload/<?php if (!$_FILES["photo"]) {
-                                                                                                                                echo $name;
-                                                                                                                            } else {
-                                                                                                                                echo $name;
-                                                                                                                            } ?>  " alt="">
+                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="upload/<?= $name ?>  ">
                         <!-- // a revoir -->
                     </label>
                     <input id="btnProfilImg" type="submit" name="submit" value="Upload">
