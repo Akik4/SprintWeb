@@ -4,20 +4,9 @@ require './partials/header.php';
 
 use utils\Header;
 
+// session_start()
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <title>Accueil</title>
-</head>
-
-
+<?php require './partials/head.php' ?>
 
 <body>
     <main class="main">
@@ -82,10 +71,11 @@ use utils\Header;
                             <?php
                             include "./utils/database.php";
                             $db = dataconnect();
-                            $getGamePlayedFromSQL = $db->prepare("SELECT count(id) as sizeof FROM score");
-                            $getGamePlayedFromSQL->execute();
-                            $gamePlayed = $getGamePlayedFromSQL->fetch();
-                            echo $gamePlayed->sizeof;
+
+                            $result = $db->query("SELECT count(id) FROM score")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
                             ?>
                         </h1>
                         <p>Parties Jouées</p>
@@ -96,20 +86,20 @@ use utils\Header;
                         <p>Joueurs Connectée</p>
                     </div>
                     <div class="case five">
-                        <h1><?php 
-                            $getBestTimeFromSQL = $db->prepare("SELECT min(points) as points FROM score");
-                            $getBestTimeFromSQL->execute();
-                            $bestTime = $getBestTimeFromSQL->fetch();
-                            echo $bestTime->points;
+                        <h1><?php
+                            $result = $db->query("SELECT min(points) FROM score")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
                             ?>sec</h1>
                         <p>Temps Records</p>
                     </div>
                     <div class="case six">
-                        <h1><?php 
-                            $getPlayerCountFromSQL = $db->prepare("SELECT count(id) as sizeof FROM user");
-                            $getPlayerCountFromSQL->execute();
-                            $countPlayer = $getPlayerCountFromSQL->fetch();
-                            echo $countPlayer->sizeof;
+                        <h1><?php
+                            $result = $db->query("SELECT count(id) FROM user")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
                             ?></h1>
                         <p>Joueurs Inscrits</p>
                     </div>
@@ -154,9 +144,9 @@ use utils\Header;
                         <h1>Stefan</h1>
                         <p>Games Developper</p>
                         <div class="allBtn">
-                            <button class="res"><img src="/assets/img/facebookA.png" alt=""></button>
-                            <button class="res"><img src="/assets/img/instagramA.png" alt=""></button>
-                            <button class="res"><img src="/assets/img/twitterA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/facebookA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/instagramA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/twitterA.png" alt=""></button>
                         </div>
                     </div>
                 </div>
@@ -169,9 +159,9 @@ use utils\Header;
                         <h1>GrandBidule</h1>
                         <p>Games Designer</p>
                         <div class="allBtn">
-                            <button class="res"><img src="/assets/img/facebookA.png" alt=""></button>
-                            <button class="res"><img src="/assets/img/instagramA.png" alt=""></button>
-                            <button class="res"><img src="/assets/img/twitterA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/facebookA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/instagramA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/twitterA.png" alt=""></button>
                         </div>
                     </div>
                 </div>
@@ -183,9 +173,9 @@ use utils\Header;
                         <h1>Nathan</h1>
                         <p>Games Developper</p>
                         <div class="allBtn">
-                            <button class="res"><img src="/assets/img/facebookA.png" alt=""></button>
-                            <button class="res"><img src="/assets/img/instagramA.png" alt=""></button>
-                            <button class="res"><img src="/assets/img/twitterA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/facebookA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/instagramA.png" alt=""></button>
+                            <button class="res"><img src="../assets/img/twitterA.png" alt=""></button>
                         </div>
                     </div>
 
@@ -203,7 +193,7 @@ use utils\Header;
             chatbox.bottom = '0px'
             chatbox.visibility = 'visible'
     
-             "><img src="./assets/img/chatbubble.png" width="25px" height="25px"></button>
+             "><img src="../assets/img/chatbubble.png" width="25px" height="25px"></button>
         </section>
 
 
@@ -271,11 +261,9 @@ use utils\Header;
         </section>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <script src="/assets/javascript/chart.js"></script>
+        <script src="../assets/javascript/chart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-        <script src="/assets/javascript/app.js"></script>
-
-
+        <script src="../assets/javascript/app.js"></script>
         <!-- <script src="/node_modules/animejs/lib/anime.min.js"></script> -->
     </main>
     <?php require './partials/footer.php' ?>

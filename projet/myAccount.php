@@ -1,3 +1,19 @@
+<?php
+require('../projet/utils/common.php');
+// $upload_dir = "../assets/css/";
+
+
+if (isset($_POST["submit"])) {
+    if (isset($_FILES["photo"])) {
+        $name = $_FILES["photo"]["name"];
+        $newFolder = chdir('upload');
+        $upload_dir = getcwd();
+        move_uploaded_file($_FILES['photo']["tmp_name"], $upload_dir . "/$name");
+    } else {
+        echo 'veuillez sélectionnez une image';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +22,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
@@ -24,12 +42,50 @@ foreach ($query as $data) {
 <body class="test">
     <div class="containerS1">
         <div class="sidebatProfil">
-            <div class="pdpProfil"></div>
+
+            <div class="pdpProfil">
+                <form id="formPdpProfil" action="" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="photo" id="fileUpload">
+                    <style>
+                        #fileUpload {
+                            display: none;
+                        }
+
+                        #formPdpProfil {
+                            padding-bottom: 30px;
+                        }
+                    </style>
+                    <label for="fileUpload">
+                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="upload/<?= $name ?>  ">
+                        <!-- // a revoir -->
+                    </label>
+                    <input id="btnProfilImg" type="submit" name="submit" value="Upload">
+                    <style>
+                        #btnProfilImg {
+                            /* align-items: center; */
+                            width: 100%;
+                            border-radius: 10px;
+                            padding: 5%;
+                            border: none;
+                            cursor: pointer;
+                            background: #697ed3;
+                        }
+
+                        #btnProfilImg:hover {
+                            color: white;
+
+                        }
+                    </style>
+                </form>
+            </div>
+            <br>
             <h1>Grand Bidule</h1>
             <div class="listPara">
                 <ul class="serlkvnsrelkb">
                     <li class="params1 active"><a class="aStatus" href="#profil"><img class="imgStatus" src="../assets/img/profil.png" alt=""><span>Profil</span> </a></li>
                     <li class="params1"> <a class="aStatus" href="#stat"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> Statistique</a></li>
+                    <li class="params1"> <a class="aStatus" href="change_email.php"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> E-mail</a></li>
+                    <li class="params1"> <a class="aStatus" href="change_password.php"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> Passwords</a></li>
                     <li class="params1"><a class="aStatus" href="#"><img class="imgStatus" src="../assets/img/parametres.png" alt=""> Logout</a></li>
                     <!-- <li class="params1">Home</li> -->
                 </ul>
@@ -78,6 +134,14 @@ foreach ($query as $data) {
     </div>
     <!-- <script src="../assets/javascript/profilChart.js"></script> -->
     <script>
+        //tooltip
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        //tooltip
+
+
+        //chartJs
+        //chartJs
         let graph = document.getElementById('graph').getContext('2d');
         let graph1 = document.getElementById('graph1').getContext('2d');
         let graph2 = document.getElementById('graph2').getContext('2d');
@@ -150,6 +214,8 @@ foreach ($query as $data) {
                 responsive: true,
             }
         })
+        //chartJs
+        //chartJs
     </script>
 </body>
 
