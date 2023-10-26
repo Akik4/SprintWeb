@@ -4,8 +4,6 @@ namespace utils;
 
 class Header
 {
-
-
     static function add(int $active)
     {
 ?>
@@ -45,9 +43,10 @@ class Header
                             ?>
                             <button>
                                 <?php
-                                if ($_SESSION['id'] >= 1) {
+
+                                if(!isset($_SESSION['id'])) {
                                 ?>
-                                    <img class="pdpUser" src="../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = 'myAccount.php'">
+                                    <img class="pdpUser" src="../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = './myAccount.php'">
                                     <style>
                                         .pdpUser {
                                             border-radius: 50%;

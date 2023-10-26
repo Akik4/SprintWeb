@@ -1,24 +1,26 @@
 <?php
 
 session_start();
-
-$DB = new PDO('mysql:host=localhost;dbname=memory;charset=utf8;', 'root', '');
-if (isset($_POST['envoie'])) {
+require_once("./utils/database.php");
+$DB = dataconnect();
+// if (isset($_POST['envoie'])) {
     if (!empty($_POST['Pseudo']) && !empty($_POST['Motdepasse'])) {
         $pseudo = $_POST['Pseudo'];
-        $psw = password_hash($_POST['Motdepasse'],PASSWORD_DEFAULT);
-
-        $recupUser = $DB->prepare('SELECT * FROM user WHERE nickname = ? AND psw = ?'); //test
+        // echo $pseudo;
+        $recupUser = $DB->prepare('SELECT * FROM user WHERE nickname = :pseudo'); //test
         $recupImg = $DB->query('SELECT imgPdp FROM user'); 
-        $recupUser->execute(array($pseudo, $psw)); //test
-
-        if ($recupUser->rowCount() > 0) {
-            $_SESSION['pseudo'] = $pseudo;
+        $recupUser->execute([":pseudo" => "$pseudo"]); //test
+        $user = $recupUser->fetch();
+        if (password_verify($_POST['Motdepasse'], $user->psw)) {
+            $_SESSION['Pseudo'] = $pseudo;
             $_SESSION['psw'] = $psw;
             $_SESSION['id'] = $recupUser->fetch()['id'];
-            $_SESSION['imgPdp'] = $recupImg->fetch()['imgPdp'];
+            // $_SESSION['imgPdp'] = $recupImg->fetch()['imgPdp'];
+
+
             header('Location: index.php');
         } else {
+
             $alert = <<<HTML
             <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
             <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -33,10 +35,11 @@ if (isset($_POST['envoie'])) {
             </div>    
 HTML;
         }
-    } else {
+
+        } else {
         echo 'veuillez renseigner un champ svp';
     }
-}
+// }
 ?>
 
 <!DOCTYPE html>
