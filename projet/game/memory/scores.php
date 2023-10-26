@@ -1,5 +1,4 @@
 <?php
-$navColor = "scoresPage";
 include '../../utils/common.php';
 require '../../partials/header.php';
 
@@ -25,21 +24,47 @@ use utils\Header;
             <div>
                 <?php echo Header::addClassic(3, "SCORES"); ?>
             </div>
-            <div class="nav-page-title">
-                <h1> SCORE </h1>
-            </div>
         </div>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand">Navbar</a>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="text" name="search" placeholder="Search" aria-label="Search">
-                    <input class="btn btn-outline-success" type="submit" name="submit">Search
-                </form>
-            </div>
-        </nav>
-
         <div class="body">
+            <form class="d-flex" role="search">
+                <input type="search" class="btn btnsearch" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search User" aria-label="Search">
+            </form>
+            <!-- </button> -->
+            <style>
+                .btnsearch {
+                    position: absolute;
+                    width: 25%;
+                    left: 38%;
+                    top: 25%;
+                }
+            </style>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Search User</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                                <input class="btn btn-outline-success" type="submit" name="submit">Search
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
             <div class="pop">
 
                 <?php
@@ -49,11 +74,23 @@ use utils\Header;
                     $str = $_GET['search'];
                     // print_r($str);
                     $request = $DB->query("SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id WHERE nickname like '%$str%' ")->fetchALL();
-
                     if ($_GET['search']) {
+                ?>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Utilisateur</th>
+                                    <th>Niveau de difficulté</th>
+                                    <th>Points</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                        <?php
                         foreach ($request as $req => $reqs) {
                             $l = $reqs->nickname;
-                ?>
+                        ?>
                             <table style="width: 100%;">
                                 <tr>
                                     <td><?= $reqs->nickname ?></td>
@@ -62,12 +99,16 @@ use utils\Header;
                                     <td><?= $reqs->date_played ?></td>
                                 </tr>
                             </table>
-                    <?php
+                        <?php
                         }
+                    } else {
+                        ?>
+                        veuillez rechercher un utilisateur
+                    <?php
                     }
                 } else {
                     ?>
-                    <p> Cherchez un utilisateur </p>
+
                 <?php
                 }
                 ?>
@@ -81,7 +122,7 @@ use utils\Header;
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $users = $DB->query('SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id')->fetchALL(); ?>
+                        <?php $users = $DB->query('SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id ORDER BY points DESC')->fetchALL(); ?>
                         <?php foreach ($users as $user => $username) : ?>
                             <tr>
                                 <td> <?= $username->nickname ?> </td>

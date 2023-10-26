@@ -19,15 +19,13 @@ use utils\Header;
 </head>
 
 <body>
-    <div class="theH">
-        <div class="filter">
-            <div>
-                <?php echo Header::addClassic(2, "jeu"); ?>
-            </div>
-            <div class="nav-page-title">
-                <h1> Choisissez votre thême </h1>
-            </div>
+    <div class="filter">
+        <div>
+            <?php echo Header::addClassic(2, "jeu"); ?>
         </div>
+        <!-- <div class="nav-page-title">
+            <h1> Choisissez votre thême </h1>
+        </div> -->
     </div>
     <div class="preview">
         <button onclick="window.location = '../mode_select/mode_select_ant.html'"><img src="../assets/img/ant_mode_preview.jpg" alt="ant"></button>
