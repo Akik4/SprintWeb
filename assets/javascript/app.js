@@ -29,8 +29,8 @@ const main = document.querySelector('.main'),
 input.addEventListener('click', () => {
     main.classList.toggle('darkMode')
     if(main.classList.contains('darkMode')){
-        png.src = `assets/img/soleil.png`;
+        png.src = `../assets/img/soleil.png`;
     }else{
-        png.src = `assets/img/nuit.png`;
+        png.src = `../assets/img/nuit.png`;
     }   
 })

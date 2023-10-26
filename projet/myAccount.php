@@ -1,6 +1,7 @@
 <?php
 require('../projet/utils/common.php');
 // $upload_dir = "../assets/css/";
+
 if (isset($_POST["submit"])) {
     if (isset($_FILES["photo"])) {
         $name = $_FILES["photo"]["name"];
@@ -44,10 +45,36 @@ foreach ($query as $data) {
             <div class="pdpProfil">
                 <form id="formPdpProfil" action="" method="POST" enctype="multipart/form-data">
                     <input type="file" name="photo" id="fileUpload">
+                    <style>
+                        #fileUpload {
+                            display: none;
+                        }
+
+                        #formPdpProfil {
+                            padding-bottom: 30px;
+                        }
+                    </style>
                     <label for="fileUpload">
-                        <img class="pdpProfil2" src="upload/<?= $name ?>">
+                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="upload/<?= $name ?>  ">
+                        <!-- // a revoir -->
                     </label>
                     <input id="btnProfilImg" type="submit" name="submit" value="Upload">
+                    <style>
+                        #btnProfilImg {
+                            /* align-items: center; */
+                            width: 100%;
+                            border-radius: 10px;
+                            padding: 5%;
+                            border: none;
+                            cursor: pointer;
+                            background: #697ed3;
+                        }
+
+                        #btnProfilImg:hover {
+                            color: white;
+
+                        }
+                    </style>
                 </form>
             </div>
             <br>

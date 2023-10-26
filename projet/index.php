@@ -4,6 +4,7 @@ require './partials/header.php';
 
 use utils\Header;
 
+// session_start()
 ?>
 <?php require './partials/head.php' ?>
 
@@ -70,10 +71,11 @@ use utils\Header;
                         <?php
                             include_once "./utils/database.php";
                             $db = dataconnect();
-                            $getGamePlayedFromSQL = $db->prepare("SELECT count(id) as sizeof FROM score");
-                            $getGamePlayedFromSQL->execute();
-                            $gamePlayed = $getGamePlayedFromSQL->fetch();
-                            echo $gamePlayed->sizeof;
+
+                            $result = $db->query("SELECT count(id) FROM score")->fetch();
+                            foreach ($result as $row) {
+                                echo $row;
+                            }
                             ?>
                         </h1>
                         <p>Parties Jouées</p>

@@ -894,17 +894,17 @@ height: 100%;
 background: rgb(162, 155, 254);
 }
 .sidebatProfil .pdpProfil{
-width: 150px;
-height: 250px;
+  width: 150px;
+  height: 250px;
 
 }
 .pdpProfil2{
-cursor: pointer;
-width: 150px;
-height: 150px;
-border-radius: 50%;
-margin-top: 30px;
-border:  1px solid var(--cercle-profil);
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 30px;
+  border:  1px solid var(--cercle-profil);
 
 }
 .listPara{

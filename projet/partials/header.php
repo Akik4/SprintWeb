@@ -4,6 +4,8 @@ namespace utils;
 
 class Header
 {
+
+
     static function add(int $active)
     {
 ?>
@@ -15,7 +17,7 @@ class Header
                         <div class="space"></div>
                         <div class="title">
                             <ul class="nav-element">
-                                <img src="../assets/img/Fichier 1.png" height="30px" width="30px">
+                                <img src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 1.png" height="30px" width="30px">
                                 <li>The Power Of Memory</li>
                             </ul>
                         </div>
@@ -33,20 +35,39 @@ class Header
                         </div>
                         <div class="nav-login">
                             <div class="space"><input type="checkbox" id="darkMode" class="checkbox">
-                                <label for="darkMode"><img class="png" src="../assets/img/nuit.png" alt=""> </label>
+                                <label for="darkMode"><img class="png" src="<?php echo PROJECT_FOLDER ?>../assets/img/nuit.png" alt=""> </label>
                             </div>
                             <?php
 
-                            include './utils/database.php';
-                            $db = dataconnect();
-                            $imgPdp = $db->query('SELECT imgPdp FROM user');
+                            // include './utils/database.php';
+                            // $db = dataconnect();
+                            // // $imgPdp = $db->query('SELECT imgPdp FROM user');
                             ?>
                             <button>
                                 <?php
-
-                                if(!isset($_SESSION['id'])) {
+                                if (isset($_SESSION['id'])) { // probleme
                                 ?>
-                                    <img class="pdpUser" src="../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = './myAccount.php'">
+                                    <img class="pdpUser" src="<?php echo PROJECT_FOLDER ?>../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = 'myAccount.php'">
+                                    <a href="<?php echo PROJECT_FOLDER ?>disconnect.php">
+                                        <input style="cursor: pointer;" id="disconnect" type="submit" name="destroy">
+                                        <style>
+                                            #disconnect {
+                                                display: none;
+                                            }
+
+                                            .btnDisconnect {
+                                                cursor: pointer;
+                                                background: white;
+                                                width: 40px;
+                                                height: 40px;
+                                                border-radius: 50%;
+                                            }
+                                        </style>
+                                        <label for="disconnect">
+                                            <img class="btnDisconnect" src="<?php echo PROJECT_FOLDER ?>../assets/img/deconnexion.png" alt="" width="30px" height="30px">
+
+                                        </label>
+                                    </a>
                                     <style>
                                         .pdpUser {
                                             border-radius: 50%;
@@ -65,34 +86,14 @@ class Header
 
                                 ?>
                             </button>
-                            <a href="disconnect.php">
-                                <input style="cursor: pointer;" id="disconnect" type="submit" name="destroy">
-                                <style>
-                                    #disconnect {
-                                        display: none;
 
-                                    }
-
-                                    .btnDisconnect {
-                                        cursor: pointer;
-                                        background: white;
-                                        width: 40px;
-                                        height: 40px;
-                                        border-radius: 50%;
-                                        /* -webkit-filter: invert(100); */
-                                    }
-                                </style>
-                                <label for="disconnect">
-                                    <img class="btnDisconnect" src="../assets/img/deconnexion.png" alt="" width="30px" height="30px">
-
-                                </label>
-                            </a>
                         </div>
 
                     </nav>
                 </div>
             </div>
         </div>
+
 
 
 
@@ -110,7 +111,7 @@ class Header
                                 <div class="space"></div>
                                 <div class="title">
                                     <ul class="nav-element">
-                                        <img src="../assets/img/Fichier 1.png" height="30px" width="30px">
+                                        <img src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 1.png" height="30px" width="30px">
                                         <li>The Power Of Memory</li>
                                     </ul>
                                 </div>
@@ -126,7 +127,7 @@ class Header
                                                     echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>contact.php'">NOUS CONTACTER</li>
                                 </div>
                                 <div class="nav-login">
-                                    <button><img src="../assets/img/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
+                                    <button><img src="<?php echo PROJECT_FOLDER ?>../assets/img/login.png" height="20px" width="20px" onclick="window.location = '<?php echo PROJECT_FOLDER; ?>login.php'"></button>
                                 </div>
                                 <div class="space"></div>
                             </nav>
@@ -134,6 +135,7 @@ class Header
                     </div>
                 </div>
                 <div class="nav-page-title">
+
                     <h1> <?php echo $name; ?> </h1>
                 </div>
             </div>

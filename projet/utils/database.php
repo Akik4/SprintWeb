@@ -5,7 +5,7 @@ function dataconnect(): object{
 
     $dbname = 'memory';
     $host = 'localhost';
-    $dsn = "mysql:dbname=$dbname;host=$host;port=3307;charset=utf8";
+    $dsn = "mysql:dbname=$dbname;host=$host;port=3306;charset=utf8";
 
 
     $user = 'root';
