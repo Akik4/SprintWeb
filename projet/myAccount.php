@@ -1,5 +1,7 @@
 <?php
-require('../projet/utils/common.php');
+require_once '../projet/utils/common.php';
+require_once '../projet/utils/database.php';
+$con = dataconnect();
 // $upload_dir = "../assets/css/";
 
 if (isset($_POST["submit"])) {
@@ -8,9 +10,16 @@ if (isset($_POST["submit"])) {
         $newFolder = chdir('upload');
         $upload_dir = getcwd();
         move_uploaded_file($_FILES['photo']["tmp_name"], $upload_dir . "/$name");
+        $editProfil = $con->prepare("UPDATE user set imgPdp = :picture where id = :id");
+        $editProfil->execute(
+            [
+                ":picture"=> $name,
+                ":id"=> $_SESSION['id'],
+            ]
+        );
     } else {
         echo 'veuillez sélectionnez une image';
-    }
+    } 
 }
 ?>
 <!DOCTYPE html>
@@ -23,17 +32,25 @@ if (isset($_POST["submit"])) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Profil</title>
 </head>
 
 
 <?php
-$con = new mysqli('localhost', 'root', '', 'memory');
-$query = $con->query(" SELECT points FROM score");
 
-foreach ($query as $data) {
-    $month[] = $data['points'];
+$query = $con->prepare(" SELECT points FROM score");
+$query->execute();
+$result = $query->fetchAll();
+
+foreach ($result as $data) {
+    $month[] = $data->points;
     // $amount[] = $data['amount'];
+}
+
+if (!isset($name))
+{
+    // $getPP = $con->prepare("SELECT * from user where id = :id");
+    $name = $_SESSION['imgPdp'];
 }
 ?>
 
@@ -55,7 +72,7 @@ foreach ($query as $data) {
                         }
                     </style>
                     <label for="fileUpload">
-                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="upload/<?= $name ?>  ">
+                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="./upload/<?php if(isset($name)) echo $name; ?>  ">
                         <!-- // a revoir -->
                     </label>
                     <input id="btnProfilImg" type="submit" name="submit" value="Upload">
@@ -78,14 +95,14 @@ foreach ($query as $data) {
                 </form>
             </div>
             <br>
-            <h1>Grand Bidule</h1>
+            <h1></h1>
             <div class="listPara">
                 <ul class="serlkvnsrelkb">
                     <li class="params1 active"><a class="aStatus" href="#profil"><img class="imgStatus" src="../assets/img/profil.png" alt=""><span>Profil</span> </a></li>
                     <li class="params1"> <a class="aStatus" href="#stat"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> Statistique</a></li>
                     <li class="params1"> <a class="aStatus" href="change_email.php"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> E-mail</a></li>
                     <li class="params1"> <a class="aStatus" href="change_password.php"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> Passwords</a></li>
-                    <li class="params1"><a class="aStatus" href="#"><img class="imgStatus" src="../assets/img/parametres.png" alt=""> Logout</a></li>
+                    <li class="params1"><a class="aStatus" href="disconnect.php"><img class="imgStatus" src="../assets/img/parametres.png" alt=""> Logout</a></li>
                     <!-- <li class="params1">Home</li> -->
                 </ul>
             </div>

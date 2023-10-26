@@ -135,113 +135,12 @@ use utils\Header;
                 </table>
             </div>
 
-            <!-- </div> -->
-            <button class="chatbutton" onclick="
-            chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
-            if(chatbox.opacity == '1'){
-                chatbox.bottom = '-1000px'
-                chatbox.visibility = 'hidden';
-                return chatbox.opacity = '0'
-            } 
-            chatbox.opacity = '1'
-            chatbox.bottom = '0px'
-            chatbox.visibility = 'visible'
-        
-            "><img src="../assets/img/chatbubble.png" width="25px" height="25px"></button>
-        </div>
-        <section class="chatbox">
-            <div class="chatboxdisplay">
-                <div class="chatboxopen">
-                    <div class="chattitle">
-                        <p>chat général</p>
-                        <button class="cross" onclick="
-                        chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
-                        if(chatbox.opacity == '1'){
-                            chatbox.bottom = '-1000px'
-                            chatbox.visibility = 'hidden';
-                            return chatbox.opacity = '0'
-                        } 
-                        chatbox.opacity = '1'
-                        chatbox.bottom = '0px'
-                        chatbox.visibility = 'visible'
-                
-                        "><img width="25px" height="25px"></button>
-                    </div>
-                    <div class="chatchat">
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                    </div>
-                    <div class="chatmessage">
-                        <textarea cols="100%" type="text" placeholder="Entrez votre message"></textarea>
-                    </div>
-                </div>
             </div>
-        </section>
-        <div class="footer">
-
-            <div class="info">
-                <p style="font-weight: bold;">Information</p>
-                <p>Quisque commodo facilisis purus, interdum volupat arcu viverra sed.</p>
-                <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
-                <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
-                <p><span class="footer-title">Location:</span> Paris</p>
-                <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../assets/img/facebook.png" width="20px" height="20px"></button>
-                <button onclick="window.location = 'https:\/\/x.com'"><img src="../assets/img/twitter.png" width="20px" height="20px"></button>
-                <button onclick="window.location = 'https:\/\/google.com'"><img src="../assets/img/google.png" width="20px" height="20px"></button>
-                <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../assets/img/pinterest.png" width="20px" height="20px"></button>
-                <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../assets/img/Instagram.png" width="20px" height="20px"></button>
+            <?php require_once "../../chat.php"?>
 
 
-            </div>
-            <div class="other">
-                <div>
-                    <p style="font-weight: bold;">Power Of Memory</p>
+            <?php require '../../partials/footer.php' ?>
 
-                    <p class="olist">Jouer !</p>
-                    <p class="olist">Les scores</p>
-                    <p class="olist">Nous contacter</p>
-
-                </div>
-            </div>
-
-        </div>
-        <div class="copyrig">
-            <span>Copyright © 2022 Tous droits réservés</span>
-        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="../assets/javascript/app.js"></script>
     </div>

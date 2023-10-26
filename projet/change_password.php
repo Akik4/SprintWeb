@@ -1,3 +1,5 @@
+<?php require_once "./utils/common.php"?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
