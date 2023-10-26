@@ -42,14 +42,59 @@
     </div>
     <div class="bodyForm">
         <section class="form">
-            <form method="POST" action="traitement.php">
-                <input class="pseudo" type="email" name="Email" placeholder="Email"><br>
-                <input class="pseudo" type="text" name="Pseudo" placeholder="Pseudo"><br>
-                <input class="pseudo" type="password" name="Mot de passe" placeholder="Mot de passe"><br>
-                <input class="pseudo" type="password" name="Confirmez le mot de passe" placeholder="Confirmez le mot de passe"><br>
+            <form method="POST" action="">
+                <input class="pseudo" type="email" name="Email" placeholder="Email" required><br>
+                <input class="pseudo" type="text" name="Pseudo" placeholder="Pseudo" required><br>
+                <input class="pseudo" type="password" name="Mot_de_passe" placeholder="Mot de passe" required pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"><br>
+                <input class="pseudo" type="password" name="Confirmez_le_mot_de_passe" placeholder="Confirmez le mot de passe" required pattern="/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"><br>
                 <button class="button-5" role="button"> Inscription </button>
             </form>
+
         </section>
+        <?php
+            include "./utils/security";
+            include "./utils/database.php";
+            $DB = dataconnect();
+            if(isset($_POST["Mot_de_passe"])){
+                $name = $_POST['Pseudo'];
+                $email = $_POST['email'];
+                $psexist = $DB->query("SELECT COUNT(*) FROM user WHERE nickname = '$name'");
+                $emexist = $DB->query("SELECT COUNT(*) FROM user WHERE Email = '$email'");
+                if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $_POST['Mot_de_passe'])){
+                    echo 'le mot de passse contenir:-une majuscule
+                                                    -une minuscule
+                                                    -un chiffre
+                                                    -un caractere special'; 
+                }
+                elseif ( $_POST["Mot_de_passe"] != $_POST['Confirmez_le_mot_de_passe']){
+                    echo 'Les mots de passe doivent être identique';
+                }
+
+                elseif (!preg_match('/.{4,}$/', $_POST['Pseudo'])){
+                    echo 'le pseudo doit faire plus de 4 caractere';
+                }
+                elseif (!$psexist === 0){
+                    echo 'Le pseudo est deja utilisé';
+                }
+                elseif (!$emexist === 0){
+                echo 'Cet Email est deja liée a un compte';
+                }
+                elseif (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
+                    echo 'Email invalide';
+                }
+                else{
+                    $pdoStatement = $DB->prepare('INSERT INTO user (email, psw, nickname) VALUES
+                    (:email, :psw, :nickName)');
+                    $userHasBeenInserted = $pdoStatement->execute([
+                        ':email' => $_POST['Email'],
+                        ':psw' => password_hash($_POST['Mot_de_passe'], PASSWORD_DEFAULT),
+                        ':nickName' => $_POST['Pseudo'],
+                    ]);
+                    var_dump($userHasBeenInserted);
+                    header('location: index.php');
+                }
+            }
+            ?>
     </div>
     <div class="footer">
         

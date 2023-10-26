@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
 
 
 <?php
-$con = new mysqli('localhost', 'root', '', 'chut');
+$con = new mysqli('localhost', 'root', '', 'memoryq');
 $query = $con->query(" SELECT points FROM score");
 
 foreach ($query as $data) {
