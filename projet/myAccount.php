@@ -2,7 +2,6 @@
 require('../projet/utils/common.php');
 // $upload_dir = "../assets/css/";
 
-
 if (isset($_POST["submit"])) {
     if (isset($_FILES["photo"])) {
         $name = $_FILES["photo"]["name"];
@@ -29,7 +28,7 @@ if (isset($_POST["submit"])) {
 
 
 <?php
-$con = new mysqli('localhost', 'root', '', 'memoryq');
+$con = new mysqli('localhost', 'root', '', 'memory');
 $query = $con->query(" SELECT points FROM score");
 
 foreach ($query as $data) {

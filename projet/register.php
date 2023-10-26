@@ -52,7 +52,6 @@
 
         </section>
         <?php
-            include "./utils/security";
             include "./utils/database.php";
             $DB = dataconnect();
             if(isset($_POST["Mot_de_passe"])){
@@ -91,7 +90,7 @@
                         ':nickName' => $_POST['Pseudo'],
                     ]);
                     var_dump($userHasBeenInserted);
-                    header('location: index.php');
+                    header('location: login.php');
                 }
             }
             ?>

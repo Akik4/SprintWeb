@@ -42,10 +42,29 @@
     </div>
     <div class="body">
         <section class="form">
+        <?php
+                include "./utils/database.php";
+                $DB = dataconnect();
+                $passdRequest = $DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
+                $passdRequest->execute();
+                if(isset($_POST["password"] ) && isset($_POST["ancien_mdp"]) && isset($_POST["nouvelle_mdp"])){
+                    if (password_verify($_POST['ancien_mdp'], $user->psw)) {
+                        if ( $_POST["nouveau_mdp"] != $_POST["confirm_mdp"]){
+                            echo"Les mot de passe ne corresponde pas !";
+                        }
+                        else {
+                            $upemail = $DB->prepare("UPDATE user SET psw = :psw WHERE id = $_SESSION[id]");
+                            $emailHasBeenUpdate = $upemail->execute([
+                                ':psw' => $_POST['nouveau_mdp'],
+                            ]);
+                        }
+                    }
+                }
+            ?>
             <form method="POST" action="traitement.php">
-                <input class="pseudo" type="password" name="ancien Mot de passe"placeholder="Ancien mot de passe"><br>
-                <input class="pseudo" type="password" name="nouveau Mot de passe" placeholder="Nouveau mot de passe"><br>
-                <input class="pseudo" type="password" name="confirmer nouveau Mot de passe" placeholder="Confirmer nouveau mot de passe"><br>
+                <input class="pseudo" type="password" name="ancien_mdp"placeholder="Ancien mot de passe"><br>
+                <input class="pseudo" type="password" name="nouveau_mdp" placeholder="Nouveau mot de passe"><br>
+                <input class="pseudo" type="password" name="confirm_mdp" placeholder="Confirmer nouveau mot de passe"><br>
                 <button class="button-5" role="button"> Changer le mot de passe </button>
             </form>
         </section>

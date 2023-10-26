@@ -7,4 +7,4 @@ define('ADMIN_MAIL', 'mail@gmail.com');
 define('PROJECT_FOLDER', '/SprintWeb/projet/');
 define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-session_start();
+// session_start();

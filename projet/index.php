@@ -68,8 +68,8 @@ use utils\Header;
                 <div class="gridSystem">
                     <div class="case two">
                         <h1>
-                            <?php
-                            include "./utils/database.php";
+                        <?php
+                            include_once "./utils/database.php";
                             $db = dataconnect();
 
                             $result = $db->query("SELECT count(id) FROM score")->fetch();
