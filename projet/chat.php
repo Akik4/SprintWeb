@@ -31,13 +31,18 @@
                 
                          "><img width="25px" height="25px"></button>
                     </div>
-                    <div class="chatchat">
-
+                    <?php 
+            $json = file_get_contents('https://api.thecatapi.com/v1/images/search?mime_types=gif ');
+            $obj = json_decode($json);
+            ?>  
+            <div class="chatchat">
+            <img src="<?php echo $obj[0]->url ?>";>
                         <?php 
-                            require_once SITE_ROOT ."utils/database.php";
+                            require_once './utils/common.php';
+                            require_once SITE_ROOT ."/projet/utils/database.php";
                         
                             $pdo = dataconnect();
-                            $getMessage = $pdo->prepare("SELECT * FROM chat");
+                            $getMessage = $pdo->prepare("SELECT * FROM chat INNER JOIN user ON sender_id = user.id");
                             $getMessage->execute();
                             $messages = $getMessage->fetchAll();
 
@@ -45,13 +50,13 @@
                                 if($message->sender_id == $_SESSION['id'])
                                 {
                                     ?> 
-                                    <div class="messagebox"><span class="self"><?php echo $message->sender_id ?></span>
+                                    <div class="messagebox"><span class="self"><?php echo $message->nickname ?></span>
                                         <div class="messageself"><span class="message"><?php echo $message->content ?></span></div><span class="timestampself">Aujourd'hui 10:53</span>
                                     </div>      
                                 <?php
                                 } else {
                                     ?>
-                                    <div class="messagebox"><span class="author"><?php echo $message->sender_id?></span>
+                                    <div class="messagebox"><span class="author"><?php echo $message->nickname ?></span>
                                         <div class="messageother"><span class="message"><?php echo $message->content ?></span></div><span class="timestamp">Aujourd'hui 10:53</span>
                                     </div>
                                     <?php
@@ -82,6 +87,7 @@
 
                         }
                         ?>
+
                     </div>
                 </div>
             </div>
