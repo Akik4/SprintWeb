@@ -39,7 +39,7 @@
             <img src="<?php echo $obj[0]->url ?>";>
                         <?php 
                             require_once './utils/common.php';
-                            require_once SITE_ROOT ."/projet/utils/database.php";
+                            require_once SITE_ROOT ."/SprintWeb/projet/utils/database.php";
                         
                             $pdo = dataconnect();
                             $getMessage = $pdo->prepare("SELECT * FROM chat INNER JOIN user ON sender_id = user.id");

@@ -1,3 +1,4 @@
+<?php require_once "./utils/common.php"?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -52,47 +53,8 @@
 
         </section>
         <?php
-            include "./utils/database.php";
-            $DB = dataconnect();
             if(isset($_POST["Mot_de_passe"]) && isset($_POST["Pseudo"]) && isset($_POST["Email"])){
-                echo "test";
-                $name = $_POST['Pseudo'];
-                $email = $_POST['Email'];
-                $psexist = $DB->query("SELECT COUNT(*) FROM user WHERE nickname = '$name'");
-                $emexist = $DB->query("SELECT COUNT(*) FROM user WHERE Email = '$email'");
-                if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $_POST['Mot_de_passe'])){
-                    echo 'le mot de passse contenir:-une majuscule
-                                                    -une minuscule
-                                                    -un chiffre
-                                                    -un caractere special'; 
-                }
-                elseif ( $_POST["Mot_de_passe"] != $_POST['Confirmez_le_mot_de_passe']){
-                    echo 'Les mots de passe doivent être identique';
-                }
-
-                elseif (!preg_match('/.{4,}$/', $_POST['Pseudo'])){
-                    echo 'le pseudo doit faire plus de 4 caractere';
-                }
-                elseif (!$psexist === 0){
-                    echo 'Le pseudo est deja utilisé';
-                }
-                elseif (!$emexist === 0){
-                echo 'Cet Email est deja liée a un compte';
-                }
-                elseif (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
-                    echo 'Email invalide';
-                }
-                else{
-                    $pdoStatement = $DB->prepare('INSERT INTO user (email, psw, nickname) VALUES
-                    (:email, :psw, :nickName)');
-                    $userHasBeenInserted = $pdoStatement->execute([
-                        ':email' => $_POST['Email'],
-                        ':psw' => password_hash($_POST['Mot_de_passe'], PASSWORD_DEFAULT),
-                        ':nickName' => $_POST['Pseudo'],
-                    ]);
-                    var_dump($userHasBeenInserted);
-                    header('location: login.php');
-                }
+                register();
             } 
             ?>
     </div>
