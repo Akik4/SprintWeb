@@ -39,29 +39,9 @@
     <div class="body">
         <section class="form">
             <?php
-                include "./utils/database.php";
-                $DB = dataconnect();
-                $passdRequest = $DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
-                $passdRequest->execute();
-                $info = $passdRequest->fetch();
                 if(isset($_POST["password"] ) && isset($_POST["ancien_Email"]) && isset($_POST["nouvelle_Email"])){
-                    if (password_verify($_POST['password'], $info->psw)) {
-                        if ( $_POST["ancien_Email"] == $_POST["nouvelle_Email"]){
-                            echo"<p style='color:white;'>L'email est identique</p>";
-                        }
-                        else {
-                            $upemail = $DB->prepare("UPDATE user SET email = :email WHERE id = $_SESSION[id]");
-                            $emailHasBeenUpdate = $upemail->execute([
-                                ':email' => $_POST['nouvelle_Email'],
-                            ]);
-                        }
-                    } else {
-                        echo "passd wrong";
-                    }
-                    
-                } else {
-                    echo "non";
-                }
+                    change_email();
+                } 
             ?>
             <form method="POST" action="">
                 <input class="pseudo" type="email" name="ancien_Email"placeholder="Ancien Email"><br>
