@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <title>changement_mot_de_passe</title>
-</head>
+<?php require './partials/head.php' ?>
 <body>
     <div class="theH">
         <div class="filter">
@@ -50,34 +43,7 @@
             </form>
         </section>
     </div>
-    <div class="footer">
-        
-        <div class="info">
-            <p style="font-weight: bold;">Information</p>
-            <p>Quisque commodo facilisis purus, interdum volupat arcu viverra sed.</p>
-            <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
-            <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
-            <p><span class="footer-title">Location:</span> Paris</p>
-            <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../assets/img/facebook.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/x.com'"><img src="../assets/img/twitter.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/google.com'"><img src="../assets/img/google.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../assets/img/pinterest.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../assets/img/Instagram.png" width="20px" height="20px"></button> 
- 
-
-        </div>
-        <div class="other">
-            <div>
-                <p style="font-weight: bold;">Power Of Memory</p>
-                
-                    <p class="olist">Jouer !</p>
-                    <p class="olist">Les scores</p>
-                    <p class="olist">Nous contacter</p>
-                
-            </div>
-        </div>
-
-    </div>
+    <?php require './partials/footer.php' ?>
     <div class="copyrig">
         <span>Copyright © 2022 Tous droits réservés</span>
     </div>

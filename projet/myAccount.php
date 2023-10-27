@@ -22,12 +22,14 @@ if (isset($_POST["submit"])) {
     <title>Document</title>
 </head>
 <?php
-$con = new mysqli('localhost', 'root', '', 'memory');
-$query = $con->query(" SELECT points FROM score");
-
-foreach ($query as $data) {
-    $month[] = $data['points'];
-}
+// require ("./utils/database.php");
+// $DB = dataconnect();
+// $query = $DB->prepare(" SELECT points FROM score");
+// $query->execute();
+// foreach ($query as $data) {
+//     $month[] = $data['points'];
+//     // $value = json_encode($month, true);
+// }
 ?>
 
 <body class="test">
@@ -136,7 +138,7 @@ foreach ($query as $data) {
             labels: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "Sunday"],
             datasets: [{
                 label: "temps de jeu sur les 7 derniers jours",
-                data: <?php echo json_encode($month) ?>,
+                data: [230, 99],
                 backgroundColor: [
                     '#fbc531',
                     '#4cd137',

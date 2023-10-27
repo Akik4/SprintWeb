@@ -105,7 +105,7 @@ class Header
                                         <?php
                                         if (isset($_SESSION['id'])) {
                                         ?>
-                                            <img class="pdpUser" src="<?php echo PROJECT_FOLDER ?>../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = 'myAccount.php'">
+                                            <img class="pdpUser" src="<?php echo PROJECT_FOLDER ?>../assets/img/<?= $_SESSION['imgPdp']; ?>" height="20px" width="20px" onclick="window.location = '<?php echo PROJECT_FOLDER ?>myAccount.php'">
                                             <style>
                                                 .pdpUser {
                                                     border-radius: 50%;
@@ -118,7 +118,7 @@ class Header
 
                                         } else {
                                         ?>
-                                            <img src="../assets/img/login.png" height="45px" width="45px" onclick="window.location = 'login.php'">
+                                            <img src="<?php echo PROJECT_FOLDER ?>../assets/img/login.png" height="45px" width="45px" onclick="window.location = '<?php echo PROJECT_FOLDER ?>login.php'">
                                         <?php
                                         }
 
