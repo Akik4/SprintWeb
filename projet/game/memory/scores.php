@@ -4,6 +4,7 @@ require '../../partials/header.php';
 
 use utils\Header;
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -29,7 +30,6 @@ use utils\Header;
             <form class="d-flex" role="search">
                 <input type="search" class="btn btnsearch" data-bs-toggle="modal" data-bs-target="#exampleModal" placeholder="Search User" aria-label="Search">
             </form>
-            <!-- </button> -->
             <style>
                 .btnsearch {
                     position: absolute;
@@ -38,8 +38,6 @@ use utils\Header;
                     top: 25%;
                 }
             </style>
-
-            <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -49,7 +47,7 @@ use utils\Header;
                         </div>
                         <div class="modal-body">
                             <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                                <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search" autocomplete="off">
                                 <input class="btn btn-outline-success" type="submit" name="submit">Search
                             </form>
                         </div>
@@ -59,12 +57,6 @@ use utils\Header;
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
             <div class="pop">
 
                 <?php

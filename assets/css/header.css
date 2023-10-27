@@ -23,14 +23,20 @@ body {
 }
 .header {
     display: flex;
-    /* width: 100%; */
-    /* background-color: red; */
 }
 .headerGame {
     display: flex;
     width: 100%;
 }
-.theH, .theHs {
+.theHs {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 16%;
+    width: 100vw;
+    top: -100px;
+}
+.theH{
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
@@ -91,7 +97,9 @@ body {
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 }
-
+.list-active{
+    color: orange;
+}
 .list-inactive {
     margin-right: 2vw;
     -webkit-user-select: none; /* Safari */
@@ -105,17 +113,6 @@ body {
     color: orange;
     cursor: pointer;
 }
-
-
-.kiwi {
-    margin-right: 2vw;
-    color: orange;
-    border-top: solid 2px orange;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
-
 .nav-element {
     list-style: none;
     display: inline-flex;

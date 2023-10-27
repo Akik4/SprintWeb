@@ -23,14 +23,11 @@ use utils\Header;
         <div>
             <?php echo Header::addClassic(2, "jeu"); ?>
         </div>
-        <!-- <div class="nav-page-title">
-            <h1> Choisissez votre thême </h1>
-        </div> -->
     </div>
     <div class="preview">
-        <button onclick="window.location = '../mode_select/mode_select_ant.html'"><img src="../assets/img/ant_mode_preview.jpg" alt="ant"></button>
-        <button onclick="window.location = '../mode_select/mode_select_op.html'"><img src="../assets/img/op_preview.png" alt="ant"></button>
-        <button onclick="window.location = '../mode_select/mode_select_halloween.html'"><img src="../assets/img/halloween_preview.jpg" alt="ant"></button>
+        <button onclick="window.location = '../mode_select/mode_select_ant.html'"><img src="../../../assets/img/ant_mode_preview.jpg" alt="ant"></button>
+        <button onclick="window.location = '../mode_select/mode_select_op.html'"><img src="../../../assets/img/op_preview.png" alt="ant"></button>
+        <button onclick="window.location = '../mode_select/mode_select_halloween.html'"><img src="../../../assets/img/halloween_preview.jpg" alt="ant"></button>
     </div>
     <div class="footer">
         <div class="info">
