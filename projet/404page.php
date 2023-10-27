@@ -1,14 +1,20 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/main.css">
     <title>Error404</title>
 </head>
+
 <body class="p404">
     <div class="bodyError">
-        <header class="headPage"> 
+        <header class="headPage">
             <nav class="menu">
                 <div class="logo1">
                     <div class="logo"></div>
@@ -24,4 +30,5 @@
         </div>
     </div>
 </body>
+
 </html>

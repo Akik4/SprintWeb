@@ -40,7 +40,7 @@ HTML;
 
         }
     } else {
-        echo "aucun utilisateur avec ce pseudo n'a été trouvé";
+        $alert2 = 'veuillez rensigner les champs';
     }
 
         } else {
@@ -51,12 +51,16 @@ HTML;
 <?php require './partials/head.php' ?>
 
 <body>
+    <div class="filter">
+        <!-- header -->
         <?php echo Header::addClassic(4, "LOGIN"); ?>
+        <!-- header -->
+    </div>
     <div class="bodyForm">
         <div class="alertConnexion">
-            <?php if (!empty($_POST['envoie'])) : ?>
-                <?php if(isset($alert)) echo $alert; ?>
-            <?php endif; ?>
+            <?php if (isset($_POST['envoie'])) : ?>
+                        <?= $alert ?>
+            <?php endif ?> 
         </div>
         <style>
             .alertConnexion {
@@ -84,6 +88,7 @@ HTML;
             </form>
         </section>
     </div>
+    <!-- footer  -->
     <?php require './partials/footer.php' ?>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>

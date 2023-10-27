@@ -16,7 +16,7 @@ use utils\Header;
                 <div class="center">
                     <h1 class="titlePage"> <span class="animTitle">B</span>ienvenue dans notre Studio !</h1>
                     <p class="sousTitle">Venez challenger les cerveaux les plus agiles !</p>
-                    <button class="playGame" onclick="window.location = './game_preview'"> Play</button>
+                    <button class="playGame" onclick="window.location = 'game/memory/game_select.php'"> Play</button>
                 </div>
             </div>
             </div>
@@ -183,7 +183,6 @@ use utils\Header;
 
            <?php require_once "./chat.php";?>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
         <script src="../assets/javascript/chart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="../assets/javascript/app.js"></script>
