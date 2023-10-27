@@ -1,4 +1,6 @@
-<?php require './partials/head.php' ?>
+<?php require_once "./utils/common.php"?>
+
+<?php require_once './partials/head.php' ?>
 
 <body>
     <div class="theH">
@@ -36,9 +38,34 @@
     </div>
     <div class="body">
         <section class="form">
-            <form method="POST" action="traitement.php">
-                <input class="pseudo" type="email" name="ancien Email"placeholder="Ancien Email"><br>
-                <input class="pseudo" type="email" name="nouvelle Email" placeholder="Nouvelle Email"><br>
+            <?php
+                include "./utils/database.php";
+                $DB = dataconnect();
+                $passdRequest = $DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
+                $passdRequest->execute();
+                $info = $passdRequest->fetch();
+                if(isset($_POST["password"] ) && isset($_POST["ancien_Email"]) && isset($_POST["nouvelle_Email"])){
+                    if (password_verify($_POST['password'], $info->psw)) {
+                        if ( $_POST["ancien_Email"] == $_POST["nouvelle_Email"]){
+                            echo"<p style='color:white;'>L'email est identique</p>";
+                        }
+                        else {
+                            $upemail = $DB->prepare("UPDATE user SET email = :email WHERE id = $_SESSION[id]");
+                            $emailHasBeenUpdate = $upemail->execute([
+                                ':email' => $_POST['nouvelle_Email'],
+                            ]);
+                        }
+                    } else {
+                        echo "passd wrong";
+                    }
+                    
+                } else {
+                    echo "non";
+                }
+            ?>
+            <form method="POST" action="">
+                <input class="pseudo" type="email" name="ancien_Email"placeholder="Ancien Email"><br>
+                <input class="pseudo" type="email" name="nouvelle_Email" placeholder="Nouvelle Email"><br>
                 <input class="pseudo" type="password" name="password" placeholder="Mot de passe"><br>
                 <button class="button-5" role="button"> Changer l'Email </button>
             </form>

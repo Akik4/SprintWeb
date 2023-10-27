@@ -1,11 +1,24 @@
 <?php
-require('../projet/utils/common.php');
+require_once '../projet/utils/common.php';
+require_once '../projet/utils/database.php';
+$con = dataconnect();
+// $upload_dir = "../assets/css/";
+
 if (isset($_POST["submit"])) {
     if (isset($_FILES["photo"])) {
         $name = $_FILES["photo"]["name"];
         $newFolder = chdir('upload');
         $upload_dir = getcwd();
         move_uploaded_file($_FILES['photo']["tmp_name"], $upload_dir . "/$name");
+        $editProfil = $con->prepare("UPDATE user set imgPdp = :picture where id = :id");
+        $editProfil->execute(
+            [
+                ":picture"=> $name,
+                ":id"=> $_SESSION['id'],
+            ]
+        );
+    } else {
+        echo 'veuillez sélectionnez une image';
     } 
 }
 ?>
@@ -19,17 +32,24 @@ if (isset($_POST["submit"])) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Profil</title>
 </head>
 <?php
-// require ("./utils/database.php");
-// $DB = dataconnect();
-// $query = $DB->prepare(" SELECT points FROM score");
-// $query->execute();
-// foreach ($query as $data) {
-//     $month[] = $data['points'];
-//     // $value = json_encode($month, true);
-// }
+
+$query = $con->prepare(" SELECT points FROM score");
+$query->execute();
+$result = $query->fetchAll();
+
+foreach ($result as $data) {
+    $month[] = $data->points;
+    // $amount[] = $data['amount'];
+}
+
+if (!isset($name))
+{
+    // $getPP = $con->prepare("SELECT * from user where id = :id");
+    $name = $_SESSION['imgPdp'];
+}
 ?>
 
 <body class="test">
@@ -50,18 +70,15 @@ if (isset($_POST["submit"])) {
                         }
                     </style>
                     <label for="fileUpload">
-                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="<?php if (isset($_POST["submit"])) {echo "upload/$name";} else { ?>../assets/img/<?= $_SESSION['imgPdp'] ?> <?php   } ?> ">
+                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="./upload/<?php if(isset($name)) echo $name; ?>  ">
+                        <!-- // a revoir -->
                     </label>
                     <input id="btnProfilImg" type="submit" name="submit" value="Upload">
                     <style>
                         #btnProfilImg {
                             width: 100%;
-                            border-radius: 10px;
-                            padding: 5%;
-                            border: none;
                             cursor: pointer;
                             background: #697ed3;
-                        }
 
                         #btnProfilImg:hover {
                             color: white;
@@ -70,7 +87,7 @@ if (isset($_POST["submit"])) {
                 </form>
             </div>
             <br>
-            <h1><?= $_SESSION['pseudo'] ?></h1>
+            <h1><?php if(isset($_SESSION['pseudo'])) { $_SESSION['pseudo']; }?></h1>
             <div class="listPara">
                 <ul class="serlkvnsrelkb">
                     <li class="params1 active"><a class="aStatus" href="#profil"><img class="imgStatus" src="../assets/img/profil.png" alt=""><span>Profil</span> </a></li>

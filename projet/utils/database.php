@@ -1,11 +1,11 @@
 <?php
 // require_once("./common.php");
 
-function dataconnect()
-{
+function dataconnect(): object{
+
     $dbname = 'memory';
     $host = 'localhost';
-    $dsn = "mysql:dbname=$dbname;host=$host;port=3306;charset=utf8";
+    $dsn = "mysql:dbname=$dbname;host=$host;port=3307;charset=utf8";
 
 
     $user = 'root';
@@ -22,31 +22,6 @@ function dataconnect()
     } catch (PDOException $e) {
         echo 'La connexion à la base de données a échouée.';
     }
+
+    // return dataconnect();
 }
-
-$DB = dataconnect();
-
-$result = $DB->query("SELECT * FROM USER")->fetchAll();
-
-// foreach ($result as $row) {
-//     $test = get_object_vars($row);
-
-//     echo $test['id'] . " " . $test['nickname']  . " " . $test['email'] . "<br />\n";
-// }
-?>
-
-<?php
-
-// $dsn = "mysql:host=localhost;dbname=myfirstdatabase";
-// $dbusername = "root";
-// $dbpassword = "";
-
-// try{
-//     $pdo = new PDO($dsn, $dbusername, $dbpassword);
-//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// }catch(PDOException $e){
-//     echo "Connection Failed; " . $e->getMessage();
-// }
-
-
-?>

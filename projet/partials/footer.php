@@ -22,3 +22,6 @@
         </div>
     </div>
 </div>
+<div class="copyrig">
+            <span>Copyright © 2022 Tous droits réservés</span>
+        </div>

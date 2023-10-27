@@ -3,9 +3,45 @@ include './utils/common.php';
 require './partials/header.php';
 
 use utils\Header;
+// envoie mail \\
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['Nom'];
+    $email = $_POST['Email'];
+    $sujet = $_POST['sujet'];
+    $message = $_POST['Message'];
+    if (isset($_POST['Nom']) && isset($_POST['Email']) && isset($_POST['sujet']) && isset($_POST['Message'])) {
+        $to = 'nathanb2505@gmail.com';
+        // \\
+        $email_subject = 'contact form';
+        // \\
+        $email_message = "Nom : $name\n";
+        $email_message .= "E-mail : $email\n";
+        $email_message .= "Sujet : $sujet\n";
+        $email_message .= "Message :\n$message";
 
-?>
-<?php require './partials/head.php' ?>
+        $head = "de : $email" . "\n";
+
+        if (mail($to, $email_subject, $email_message, $head)) {
+            echo "E-mail envoyé !";
+        } else {
+            echo "Echec d'envoi de l'Email.";
+        }
+    } else {
+        echo "Veuillez remplir tous les champs du formulaire.";
+    }
+}
+ ?>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <title>Contact</title>
+</head>
 
 <body>
     <div class="contact">
@@ -23,92 +59,19 @@ use utils\Header;
                 </div>
             </div>
             <section class="form">
-                <form method="POST" action="traitement.php">
+                <form method="POST" action="">
                     <input class="name" type="text" name="Nom" placeholder="Nom">
                     <input class="mail" type="email" name="Email" placeholder="Email"><br>
                     <input class="suj" type="text" name="sujet" placeholder="Sujet"><br>
-                    <textarea class="msg" placeholder="Message"></textarea><br>
+                    <textarea class="msg" name="Message"placeholder="Message"></textarea><br>
                     <button class="button-5" role="button"> Envoyer </button>
                 </form>
-                <button class="chatbutton" onclick="
-            chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
-            if(chatbox.opacity == '1'){
-                chatbox.bottom = '-1000px'
-                chatbox.visibility = 'hidden';
-                return chatbox.opacity = '0'
-            } 
-            chatbox.opacity = '1'
-            chatbox.bottom = '0px'
-            chatbox.visibility = 'visible'
-        
-            "><img src="../assets/img/chatbubble.png" width="25px" height="25px"></button>
-        </div>
-        <section class="chatbox">
-            <div class="chatboxdisplay">
-                <div class="chatboxopen">
-                    <div class="chattitle">
-                        <p>chat général</p>
-                        <button class="cross" onclick="
-                        chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
-                        if(chatbox.opacity == '1'){
-                            chatbox.bottom = '-1000px'
-                            chatbox.visibility = 'hidden';
-                            return chatbox.opacity = '0'
-                        } 
-                        chatbox.opacity = '1'
-                        chatbox.bottom = '0px'
-                        chatbox.visibility = 'visible'
-                
-                        "><img width="25px" height="25px"></button>
-                    </div>
-                    <div class="chatchat">
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                    </div>
-                    <div class="chatmessage">
-                        <textarea cols="100%" type="text" placeholder="Entrez votre message"></textarea>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+        <?php require_once "./chat.php"?>
+
+
         <?php require './partials/footer.php' ?>
-        <div class="copyrig">
-            <span>Copyright © 2022 Tous droits réservés</span>
-        </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="../assets/javascript/app.js"></script>
     </div>

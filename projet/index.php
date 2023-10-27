@@ -1,19 +1,11 @@
 <?php
-include './utils/common.php';
-require './partials/header.php';
+include_once './utils/common.php';
+require_once './partials/header.php';
 
 use utils\Header;
 
-
-
-// session_start()
 ?>
-<?php
-// var_dump(http_response_code(404));
-// include '404page.php';
-header($_SERVER["SERVER_PROTOCOL"] . "404 Not Found");
-?>
-<?php require './partials/head.php' ?>
+<?php require_once './partials/head.php' ?>
 
 <body>
     <main class="main">
@@ -75,8 +67,8 @@ header($_SERVER["SERVER_PROTOCOL"] . "404 Not Found");
                 <div class="gridSystem">
                     <div class="case two">
                         <h1>
-                            <?php
-                            include "./utils/database.php";
+                        <?php
+                            include_once "./utils/database.php";
                             $db = dataconnect();
 
                             $result = $db->query("SELECT count(id) FROM score")->fetch();
@@ -189,83 +181,7 @@ header($_SERVER["SERVER_PROTOCOL"] . "404 Not Found");
                 </div>
             </div>
 
-            <button class="chatbutton" onclick="
-            chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
-            if(chatbox.opacity == '1'){
-                chatbox.bottom = '-1000px'
-                chatbox.visibility = 'hidden';
-                return chatbox.opacity = '0'
-            } 
-            chatbox.opacity = '1'
-            chatbox.bottom = '0px'
-            chatbox.visibility = 'visible'
-    
-             "><img src="../assets/img/chatbubble.png" width="25px" height="25px"></button>
-        </section>
-
-
-        <section class="chatbox">
-            <div class="chatboxdisplay">
-                <div class="chatboxopen">
-                    <div class="chattitle">
-                        <p>chat général</p>
-                        <button class="cross" onclick="
-                        chatbox = document.getElementsByClassName('chatboxdisplay')[0].style;
-                        if(chatbox.opacity == '1'){
-                            chatbox.bottom = '-1000px'
-                            chatbox.visibility = 'hidden';
-                            return chatbox.opacity = '0'
-                        } 
-                        chatbox.opacity = '1'
-                        chatbox.bottom = '0px'
-                        chatbox.visibility = 'visible'
-                
-                         "><img width="25px" height="25px"></button>
-                    </div>
-                    <div class="chatchat">
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">testtesttesttesttesttesttesttesttesttest</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="author">test</span>
-                            <div class="messageother"><span class="message">test</span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                        </div>
-                        <div class="messagebox"><span class="self">test</span>
-                            <div class="messageself"><span class="message">C'est le test</span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                        </div>
-                    </div>
-                    <div class="chatmessage">
-                        <textarea cols="100%" type="text" placeholder="Entrez votre message"></textarea>
-                    </div>
-                </div>
-            </div>
-        </section>
+           <?php require_once "./chat.php";?>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../assets/javascript/chart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -273,9 +189,6 @@ header($_SERVER["SERVER_PROTOCOL"] . "404 Not Found");
         <!-- <script src="/node_modules/animejs/lib/anime.min.js"></script> -->
     </main>
     <?php require './partials/footer.php' ?>
-    <div class="copyrig">
-        <span>Copyright © 2022 Tous droits réservés</span>
-    </div>
 
 </body>
 
