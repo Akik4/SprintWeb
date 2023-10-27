@@ -2,10 +2,10 @@
 
 function animate(){
     anime({
-        targets: ".header",
+        targets: ".theHs",
         top: "10px",
         easing: "easeInOutBack",
-        duration: 1500,
+        duration: 1000,
     });
     anime({
         targets: ".center",

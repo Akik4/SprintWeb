@@ -34,8 +34,6 @@ if (isset($_POST["submit"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Profil</title>
 </head>
-
-
 <?php
 
 $query = $con->prepare(" SELECT points FROM score");
@@ -54,8 +52,8 @@ if (!isset($name))
 }
 ?>
 
-
 <body class="test">
+
     <div class="containerS1">
         <div class="sidebatProfil">
 
@@ -78,24 +76,18 @@ if (!isset($name))
                     <input id="btnProfilImg" type="submit" name="submit" value="Upload">
                     <style>
                         #btnProfilImg {
-                            /* align-items: center; */
                             width: 100%;
-                            border-radius: 10px;
-                            padding: 5%;
-                            border: none;
                             cursor: pointer;
                             background: #697ed3;
-                        }
 
                         #btnProfilImg:hover {
                             color: white;
-
                         }
                     </style>
                 </form>
             </div>
             <br>
-            <h1></h1>
+            <h1><?php if(isset($_SESSION['pseudo'])) { $_SESSION['pseudo']; }?></h1>
             <div class="listPara">
                 <ul class="serlkvnsrelkb">
                     <li class="params1 active"><a class="aStatus" href="#profil"><img class="imgStatus" src="../assets/img/profil.png" alt=""><span>Profil</span> </a></li>
@@ -103,7 +95,6 @@ if (!isset($name))
                     <li class="params1"> <a class="aStatus" href="change_email.php"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> E-mail</a></li>
                     <li class="params1"> <a class="aStatus" href="change_password.php"><img class="imgStatus" src="../assets/img/statistique.png" alt=""> Passwords</a></li>
                     <li class="params1"><a class="aStatus" href="disconnect.php"><img class="imgStatus" src="../assets/img/parametres.png" alt=""> Logout</a></li>
-                    <!-- <li class="params1">Home</li> -->
                 </ul>
             </div>
         </div>
@@ -123,7 +114,6 @@ if (!isset($name))
                         <textarea class="TaS" name="bio" id="" cols="30" rows="10"></textarea>
                         <p class="para">You can @mention other users and organizations to link to them.</p>
                     </div>
-                    <!-- <div class="imgChange"></div> -->
                 </div>
                 <div id="stat" class="statc">
                     <h1 style="text-align: center; background: #f1f5f9;;">Statistique sur les 7 derniers jours</h1>
@@ -148,7 +138,6 @@ if (!isset($name))
 
     </div>
     </div>
-    <!-- <script src="../assets/javascript/profilChart.js"></script> -->
     <script>
         //tooltip
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -166,7 +155,7 @@ if (!isset($name))
             labels: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "Sunday"],
             datasets: [{
                 label: "temps de jeu sur les 7 derniers jours",
-                data: <?php echo json_encode($month) ?>,
+                data: [230, 99],
                 backgroundColor: [
                     '#fbc531',
                     '#4cd137',
