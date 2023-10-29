@@ -2,7 +2,6 @@
 require_once '../projet/utils/common.php';
 require_once '../projet/utils/database.php';
 $con = dataconnect();
-// $upload_dir = "../assets/css/";
 
 if (isset($_POST["submit"])) {
     if (isset($_FILES["photo"])) {
@@ -56,7 +55,6 @@ if (!isset($name))
 
     <div class="containerS1">
         <div class="sidebatProfil">
-
             <div class="pdpProfil">
                 <form id="formPdpProfil" action="" method="POST" enctype="multipart/form-data">
                     <input type="file" name="photo" id="fileUpload">
@@ -70,7 +68,7 @@ if (!isset($name))
                         }
                     </style>
                     <label for="fileUpload">
-                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="./upload/<?php if(isset($name)) echo $name; ?>  ">
+                    <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="<?php if (isset($_POST["submit"])) {echo "upload/$name";} else { ?>../assets/img/<?= $_SESSION['imgPdp'] ?> <?php   } ?> ">
                         <!-- // a revoir -->
                     </label>
                     <input id="btnProfilImg" type="submit" name="submit" value="Upload">
@@ -79,12 +77,14 @@ if (!isset($name))
                             width: 100%;
                             cursor: pointer;
                             background: #697ed3;
-
+                        }
                         #btnProfilImg:hover {
                             color: white;
                         }
                     </style>
                 </form>
+                <h1><?= $_SESSION['Pseudo']?> </h1>
+
             </div>
             <br>
             <h1><?php if(isset($_SESSION['pseudo'])) { $_SESSION['pseudo']; }?></h1>
