@@ -64,7 +64,9 @@ const cardBackColor = document.querySelectorAll("#cardBack");
 firstCard = false;
 secondCard = false;
 flipCard.forEach((miniCard) => {
+  console.log(miniCard);
   miniCard.addEventListener("click", () => {
+    console.log('hello');
     if (!miniCard.classList.contains("matched")) {
       miniCard.style.transform = "rotateY(180deg)";
       if (!firstCard) {

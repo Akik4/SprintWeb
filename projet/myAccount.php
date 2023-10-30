@@ -12,13 +12,13 @@ if (isset($_POST["submit"])) {
         $editProfil = $con->prepare("UPDATE user set imgPdp = :picture where id = :id");
         $editProfil->execute(
             [
-                ":picture"=> $name,
-                ":id"=> $_SESSION['id'],
+                ":picture" => $name,
+                ":id" => $_SESSION['id'],
             ]
         );
     } else {
         echo 'veuillez sélectionnez une image';
-    } 
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -44,8 +44,7 @@ foreach ($result as $data) {
     // $amount[] = $data['amount'];
 }
 
-if (!isset($name))
-{
+if (!isset($name)) {
     // $getPP = $con->prepare("SELECT * from user where id = :id");
     $name = $_SESSION['imgPdp'];
 }
@@ -68,7 +67,9 @@ if (!isset($name))
                         }
                     </style>
                     <label for="fileUpload">
-                    <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="<?php if (isset($_POST["submit"])) {echo "upload/$name";} else { ?>../assets/img/<?= $_SESSION['imgPdp'] ?> <?php   } ?> ">
+                        <img class="pdpProfil2" data-bs-toggle="tooltip" data-bs-title="Sélectionnez une image" src="<?php if (isset($_POST["submit"])) {
+                                                                                                                            echo "upload/$name";
+                                                                                                                        } else { ?>../assets/img/<?= $_SESSION['imgPdp'] ?> <?php   } ?> ">
                         <!-- // a revoir -->
                     </label>
                     <input id="btnProfilImg" type="submit" name="submit" value="Upload">
@@ -78,16 +79,19 @@ if (!isset($name))
                             cursor: pointer;
                             background: #697ed3;
                         }
+
                         #btnProfilImg:hover {
                             color: white;
                         }
                     </style>
                 </form>
-                <h1><?= $_SESSION['Pseudo']?> </h1>
+                <h1><?= $_SESSION['Pseudo'] ?> </h1>
 
             </div>
             <br>
-            <h1><?php if(isset($_SESSION['pseudo'])) { $_SESSION['pseudo']; }?></h1>
+            <h1><?php if (isset($_SESSION['pseudo'])) {
+                    $_SESSION['pseudo'];
+                } ?></h1>
             <div class="listPara">
                 <ul class="serlkvnsrelkb">
                     <li class="params1 active"><a class="aStatus" href="#profil"><img class="imgStatus" src="../assets/img/profil.png" alt=""><span>Profil</span> </a></li>
