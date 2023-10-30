@@ -170,11 +170,15 @@ require '../../partials/head.php'
         const theo = document.querySelector('.timer');
         const theo1 = document.querySelector('.timerMinute');
         const event = document.querySelector('.timerStart1');
+        let timestarted = false;
         console.log(event);
 
         event.addEventListener('click', () => {
-            console.log("hello");
-            setInterval(timer, 1000)
+            if (!timestarted){
+                console.log("hello");
+                setInterval(timer, 1000)
+                timestarted = true
+            }
         })
         let time = 0;
         let timeMinutes = 0;
