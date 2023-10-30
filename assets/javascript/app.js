@@ -12,7 +12,7 @@ function animate(){
         top: "50%",
         opacity: "100",
         easing: "easeInOutBack",
-        duration: 2000, 
+        duration: 1000, 
     });
     
 }

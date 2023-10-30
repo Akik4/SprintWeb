@@ -8,6 +8,7 @@ body {
 }
 
 .list ul {
+    margin-top: 14px;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -99,6 +100,8 @@ body {
 }
 .list-active{
     color: orange;
+    margin-right: 2vw;
+
 }
 .list-inactive {
     margin-right: 2vw;

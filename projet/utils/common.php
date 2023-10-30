@@ -8,12 +8,12 @@ error_reporting(E_ALL);
 define('ADMIN_MAIL', 'mail@gmail.com');
 define('PROJECT_FOLDER', '/SprintWeb/projet/');
 define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
-define('DB', dataconnect());
 
 session_start();
 
 function change_password(){
-    $passdRequest = DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
+    $DB = dataconnect();
+    $passdRequest = $DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
     $passdRequest->execute();
     $user = $passdRequest->fetch();
     if (password_verify($_POST['ancien_mdp'], $user->psw)) {
@@ -21,7 +21,7 @@ function change_password(){
             echo"Les mot de passe ne corresponde pas !";
         }
         else {
-            $upmdp = DB->prepare("UPDATE user SET psw = :psw WHERE id = $_SESSION[id]");
+            $upmdp = $DB->prepare("UPDATE user SET psw = :psw WHERE id = $_SESSION[id]");
             $mdpHasBeenUpdate = $upmdp->execute([
                 ':psw' => password_hash($_POST['nouveau_mdp'],PASSWORD_DEFAULT)
             ]);
@@ -30,7 +30,8 @@ function change_password(){
 }
 
 function change_email(){
-    $passdRequest = DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
+    $DB = dataconnect();
+    $passdRequest = $DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
     $passdRequest->execute();
     $info = $passdRequest->fetch();
     if (password_verify($_POST['password'], $info->psw)) {
@@ -38,7 +39,7 @@ function change_email(){
             echo"<p style='color:white;'>L'email est identique</p>";
         }
         else {
-            $upemail = DB->prepare("UPDATE user SET email = :email WHERE id = $_SESSION[id]");
+            $upemail = $DB->prepare("UPDATE user SET email = :email WHERE id = $_SESSION[id]");
             $emailHasBeenUpdate = $upemail->execute([
                 ':email' => $_POST['nouvelle_Email'],
             ]);
@@ -49,10 +50,12 @@ function change_email(){
 }
 
 function register(){
+    $DB = dataconnect();
+
                 $name = $_POST['Pseudo'];
                 $email = $_POST['Email'];
-                $psexist = DB->query("SELECT COUNT(*) FROM user WHERE nickname = '$name'");
-                $emexist = DB->query("SELECT COUNT(*) FROM user WHERE Email = '$email'");
+                $psexist = $DB->query("SELECT COUNT(*) FROM user WHERE nickname = '$name'");
+                $emexist = $DB->query("SELECT COUNT(*) FROM user WHERE Email = '$email'");
                 if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $_POST['Mot_de_passe'])){
                     echo 'le mot de passse contenir:-une majuscule
                                                     -une minuscule
@@ -76,7 +79,7 @@ function register(){
                     echo 'Email invalide';
                 }
                 else{
-                    $pdoStatement = DB->prepare('INSERT INTO user (email, psw, nickname) VALUES
+                    $pdoStatement = $DB->prepare('INSERT INTO user (email, psw, nickname) VALUES
                     (:email, :psw, :nickName)');
                     $userHasBeenInserted = $pdoStatement->execute([
                         ':email' => $_POST['Email'],

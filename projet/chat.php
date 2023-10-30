@@ -49,22 +49,22 @@
                             if(isset($_SESSION['id']))
                             {
                             foreach ($messages as $message) {
-                                    if($message->sender_id == $_SESSION['id'])
-                                    {
-                                        ?> 
-                                        <div class="messagebox"><span class="self"><?php echo $message->nickname ?></span>
-                                            <div class="messageself"><span class="message"><?php echo $message->content ?></span></div><span class="timestampself">Aujourd'hui 10:53</span>
-                                        </div>      
-                                    <?php
-                                    }
-                                    else {
-                                        ?>
-                                        <div class="messagebox"><span class="author"><?php echo $message->nickname ?></span>
-                                            <div class="messageother"><span class="message"><?php echo $message->content ?></span></div><span class="timestamp">Aujourd'hui 10:53</span>
-                                        </div>
-                                        <?php
-                                    }
+                                if($message->sender_id == $_SESSION['id'])
+                                {
+                                    ?> 
+                                    <div class="messagebox"><span class="self"><?php echo $message->nickname ?></span>
+                                        <div class="messageself"><span class="message"><?php echo $message->content ?></span></div><span class="timestampself">Aujourd'hui 10:53</span>
+                                    </div>      
+                                <?php
                                 }
+                                else {
+                                    ?>
+                                    <div class="messagebox"><span class="author"><?php echo $message->nickname ?></span>
+                                        <div class="messageother"><span class="message"><?php echo $message->content ?></span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                                    </div>
+                                    <?php
+                                }
+                            }
                             } else { ?> <p>vous devez être connecté</p> <?php }
 
                         ?>
@@ -79,7 +79,6 @@
                         <?php 
                         if(isset($_POST["content"])) 
                         {
-                            echo "test";
                             $sendMessage = $db->prepare("INSERT INTO chat(sender_id, game_id, content) value (:sender, 1, :content)");
                             $sendMessage->execute(
                                 [
