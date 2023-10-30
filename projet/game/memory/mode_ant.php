@@ -1,58 +1,39 @@
 <?php
 include '../../utils/common.php';
+require '../../partials/header.php';
+
+use utils\Header;
+
+
 require '../../partials/head.php'
 ?>
 
 <body>
-    <div class="theH">
-        <div class="filter">
-            <div>
-                <div class="header">
-                    <nav class="navbar">
-                        <div class="title">
-                            <ul class="nav-element">
-                                <li>The Power Of Memory</li>
-                            </ul>
-                        </div>
-                        <div class="list">
-                            <ul class="nav-element">
-                                <li class="list-inactive" onclick="window.location='../'">ACCUEIL</li>
-                                <li class="list-inactive" onclick="window.location='../game_preview'">JEU</li>
-                                <li class="list-inactive" onclick="window.location='../score/'">SCORE</li>
-                                <li class="list-inactive" onclick="window.location='../contact/'">NOUS CONTACTER</li>
-                                <li class="list-inactive" onclick="window.location='../contact/'">GO PREMIUM</li>
-                            </ul>
-                        </div>
-                        <div class="nav-login">
-                            <button><img src="../../../assets/img/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="nav-page-title">
-                <h1> Choisissez votre difficulté</h1>
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-primary">
-                                Vous venez de gagner 10 points d'expérience et 10 codingToken
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
+    <div class="filter">
+        <?php echo Header::addClassic(2, "jeu"); ?>
+    </div>
+    <div class="nav-page-title">
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-primary">
+                        Vous venez de gagner 10 points d'expérience et 10 codingToken
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
-                <!-- Modal -->
-
             </div>
         </div>
+        <!-- Modal -->
+
     </div>
+
     <!-- game  -->
     <div class="preview">
 
@@ -113,6 +94,8 @@ require '../../partials/head.php'
     <script>
         const memoryGame = document.querySelector(".memoryGame");
         const btns = document.querySelectorAll('.dropdown-item');
+        const codingToken = document.querySelector('.codingToken');
+
         const imgArray = [
             "red",
             "gray",
@@ -170,11 +153,13 @@ require '../../partials/head.php'
         const theo = document.querySelector('.timer');
         const theo1 = document.querySelector('.timerMinute');
         const event = document.querySelector('.timerStart1');
-        console.log(event);
+        let timestarted = false;
 
         event.addEventListener('click', () => {
-            console.log("hello");
-            setInterval(timer, 1000)
+            if (!timestarted) {
+                setInterval(timer, 1000)
+                timestarted = true
+            }
         })
         let time = 0;
         let timeMinutes = 0;
@@ -221,56 +206,77 @@ require '../../partials/head.php'
             secondCard = false;
             flipCard.forEach((miniCard) => {
                 miniCard.addEventListener("click", () => {
-
-                    if (!miniCard.classList.contains("matched")) {
-                        miniCard.style.transform = "rotateY(180deg)";
-                        if (!firstCard) {
-                            firstCard = miniCard;
-                            firstCardValue = miniCard.getAttribute("class");
-                        } else {
-                            secondCard = miniCard;
-                            let secondCardValue = miniCard.getAttribute("class");
-                            if (firstCardValue == secondCardValue) {
-                                firstCard.classList.add("matched");
-                                secondCard.classList.add("matched");
-                                firstCard = false;
+                    if (timestarted == true) {
+                        if (!miniCard.classList.contains("matched")) {
+                            miniCard.style.transform = "rotateY(180deg)";
+                            if (!firstCard) {
+                                firstCard = miniCard;
+                                firstCardValue = miniCard.getAttribute("class");
                             } else {
-                                setTimeout(() => {
-                                    firstCard.style.transform = "rotateY(0deg)";
-                                    secondCard.style.transform = "rotateY(0deg)";
-                                }, 700);
-                                setTimeout(() => {
+                                secondCard = miniCard;
+                                let secondCardValue = miniCard.getAttribute("class");
+                                if (firstCardValue == secondCardValue) {
+                                    firstCard.classList.add("matched");
+                                    secondCard.classList.add("matched");
                                     firstCard = false;
-                                    secondCard = false;
-                                }, 710);
-                            }
-                        }
-                    }
-                    let tableau = [];
-                    for (let j = 0; j < 16; j++) {
-                        // flipCard[j].classList.contains('matched')
-                        // flipCard[j].classList.contains('matched')
-                        if (flipCard[j].classList.contains('matched')) {
-                            tableau.push(j)
-                            if (tableau.length == 16) {
-                                // timerGameStart()
-                                setTimeout(() => {
-                                    memoryGame.innerHTML = `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Points Gagner
-</button>`
-                                }, 1000);
-                                let timeValue = 0;
-                                if (timer() < 10) {
-                                    timeValue = 899
                                 } else {
-                                    timeValue = 20
+                                    setTimeout(() => {
+                                        firstCard.style.transform = "rotateY(0deg)";
+                                        secondCard.style.transform = "rotateY(0deg)";
+                                    }, 700);
+                                    setTimeout(() => {
+                                        firstCard = false;
+                                        secondCard = false;
+                                    }, 710);
                                 }
-                                modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et ${timeValue} codingToken`;
+                            }
+                        }
+                        let tableau = [];
+                        console.log(tableau);
+                        for (let j = 0; j < 128; j++) {
+                            // flipCard[j].classList.contains('matched')
+                            // flipCard[j].classList.contains('matched')
+                            if (flipCard[j].classList.contains('matched')) {
+                                tableau.push(j)
+                                if (tableau.length == 1) {
+                                    // timerGameStart()
+                                    setTimeout(() => {
+                                        memoryGame.innerHTML = `<button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Points Gagner
+</button>
+<button type="button" class="btnRestart btn btn-primary ">Rejouer</button>`
+                                        const btnRestart = document.querySelector('.btnRestart');
+                                        const codingTokenWin = document.querySelector('.codingTokenWin');
+                                        console.log(btnRestart);
+                                        btnRestart.addEventListener('click', () => {
+                                            btnRestart.style.display = 'none';
+                                            codingTokenWin.style.display = 'none';
+                                            createElement(4);
+                                            game();
+                                        })
+                                    }, 1000);
+                                    let timeValue = 0;
+                                    if (timer() < 10) {
+                                        timeValue = 10
+                                    } else {
+                                        timeValue = 5
+                                    }
+                                    timestarted = false;
+                                    // let codingTokens = 0;
+                                    // codingTokens += timeValue;
+                                    // console.log(codingTokens);
+                                    codingToken.innerText = timeValue;
+                                    modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et ${timeValue} codingToken`;
+
+
+                                }
 
                             }
-
                         }
+                    } else {
+                        alert('non')
                     }
+
                 });
 
             });
