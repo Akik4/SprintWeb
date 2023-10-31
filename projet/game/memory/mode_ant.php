@@ -43,15 +43,25 @@ require '../../partials/head.php'
                     Niveau de difficulté
                 </button>
                 <ul class="dropdown-menu">
-                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau1" for="caca">Niveau 1 (4x4)</label></li>
-                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau2" for="caca">Niveau 2 (8x8)</label></li>
-                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau3" for="caca">Niveau 3 (12x2)</label></li>
-                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau3" for="caca">Niveau 4 (16x16)</label></li>
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau1" for="lol">Niveau 1 (4x4)</label></li>
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau2" for="lol">Niveau 2 (8x8)</label></li>
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau3" for="lol">Niveau 3 (12x2)</label></li>
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau4" for="lol">Niveau 4 (16x16)</label></li>
                     <style>
                         #lol {
                             display: none;
                         }
                     </style>
+                </ul>
+            </div>
+            <div class="dropdown m-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Theme Choose
+                </button>
+                <ul class="dropdown-menu">
+                    <li><input type="text" id="lol"> <label class="themeChooes dropdown-item" id="theme1" for="lol">theme1</label></li>
+                    <li><input type="text" id="lol"> <label class="themeChooes dropdown-item" id="theme2" for="lol">theme2</label></li>
+                    <li><input type="text" id="lol"> <label class="themeChooes dropdown-item" id="theme3" for="lol">theme3</label></li>
                 </ul>
             </div>
             <button type="button" class="btn btn-primary m-3 timerStart1">Timer</button>
