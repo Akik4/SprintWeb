@@ -1,95 +1,238 @@
-const card = document.querySelector(".card");
-const btn = document.querySelector(".click");
-const btn2 = document.querySelector(".click2");
-const memoryGame = document.querySelector(".memoryGame");
+// import { color } from "./array.js";
+const memoryGame = document.querySelector("#gameboard");
+const btns = document.querySelectorAll(".dropdown-item");
+const codingToken = document.querySelector(".codingToken");
+var array = [];
+// var color = [
+//   "case1Hal.png",
+//   "case2Hal.png",
+//   "case3Hal.png",
+//   "case4Hal.png",
+//   "case5Hal.png",
+//   "case6Hal.png",
+//   "case7Hal.png",
+//   "case8Hal.png"
+// ]
+function placeA(text, size) {
+  let tab = [];
+  array.forEach(function get(subarray, index) {
+    subarray.forEach(function subget(element, i) {
+      if (element == 0) {
+        tab.push(index + ";" + i);
+      }
+    });
+  });
 
-const imgArray = [
-  "red",
-  "gray",
-  "orange",
-  "yellow",
-  "green",
-  "blue",
-  "pink",
-  "purple",
-];
-// a revoir la  fonction random
-const generateRandom = (size = 4) => {
-  // let tempArray = [...imgArray];
-  let cardValues = "";
-  size = (size * size) / 2;
-  for (let i = 0; i < size; i++) {
-    const randomIndex = Math.floor(Math.random() * imgArray.length);
-    cardValues = imgArray[randomIndex];
-  }
-  return cardValues;
-};
-console.log(generateRandom(4));
-for (let i = 0; i < 4; i++) {
-  let newCard = document.createElement("div");
-  newCard.id = "card";
-  memoryGame.appendChild(newCard);
-  for (let i = 0; i < 4; i++) {
-    //innerHTML
-    let newCard2 = document.createElement("div");
-    let flipCard = document.createElement("div");
-    let cardFront = document.createElement("div");
-    let cardBack = document.createElement("div");
-    flipCard.id = "flip-card";
-    cardFront.id = "cardFront";
-    cardBack.id = "cardBack";
-    flipCard.classList.add(generateRandom(4));
-    cardBack.style.backgroundColor = flipCard.getAttribute("class");
-    newCard2.id = "Souscard";
-    newCard.appendChild(newCard2);
-    newCard2.appendChild(flipCard);
-    flipCard.appendChild(cardFront);
-    flipCard.appendChild(cardBack);
-  }
+  let randint = Math.floor(Math.random() * tab.length);
+  array[tab[randint].split(";")[0]][tab[randint].split(";")[1]] = text;
 }
 
-// console.log(imgArray);
-// for (let i = 0; i < imgArray.length; i++) {
-//   let random = Math.floor(Math.random() * imgArray.length);
-//   imgArray[i] = imgArray[random];
-//   console.log(imgArray[i]);
+function generate(size) {
+  array = [];
+  for (let index = 0; index < size; index++) {
+    array.push([]);
+    for (let i = 0; i < size; i++) {
+      array[index].push("0");
+    }
+  }
+  let number = (size * size) / 2;
+  for (let index = 0; index < number; index++) {
+    let colorString = Math.floor(Math.random() * color.length);
+    placeA(color[colorString], size);
+    placeA(color[colorString], size);
+    // console.log(placeA);
+  }
+  display();
+}
+
+
+
+function display() {
+  array.forEach((array) => {
+    array.forEach((subarray) => {
+      let truc = document.createElement("td");
+      let truc1 = document.createElement("div");
+      let truc2 = document.createElement("div");
+      let truc3 = document.createElement("div");
+      truc.id = "flip-card";
+      truc.classList.add(subarray);
+      truc1.id = "flip-card-inner";
+      truc2.id = "cardFront";
+      truc3.id = "cardBack";
+      truc3.style.background = `url('../../../assets/img/${subarray}') center / cover no-repeat`;
+      // truc3.className = subarray
+      document.getElementById("gameboard").appendChild(truc);
+      truc.appendChild(truc1);
+      truc1.appendChild(truc2);
+      truc1.appendChild(truc3);
+    });
+    document
+      .getElementById("gameboard")
+      .appendChild(document.createElement("tr"));
+  });
+}
+
+const deleteElement = () => {
+  const element = document.querySelectorAll("#flip-card");
+  for (let i = 0; i < element.length; i++) {
+    memoryGame.removeChild(element[i]);
+  }
+};
+// const createElement = (valeur) => {
+//     for (let i = 0; i < valeur; i++) {
+//         let newCard = document.createElement("div");
+//         newCard.id = "card";
+//         memoryGame.appendChild(newCard);
+//         for (let i = 0; i < valeur; i++) {
+//             //innerHTML
+//             let newCard2 = document.createElement("div");
+//             let flipCard = document.createElement("div");
+//             let cardFront = document.createElement("div");
+//             let cardBack = document.createElement("div");
+//             flipCard.id = "flip-card";
+//             cardFront.id = "cardFront";
+//             cardBack.id = "cardBack";
+//             flipCard.classList.add(generateRandom(4));
+//             cardBack.style.backgroundColor = flipCard.getAttribute("class");
+//             newCard2.id = "Souscard";
+//             newCard.appendChild(newCard2);
+//             newCard2.appendChild(flipCard);
+//             flipCard.appendChild(cardFront);
+//             flipCard.appendChild(cardBack);
+//         }
+//     }
 // }
-// console.log(melangeCarte());
 
-const sousCards = document.querySelectorAll("#Souscard");
-const flipCard = document.querySelectorAll("#flip-card");
-const cardBackColor = document.querySelectorAll("#cardBack");
-// others method
+const theo = document.querySelector(".timer");
+const theo1 = document.querySelector(".timerMinute");
+const event = document.querySelector(".timerStart1");
+let timestarted = false;
 
-firstCard = false;
-secondCard = false;
-flipCard.forEach((miniCard) => {
-  console.log(miniCard);
-  miniCard.addEventListener("click", () => {
-    console.log('hello');
-    if (!miniCard.classList.contains("matched")) {
-      miniCard.style.transform = "rotateY(180deg)";
-      if (!firstCard) {
-        firstCard = miniCard;
-        firstCardValue = miniCard.getAttribute("class");
-      } else {
-        secondCard = miniCard;
-        let secondCardValue = miniCard.getAttribute("class");
-        if (firstCardValue == secondCardValue) {
-          firstCard.classList.add("matched");
-          secondCard.classList.add("matched");
-          firstCard = false;
-        } else {
-          setTimeout(() => {
-            firstCard.style.transform = "rotateY(0deg)";
-            secondCard.style.transform = "rotateY(0deg)";
-          }, 700);
-          setTimeout(() => {
-            firstCard = false;
-            secondCard = false;
-          }, 710);
-        }
-      }
+event.addEventListener("click", () => {
+  if (!timestarted) {
+    setInterval(timer, 1000);
+    timestarted = true;
+  }
+});
+let time = 0;
+let timeMinutes = 0;
+
+function timer() {
+  theo.innerText = time;
+  if (time == 59) {
+    timeMinutes++;
+    theo1.innerText = timeMinutes + ":";
+    time = 0;
+  } else {
+    time++;
+  }
+  let k = theo.innerText;
+  return k;
+}
+
+// arreter le temps quand toutes les cartes seront retournées
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.getAttribute("id") == "niveau1") {
+      deleteElement();
+      generate(4);
+      game();
+    } else if (btn.getAttribute("id") == "niveau2") {
+      deleteElement();
+      generate(8);
+      game();
+    } else if (btn.getAttribute("id") == "niveau3") {
+      deleteElement();
+      generate(12);
+      game();
+    } else {
+      deleteElement();
+      generate(16);
+      game();
     }
   });
 });
+const modalValue = document.querySelector(".modal-body");
+
+function game() {
+  const sousCards = document.querySelectorAll("#Souscard");
+  const flipCard = document.querySelectorAll("#flip-card");
+  const cardBackColor = document.querySelectorAll("#cardBack");
+  firstCard = false;
+  secondCard = false;
+  flipCard.forEach((miniCard) => {
+    miniCard.addEventListener("click", () => {
+      if (timestarted == true) {
+        if (!miniCard.classList.contains("matched")) {
+          miniCard.style.transform = "rotateY(180deg)";
+          if (!firstCard) {
+            firstCard = miniCard;
+            firstCardValue = miniCard.getAttribute("class");
+            console.log(firstCardValue);
+          } else {
+            secondCard = miniCard;
+            secondCardValue = miniCard.getAttribute("class");
+            console.log(secondCardValue);
+            if (firstCardValue == secondCardValue) {
+              firstCard.classList.add("matched");
+              secondCard.classList.add("matched");
+              firstCard = false;
+            } else {
+              
+              setTimeout(() => {
+                firstCard.style.transform = "rotateY(0deg)";
+                secondCard.style.transform = "rotateY(0deg)";
+              }, 700);
+              setTimeout(() => {
+                firstCard = false;
+                secondCard = false;
+              }, 710);
+            }
+          }
+        }
+        let tableau = [];
+        console.log(tableau);
+        for (let j = 0; j < 128; j++) {
+          if (flipCard[j].classList.contains("matched")) {
+            tableau.push(j);
+            // problème si tableau supérieur à 16
+            if (tableau.length == 16 || tableau.length == 64 || tableau.length == 144 ) {
+              // timerGameStart()
+              setTimeout(() => {
+                memoryGame.innerHTML = `<button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          Points Gagner
+                        </button>
+                        <button type="button" class="btnRestart btn btn-primary ">Rejouer</button>`;
+                const btnRestart = document.querySelector(".btnRestart");
+                const codingTokenWin =
+                  document.querySelector(".codingTokenWin");
+                console.log(btnRestart);
+                btnRestart.addEventListener("click", () => {
+                  btnRestart.style.display = "none";
+                  codingTokenWin.style.display = "none";
+                  generate(4);
+                  game();
+                });
+              }, 1000);
+              let timeValue = 0;
+              if (timer() < 10) {
+                timeValue = 10;
+              } else {
+                timeValue = 5;
+              }
+              timestarted = false;
+              // let codingTokens = 0;
+              // codingTokens += timeValue;
+              // console.log(codingTokens);
+              codingToken.innerText = timeValue;
+              modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et ${timeValue} codingToken`;
+            }
+          }
+        }
+      } else {
+        alert("non");
+      }
+    });
+  });
+  // const flipCard = document.querySelectorAll("#flip-card");
+}

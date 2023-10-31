@@ -126,8 +126,9 @@ class Header
                                             </style>
                                         </li>
                                         <li class="list-inactive " onclick="window.location='<?php echo PROJECT_FOLDER; ?>shop.php'">
-                                            <div class="codingToken">300</div> <img class="rounded-circle" src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 2.png" alt="" width="40px" height="40px">
+                                            <div><span class="codingToken">300 </span> <img class="rounded-circle" src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 2.png" alt="" width="35px" height="35px"></div>
                                         </li>
+                                        <!-- <?php echo $_SESSION['scorePoints']; ?> -->
                                 </div>
                                 <div class="nav-login">
                                     <button>

@@ -5,9 +5,10 @@ require '../../partials/header.php';
 use utils\Header;
 ?>
 
-<?php 
-    require '../../partials/head.php'
+<?php
+require '../../partials/head.php'
 ?>
+
 <body>
     <div class="score">
         <div class="filter">
@@ -54,7 +55,7 @@ use utils\Header;
                     $str = $_GET['search'];
                     $request = $DB->query("SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id WHERE nickname like '%$str%' ")->fetchALL();
                     if ($_GET['search']) {
-                    ?>
+                ?>
                         <table>
                             <thead>
                                 <tr>
@@ -65,27 +66,27 @@ use utils\Header;
                                 </tr>
                             </thead>
                         </table>
-                    <?php
+                        <?php
                         foreach ($request as $reqs) {
                         ?>
                             <table style="width: 100%;">
                                 <tr>
-                                    <td><?= $reqs->nickname ?></td>
-                                    <td><?= $reqs->difficulty ?></td>
-                                    <td><?= $reqs->points ?></td>
-                                    <td><?= $reqs->date_played ?></td>
+                                    <td class="scoreBoard"><?= $reqs->nickname ?></td>
+                                    <td class="scoreBoard"><?= $reqs->difficulty ?></td>
+                                    <td class="scoreBoard"><?= $reqs->points ?></td>
+                                    <td class="scoreBoard"><?= $reqs->date_played ?></td>
                                 </tr>
                             </table>
                         <?php
                         }
                     } else {
                         ?>
-                            veuillez rechercher un utilisateur
-                        <?php
+                        veuillez rechercher un utilisateur
+                <?php
                     }
-                } 
+                }
                 ?>
-                <table class=" table1 <?php if (isset($_GET['submit'])) :?>non <?php endif ?>" style="width: 100%;">
+                <table class=" table1 <?php if (isset($_GET['submit'])) : ?>non <?php endif ?>" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>Utilisateur</th>
@@ -98,20 +99,20 @@ use utils\Header;
                         <?php $users = $DB->query('SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id ORDER BY points DESC')->fetchALL(); ?>
                         <?php foreach ($users as $username) : ?>
                             <tr>
-                                <td> <?= $username->nickname ?> </td>
-                                <td> <?= $username->difficulty ?> </td>
-                                <td> <?= $username->points ?> </td>
-                                <td> <?= $username->date_played ?> </td>
+                                <td class="scoreBoard"> <?= $username->nickname ?> </td>
+                                <td class="scoreBoard"> <?= $username->difficulty ?> </td>
+                                <td class="scoreBoard"> <?= $username->points ?> </td>
+                                <td class="scoreBoard"> <?= $username->date_played ?> </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
 
-            </div>
-            <?php require '../../partials/footer.php' ?>
-            <?php require_once "../../chat.php"?> 
-        
+        </div>
+        <?php require '../../partials/footer.php' ?>
+        <?php require_once "../../chat.php" ?>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="../assets/javascript/app.js"></script>
     </div>
