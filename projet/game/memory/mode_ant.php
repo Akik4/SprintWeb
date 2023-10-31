@@ -67,6 +67,7 @@ require '../../partials/head.php'
         </div>
 
     </div>
+  
     <!-- game  -->
     <?php require '../../partials/footer.php' ?>
 
