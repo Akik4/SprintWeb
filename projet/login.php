@@ -90,7 +90,7 @@ HTML;
                 <input class="nomarginb" type="password" name="Motdepasse" placeholder="Mot de passe"><br>
                 <span class="spanForm">Mot de passe oublier ?</span><br>
                 <input class="button-5" type="submit" name="envoie" role="button"><br>
-                <span class="spanForm">Vous n'avez pas de compte, <a href="../register/">s'inscrire ?</a></span>
+                <span class="spanForm">Vous n'avez pas de compte, <a href="register.php">s'inscrire ?</a></span>
             </form>
         </section>
     </div>

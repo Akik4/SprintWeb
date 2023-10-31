@@ -1,14 +1,8 @@
-<?php require_once "./utils/common.php"?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
-</head>
+<?php 
+require_once "./utils/common.php"; 
+require_once "./partials/head.php";
+?>
+
 <body>
     <div class="theH">
         <div class="filter">
@@ -44,9 +38,18 @@
     <div class="bodyForm">
         <section class="form">
             <form method="POST" action="">
+                <script src="../assets/javascript/mdp_verify.js"></script>
                 <input class="pseudo" type="email" name="Email" placeholder="Email" required><br>
                 <input class="pseudo" type="text" name="Pseudo" placeholder="Pseudo" required><br>
-                <input class="pseudo" type="password" name="Mot_de_passe" placeholder="Mot de passe" required pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"><br>
+                <input id="mdp" class="pseudo" type="password" name="Mot_de_passe" placeholder="Mot de passe" onkeydown="Check();" 
+                data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Il vous faut au minimum :<br> -8 caractères<br> -1 caractères spécial<br> -1 majuscule<br> -1minuscule<br> -1chiffres "><br>
+                <table width="300">
+                <tr>
+                <td id="faible" align="center" style="background-color :white;">Faible</td>
+                <td id="moyen" align="center" style="background-color :white;">Moyen</td>
+                <td id="elevee" align="center" style="background-color :white;">Elevee</td>
+                </tr>
+                </table>
                 <input class="pseudo" type="password" name="Confirmez_le_mot_de_passe" placeholder="Confirmez le mot de passe" required pattern="/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"><br>
                 <button class="button-5" role="button"> Inscription </button>
             </form>
@@ -62,5 +65,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="../assets/javascript/app.js"></script>
+    <script>
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
 </body>
 </html>
