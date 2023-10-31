@@ -1,9 +1,6 @@
-<?php
-    function hashedpwd($str){
-        return password_hash($str,CRYPT_SHA256);
-    }
-?>
-
+<html>
+<head>
+<title> securité </title>
 <script type="text/javascript">
 function Check() {
     password = document.forms[0].pass.value;
@@ -48,3 +45,21 @@ function Check() {
     }
 }
 </script>
+
+</head>
+<body>
+<form method = post>
+
+<input type="password" name="pass" OnKeyDown="Check();"><br><br>
+
+<table border="none" width="300">
+<tr>
+<td id="faible" align="center" style="background-color :white;">Faible</td>
+<td id="moyen" align="center" style="background-color :white;">Moyen</td>
+<td id="elevee" align="center" style="background-color :white;">Elevee</td>
+</tr>
+</table>
+
+</form>
+</body>
+</html>
