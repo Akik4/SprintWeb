@@ -100,18 +100,35 @@ class Header
                                         <li class="<?php $t = $active == 4 ? 'list-active' : 'list-inactive';
                                                     echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>contact.php'">NOUS CONTACTER</li>
                                         <li class="<?php $t = $active == 5 ? 'list-active' : 'list-inactive';
-                                                    echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>contact.php'"><svg viewBox="0 0 576 512" height="1em" class="logoIcon">
-                                                <path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
-                                            </svg>
-                                            <button class="btnPremium">GO PREMIUM</button>
+                                                    echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>shop.php'">Shop</li>
+                                        <li class="<?php $t = $active == 6 ? 'list-active' : 'list-inactive';
+                                                    echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>contact.php'">
+                                            <button class="btnPremium"> <svg viewBox="0 0 576 512" height="1em" class="logoIcon">
+                                                    <path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
+                                                </svg> GO PREMIUM</button>
                                             <style>
                                                 .btnPremium {
                                                     background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-                                                    ;
+                                                    background-size: 200% 200%;
+                                                    font-size: 0.8em;
+                                                    color: rgb(121, 103, 3);
                                                     border: none;
+                                                    font-weight: 600;
+                                                    font-weight: 600;
+                                                    border-radius: 40px;
+                                                    padding: 5%;
+                                                    width: 151px;
+                                                }
+
+                                                .logoIcon path {
+                                                    fill: rgb(121, 103, 3);
                                                 }
                                             </style>
                                         </li>
+                                        <li class="list-inactive " onclick="window.location='<?php echo PROJECT_FOLDER; ?>shop.php'">
+                                            <div><span class="codingToken">300 </span> <img class="rounded-circle" src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 2.png" alt="" width="35px" height="35px"></div>
+                                        </li>
+                                        <!-- <?php echo $_SESSION['scorePoints']; ?> -->
                                 </div>
                                 <div class="nav-login">
                                     <button>

@@ -29,8 +29,11 @@ require '../../partials/head.php'
     </div>
 
     <div class="preview">
-        <button onclick="window.location = 'mode_ant.php'"><img src="../../../assets/img/ant_mode_preview.jpg" alt="ant"></button>
+        <button onclick="window.location = 'mode_ant.php'"><img src="../../../assets/img/9900_3_2_05.jpg" alt="ant"></button>
         <button onclick="window.location = 'mode_op.php'"><img src="../../../assets/img/op_preview.png" alt="ant"></button>
+        <button onclick="window.location = 'mode_halloween.php'"><img src="../../../assets/img/halloween_preview.jpg" alt="ant"></button>
+        <button onclick="window.location = 'mode_halloween.php'"><img src="../../../assets/img/halloween_preview.jpg" alt="ant"></button>
+        <button onclick="window.location = 'mode_halloween.php'"><img src="../../../assets/img/halloween_preview.jpg" alt="ant"></button>
         <button onclick="window.location = 'mode_halloween.php'"><img src="../../../assets/img/halloween_preview.jpg" alt="ant"></button>
     </div>
     <?php require '../../partials/footer.php' ?>
