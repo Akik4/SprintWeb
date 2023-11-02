@@ -59,7 +59,7 @@ HTML;
     <div class="bodyForm">
         <div class="alertConnexion">
             <?php if (isset($_POST['envoie'])) : ?>
-                        <?= $alert ?>
+                        <?= $alert; ?>
             <?php endif ?> 
         </div>
         <style>
