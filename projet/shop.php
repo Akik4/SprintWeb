@@ -19,7 +19,7 @@ use utils\Header;
     $addThemes = $DB->prepare("SELECT id, scorePoints FROM user where id = :user_id");
     $addThemes->bindParam(':user_id', $_SESSION['id'], PDO::PARAM_INT);
 
-    $addThemes2 = $DB->prepare("SELECT price, product_name FROM shop");
+    $addThemes2 = $DB->prepare("SELECT price FROM shop");
 
     $addThemes->execute();
     $addThemes2->execute();

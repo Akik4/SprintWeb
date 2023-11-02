@@ -181,7 +181,7 @@ use utils\Header;
                 </div>
             </div>
 
-           <?php require_once "./chat.php";?>
+           <?php require_once "chat.php"?>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../assets/javascript/chart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>

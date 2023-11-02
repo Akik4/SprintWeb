@@ -80,7 +80,7 @@
                                     ":content" => $_POST["content"],
                                 ]
                             );	
-
+                        }
                 if (isset($_SESSION['id'])) {
                     foreach ($messages as $message) {
                         if ($message->sender_id == $_SESSION['id']) {

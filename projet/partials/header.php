@@ -122,18 +122,11 @@ class Header
 
                                                 .logoIcon path {
                                                     fill: rgb(121, 103, 3);
-                                                }
+                                                } 
                                             </style>
                                         </li>
                                         <li class="list-inactive " onclick="window.location='<?php echo PROJECT_FOLDER; ?>shop.php'">
-                                            <div><span class="codingToken"> <?php echo  $_SESSION['scorePoints']
-
-                                                                            ?>
-                                                    <!-- <script type="text/javascript">
-                                                       
-                                                        const token = document.querySelector('.codingToken')
-                                                        token.innerHTML = <?php echo  $_SESSION['scorePoints'] ?>;
-                                                    </script> <?php ?> -->
+                                            <div><span class="codingToken"> <?php echo  $_SESSION['scorePoints']?>
                                                 </span> <img class="rounded-circle" src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 2.png" alt="" width="35px" height="35px"></div>
                                         </li>
                                 </div>

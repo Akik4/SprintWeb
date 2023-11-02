@@ -3,11 +3,18 @@ const btns = document.querySelectorAll(".selectDifficulty");
 const codingToken = document.querySelector(".codingToken");
 var array = [];
 
+function incremente(token) {
+  let incr = new XMLHttpRequest();
+  incr.open("POST", "../../utils/cdtoken.php", true);
+  incr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  incr.onreadystatechange = function (response) {
+    if(response.status == 201) {
+      console.log('test')
+    }
+  };
+  incr.send("token=" + token );
+}
 
-// generation des case
-// generation des case
-// generation des case
-// generation des case
 function placeA(text, size) {
   let tab = [];
   array.forEach(function get(subarray, index) {
@@ -116,7 +123,7 @@ btns.forEach((btn) => {
       deleteElement();
       if(ifThemeChoose == true) {
       generate(4);
-      game(16);
+      game(2);
       }else{
         alert('choisi un theme par contre')
       }
@@ -197,7 +204,6 @@ function game(test123) {
           tableau.push(j);
           // problème si tableau supérieur à 16
           if (tableau.length == test123) {
-            console.log(test123);
             clearInterval(myTimerFunction);
             setTimeout(() => {
               memoryGame.innerHTML = `<button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -220,11 +226,13 @@ function game(test123) {
             }, 1000);
             let timeValue = 0;
             if (myTimerFunction < 10) {
-              timeValue = 24;
+              incremente(10);
+              scores();
             } else {
-              timeValue = 5;
+              incremente(6);
+              scores();
             }
-            modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et ${timeValue} codingToken`;
+            modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et 8 codingToken`;
           }
         }
       } // end
@@ -237,4 +245,21 @@ function game(test123) {
   // alert('veuillez choisir un theme svp')
 // }
   
+}
+
+
+function scores() {
+  let incr = new XMLHttpRequest();
+  incr.open("POST", "../../utils/score.php", true);
+  incr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  incr.onreadystatechange = function (response) {
+    if (response.status == 201){
+        console.log('Score enregistré');
+      } else {
+        console.error('Erreur d\'enregistrement du score');
+      }
+    }
+  
+  let k = parseInt(theo.innerText);
+  incr.send("score=" +k + "&difficulty=3" );
 }
