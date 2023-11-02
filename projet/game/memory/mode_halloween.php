@@ -1,74 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <title>game preview</title>
-</head>
+<?php
+include '../../utils/common.php';
+require '../../partials/header.php';
+
+use utils\Header;
+
+
+require '../../partials/head.php'
+?>
+
 <body>
-    <div class="theH">
-        <div class="filter">
-            <div>
-                <div class="header">
-                    <nav class="navbar">
-                        <div class="title">
-                            <ul class="nav-element">
-                                <li>The Power Of Memory</li>
-                            </ul>
-                        </div>
-                        <div class="list">
-                            <ul class="nav-element">
-                                <li class="list-inactive" onclick="window.location='../'">ACCUEIL</li>
-                                <li class="list-inactive" onclick="window.location='../game_preview'">JEU</li>
-                                <li class="list-inactive" onclick="window.location='../score/'">SCORE</li>
-                                <li class="list-inactive" onclick="window.location='../contact/'">NOUS CONTACTER</li>                            </ul>
-                        </div>
-                        <div class="nav-login">
-                            <button><img src="../assets/img/login.png" height="20px" width="20px" onclick="window.location = '../login/login.html'"></button>
-                        </div>
-                    </nav>
+    <div class="filter">
+        <?php echo Header::addClassic(2, "jeu"); ?>
+    </div>
+    <div class="nav-page-title">
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-primary">
+                        Vous venez de gagner 10 points d'expérience et 10 codingToken
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
-            <div class="nav-page-title">
-                <h1> Choisissez votre thême </h1>
-            </div>
         </div>
+        <!-- Modal -->
+
     </div>
+
+    <!-- game  -->
     <div class="preview">
-        <button onclick="window.location = '../game_page/gp_halloween_4x4.html'"><img src="../assets/img/4X4.jpg" alt="ant"></button>
-        <button onclick="window.location = '../game_page/gp_halloween_8x8.html'"><img src="../assets/img/8X8.jpg" alt="ant"></button>
-        <button onclick="window.location = '../game_page/gp_halloween_12x12.html'"><img src="../assets/img/12X12.png" alt="ant"></button>
-    </div>
-    <div class="footer">
-        <div class="info">
-            <p style="font-weight: bold;">Information</p>
-            <p>Quisque commodo facilisis purus, interdum volupat arcu viverra sed.</p>
-            <p><span class="footer-title">Tel:</span> 06 05 04 03 02</p>
-            <p><span class="footer-title">Email:</span> support@powerofmemory.com</p>
-            <p><span class="footer-title">Location:</span> Paris</p>
-            <button onclick="window.location = 'https:\/\/facebook.com'"><img src="../assets/img/facebook.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/x.com'"><img src="../assets/img/twitter.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/google.com'"><img src="../assets/img/google.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/pinterest.com'"><img src="../assets/img/pinterest.png" width="20px" height="20px"></button> 
-            <button onclick="window.location = 'https:\/\/instagram.com'"><img src="../assets/img/Instagram.png" width="20px" height="20px"></button> 
-   </div>
-        <div class="other">
-            <div>
-                <p style="font-weight: bold;">Power Of Memory</p>
-                
-                    <p class="olist">Jouer !</p>
-                    <p class="olist">Les scores</p>
-                    <p class="olist">Nous contacter</p>
-                
+
+        <div class="btnMemoryGame-mode-ant d-flex justify-content-center">
+            <div class="dropdown m-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Niveau de difficulté
+                </button>
+                <ul class="dropdown-menu">
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau1" for="caca">Niveau 1 (4x4)</label></li>
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau2" for="caca">Niveau 2 (8x8)</label></li>
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau3" for="caca">Niveau 3 (12x2)</label></li>
+                    <li><input type="text" id="lol"> <label class="dropdown-item" id="niveau3" for="caca">Niveau 4 (16x16)</label></li>
+                    <style>
+                        #lol {
+                            display: none;
+                        }
+                    </style>
+                </ul>
             </div>
+            <button type="button" class="btn btn-primary m-3 timerStart1">Timer</button>
+        </div>
+        <div class="timerGame d-flex justify-content-center">
+            <div class="timerMinute fs-1" style="color: white;">0:</div>
+            <div class="timer fs-1" style="color: white;">0</div>
+        </div>
+        <!-- <div class="memoryGame d-flex justify-content-center"></div>
+     -->
+        <div class="container d-flex justify-content-center">
+            <table id="gameboard"></table>
         </div>
 
     </div>
-    <div class="copyrig">
-        <span>Copyright © 2022 Tous droits réservés</span>
-    </div>
+    <!-- game  -->
+    <?php require '../../partials/footer.php' ?>
+
+    <style>
+        #cardFront {
+            background: url('../../../assets/img/9900_3_2_05.jpg') center / cover no-repeat;
+        }
+
+        #cardBack {
+            transform: rotateY(180deg);
+        }
+    </style>
+    <script>
+        var color = [
+            "case1Hal.png",
+            "case2Hal.png",
+            "case3Hal.png",
+            "case4Hal.png",
+            "case5Hal.png",
+            "case6Hal.png",
+            "case7Hal.png",
+            "case8Hal.png"
+        ]
+    </script>
+    <script src="../../../assets/javascript/memoryGame.js"></script>
 </body>
+
 </html>

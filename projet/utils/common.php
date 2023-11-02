@@ -13,15 +13,15 @@ session_start();
 
 function change_password()
 {
-    $db = dataconnect();
-    $passdRequest = $db->prepare("SELECT * FROM user where id = $_SESSION[id]");
+    $DB = dataconnect();
+    $passdRequest = $DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
     $passdRequest->execute();
     $user = $passdRequest->fetch();
     if (password_verify($_POST['ancien_mdp'], $user->psw)) {
         if ($_POST["nouveau_mdp"] != $_POST["confirm_mdp"]) {
             echo "Les mot de passe ne corresponde pas !";
         } else {
-            $upmdp = $db->prepare("UPDATE user SET psw = :psw WHERE id = $_SESSION[id]");
+            $upmdp = $DB->prepare("UPDATE user SET psw = :psw WHERE id = $_SESSION[id]");
             $mdpHasBeenUpdate = $upmdp->execute([
                 ':psw' => password_hash($_POST['nouveau_mdp'], PASSWORD_DEFAULT)
             ]);
@@ -31,16 +31,15 @@ function change_password()
 
 function change_email()
 {
-    $db = dataconnect();
-
-    $passdRequest = $db->prepare("SELECT * FROM user where id = $_SESSION[id]");
+    $DB = dataconnect();
+    $passdRequest = $DB->prepare("SELECT * FROM user where id = $_SESSION[id]");
     $passdRequest->execute();
     $info = $passdRequest->fetch();
     if (password_verify($_POST['password'], $info->psw)) {
         if ($_POST["ancien_Email"] == $_POST["nouvelle_Email"]) {
             echo "<p style='color:white;'>L'email est identique</p>";
         } else {
-            $upemail = $db->prepare("UPDATE user SET email = :email WHERE id = $_SESSION[id]");
+            $upemail = $DB->prepare("UPDATE user SET email = :email WHERE id = $_SESSION[id]");
             $emailHasBeenUpdate = $upemail->execute([
                 ':email' => $_POST['nouvelle_Email'],
             ]);
@@ -52,12 +51,12 @@ function change_email()
 
 function register()
 {
-    $db = dataconnect();
+    $DB = dataconnect();
 
     $name = $_POST['Pseudo'];
     $email = $_POST['Email'];
-    $psexist = $db->query("SELECT COUNT(*) FROM user WHERE nickname = '$name'");
-    $emexist = $db->query("SELECT COUNT(*) FROM user WHERE Email = '$email'");
+    $psexist = $DB->query("SELECT COUNT(*) FROM user WHERE nickname = '$name'");
+    $emexist = $DB->query("SELECT COUNT(*) FROM user WHERE Email = '$email'");
     if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $_POST['Mot_de_passe'])) {
         echo 'le mot de passse contenir:-une majuscule
                                                     -une minuscule
@@ -74,7 +73,7 @@ function register()
     } elseif (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
         echo 'Email invalide';
     } else {
-        $pdoStatement = $db->prepare('INSERT INTO user (email, psw, nickname) VALUES
+        $pdoStatement = $DB->prepare('INSERT INTO user (email, psw, nickname) VALUES
                     (:email, :psw, :nickName)');
         $userHasBeenInserted = $pdoStatement->execute([
             ':email' => $_POST['Email'],
@@ -83,21 +82,5 @@ function register()
         ]);
         var_dump($userHasBeenInserted);
         header('location: login.php');
-    }
-}
-
-function messageToDatabase(array $content): void
-{
-    if (isset($content['content'])) {
-        $db = dataconnect();
-        echo "test";
-        $sendMessage = $db->prepare("INSERT INTO chat(sender_id, game_id, content) value (:sender, 1, :content)");
-        $sendMessage->execute(
-            [
-                ":sender" => $_SESSION['id'],
-                ":content" => $content['content'],
-            ]
-        );
-
     }
 }

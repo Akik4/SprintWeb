@@ -5,19 +5,9 @@ require '../../partials/header.php';
 use utils\Header;
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../assets/css/footer.css">
-    <link rel="stylesheet" href="../../../assets/css/main.css">
-    <link rel="stylesheet" href="../../../assets/css/header.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Accueil</title>
-</head>
+<?php
+require '../../partials/head.php'
+?>
 
 <body>
     <div class="score">
@@ -58,13 +48,13 @@ use utils\Header;
                 </div>
             </div>
             <div class="pop">
-
                 <?php
                 include "../../utils/database.php";
                 $DB = dataconnect();
                 if (isset($_GET['submit'])) {
                     $str = $_GET['search'];
                     $request = $DB->query("SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id WHERE nickname like '%$str%' ")->fetchALL();
+                    var_dump($request);
                     if ($_GET['search']) {
                 ?>
                         <table>
@@ -77,17 +67,15 @@ use utils\Header;
                                 </tr>
                             </thead>
                         </table>
-
                         <?php
-                        foreach ($request as $req => $reqs) {
-                            $l = $reqs->nickname;
+                        foreach ($request as $reqs) {
                         ?>
                             <table style="width: 100%;">
                                 <tr>
-                                    <td><?= $reqs->nickname ?></td>
-                                    <td><?= $reqs->difficulty ?></td>
-                                    <td><?= $reqs->points ?></td>
-                                    <td><?= $reqs->date_played ?></td>
+                                    <td class="scoreBoard"><?= $reqs->nickname ?></td>
+                                    <td class="scoreBoard"><?= $reqs->difficulty ?></td>
+                                    <td class="scoreBoard"><?= $reqs->points ?></td>
+                                    <td class="scoreBoard"><?= $reqs->date_played ?></td>
                                 </tr>
                             </table>
                         <?php
@@ -95,15 +83,11 @@ use utils\Header;
                     } else {
                         ?>
                         veuillez rechercher un utilisateur
-                    <?php
-                    }
-                } else {
-                    ?>
-
                 <?php
+                    }
                 }
                 ?>
-                <table class=" table1 <?php if (isset($_GET['submit'])) :  ?>non <?php endif ?>" style="width: 100%;">
+                <table class=" table1 <?php if (isset($_GET['submit'])) : ?>non <?php endif ?>" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>Utilisateur</th>
@@ -114,23 +98,21 @@ use utils\Header;
                     </thead>
                     <tbody>
                         <?php $users = $DB->query('SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id ORDER BY points DESC')->fetchALL(); ?>
-                        <?php foreach ($users as $user => $username) : ?>
+                        <?php foreach ($users as $username) : ?>
                             <tr>
-                                <td> <?= $username->nickname ?> </td>
-                                <td> <?= $username->difficulty ?> </td>
-                                <td> <?= $username->points ?> </td>
-                                <td> <?= $username->date_played ?> </td>
+                                <td class="scoreBoard"> <?= $username->nickname ?> </td>
+                                <td class="scoreBoard"> <?= $username->difficulty ?> </td>
+                                <td class="scoreBoard"> <?= $username->points ?> </td>
+                                <td class="scoreBoard"> <?= $username->date_played ?> </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
 
-            </div>
-            <?php require_once "../../chat.php"?>
-
-
-            <?php require '../../partials/footer.php' ?>
+        </div>
+        <?php require '../../partials/footer.php' ?>
+        <?php require_once "../../chat.php" ?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
         <script src="../assets/javascript/app.js"></script>

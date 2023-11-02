@@ -8,6 +8,7 @@ body {
 }
 
 .list ul {
+    margin-top: 14px;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -49,7 +50,7 @@ body {
 .filter{
     position: relative;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background-color: #00000076;
     display: flex;
     align-items: center;
@@ -100,17 +101,19 @@ body {
 .list-active{
     margin-right: 2vw;
     color: orange;
+    margin-right: 2vw;
+    cursor: pointer;
 }
 .list-inactive {
     margin-right: 2vw;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    transition: 0.5s;
 }
 
 .list-inactive:hover {
     transform: translateY(-5px);
-    transition: 0.5s;
     color: orange;
     cursor: pointer;
 }

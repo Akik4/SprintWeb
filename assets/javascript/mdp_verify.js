@@ -1,12 +1,5 @@
-<?php
-    function hashedpwd($str){
-        return password_hash($str,CRYPT_SHA256);
-    }
-?>
-
-<script type="text/javascript">
 function Check() {
-    password = document.forms[0].pass.value;
+    password = document.getElementById("mdp").value;
     passwordlow = password.toLowerCase();
     majuscule = false;
     numerique = false;
@@ -47,4 +40,3 @@ function Check() {
         document.getElementById("elevee").style.backgroundColor = 'white';
     }
 }
-</script>

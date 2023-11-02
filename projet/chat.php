@@ -40,10 +40,46 @@
                 <?php
                 require_once './utils/common.php';
 
-                $pdo = dataconnect();
-                $getMessage = $pdo->prepare("SELECT * FROM chat INNER JOIN user ON sender_id = user.id ORDER BY chat.id ASC");
-                $getMessage->execute();
-                $messages = $getMessage->fetchAll();
+                            if(isset($_SESSION['id']))
+                            {
+                            foreach ($messages as $message) {
+                                if($message->sender_id == $_SESSION['id'])
+                                {
+                                    ?> 
+                                    <div class="messagebox"><span class="self"><?php echo $message->nickname ?></span>
+                                        <div class="messageself"><span class="message"><?php echo $message->content ?></span></div><span class="timestampself">Aujourd'hui 10:53</span>
+                                    </div>      
+                                <?php
+                                }
+                                else {
+                                    ?>
+                                    <div class="messagebox"><span class="author"><?php echo $message->nickname ?></span>
+                                        <div class="messageother"><span class="message"><?php echo $message->content ?></span></div><span class="timestamp">Aujourd'hui 10:53</span>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            } else { ?> <p>vous devez être connecté</p> <?php }
+
+                        ?>
+                    </div>
+                    <div class="chatmessage">
+                        <form method="POST">
+                            <label>
+                                <textarea name="content" cols="100%" type="text" placeholder="Entrez votre message"></textarea>
+                                <input type="submit" name="send" >
+                            <label>
+                        </form>
+                        <?php 
+                        if(isset($_POST["content"])) 
+                        {
+                            $sendMessage = $db->prepare("INSERT INTO chat(sender_id, game_id, content) value (:sender, 1, :content)");
+                            $sendMessage->execute(
+                                [
+                                    ":sender" => $_SESSION['id'],
+                                    ":content" => $_POST["content"],
+                                ]
+                            );	
 
                 if (isset($_SESSION['id'])) {
                     foreach ($messages as $message) {
