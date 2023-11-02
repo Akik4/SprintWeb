@@ -99,6 +99,7 @@ body {
     user-select: none; /* Standard syntax */
 }
 .list-active{
+    margin-right: 2vw;
     color: orange;
     margin-right: 2vw;
     cursor: pointer;
