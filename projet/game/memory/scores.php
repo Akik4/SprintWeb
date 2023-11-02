@@ -54,6 +54,7 @@ require '../../partials/head.php'
                 if (isset($_GET['submit'])) {
                     $str = $_GET['search'];
                     $request = $DB->query("SELECT DISTINCT user.nickname, difficulty, points, date_played  FROM score INNER JOIN user ON user.id = score.user_id WHERE nickname like '%$str%' ")->fetchALL();
+                    var_dump($request);
                     if ($_GET['search']) {
                 ?>
                         <table>

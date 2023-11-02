@@ -50,7 +50,7 @@ body {
 .filter{
     position: relative;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background-color: #00000076;
     display: flex;
     align-items: center;

@@ -26,7 +26,7 @@ class Header
                                 <li class="<?php $t = $active == 1 ? 'list-active' : 'list-inactive';
                                             echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>index.php'">ACCUEIL</li>
                                 <li class="<?php $t = $active == 2 ? 'list-active' : 'list-inactive';
-                                            echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/game_select.php'">JEU</li>
+                                            echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/mode_ant.php'">JEU</li>
                                 <li class="<?php $t = $active == 3 ? 'list-active' : 'list-inactive';
                                             echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/scores.php'">SCORE</li>
                                 <li class="<?php $t = $active == 4 ? 'list-active' : 'list-inactive';
@@ -94,7 +94,7 @@ class Header
                                         <li class="<?php $t = $active == 1 ? 'list-active' : 'list-inactive';
                                                     echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>index.php'">ACCUEIL</li>
                                         <li class="<?php $t = $active == 2 ? 'list-active' : 'list-inactive';
-                                                    echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/game_select.php'">JEU</li>
+                                                    echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/mode_ant.php'">JEU</li>
                                         <li class="<?php $t = $active == 3 ? 'list-active' : 'list-inactive';
                                                     echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/scores.php'">SCORE</li>
                                         <li class="<?php $t = $active == 4 ? 'list-active' : 'list-inactive';
@@ -126,9 +126,16 @@ class Header
                                             </style>
                                         </li>
                                         <li class="list-inactive " onclick="window.location='<?php echo PROJECT_FOLDER; ?>shop.php'">
-                                            <div><span class="codingToken">300 </span> <img class="rounded-circle" src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 2.png" alt="" width="35px" height="35px"></div>
+                                            <div><span class="codingToken"> <?php echo  $_SESSION['scorePoints']
+
+                                                                            ?>
+                                                    <!-- <script type="text/javascript">
+                                                       
+                                                        const token = document.querySelector('.codingToken')
+                                                        token.innerHTML = <?php echo  $_SESSION['scorePoints'] ?>;
+                                                    </script> <?php ?> -->
+                                                </span> <img class="rounded-circle" src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 2.png" alt="" width="35px" height="35px"></div>
                                         </li>
-                                        <!-- <?php echo $_SESSION['scorePoints']; ?> -->
                                 </div>
                                 <div class="nav-login">
                                     <button>

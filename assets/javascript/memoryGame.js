@@ -1,28 +1,13 @@
 const memoryGame = document.querySelector("#gameboard");
-const btns = document.querySelectorAll(".dropdown-item");
+const btns = document.querySelectorAll(".selectDifficulty");
 const codingToken = document.querySelector(".codingToken");
 var array = [];
-// const btnThemeChoose = document.querySelectorAll('.themeChooes');
-// btnThemeChoose.forEach((btnTheme) => {
-//     btnTheme.addEventListener("click", () => {
-//         btnTheme.classList.add('kiwi')
-//         if (btnTheme.classList.contains('kiwi')) {
-//           console.log('lskfbgipuslkrogibs tbs');
-//           color = [
-//               "case1Hal.png",
-//               "case2Hal.png",
-//               "case3Hal.png",
-//               "case4Hal.png",
-//               "case5Hal.png",
-//               "case6Hal.png",
-//               "case7Hal.png",
-//               "case8Hal.png"
-//           ]
-//         }
-//     });
 
-// });
 
+// generation des case
+// generation des case
+// generation des case
+// generation des case
 function placeA(text, size) {
   let tab = [];
   array.forEach(function get(subarray, index) {
@@ -78,50 +63,35 @@ function display() {
       .appendChild(document.createElement("tr"));
   });
 }
+// generation des case
+// generation des case
+// generation des case
+// generation des case
 
+
+
+
+
+// delete case 
+// delete case 
+// delete case 
+// delete case 
 const deleteElement = () => {
   const element = document.querySelectorAll("#flip-card");
   for (let i = 0; i < element.length; i++) {
     memoryGame.removeChild(element[i]);
   }
 };
-// const createElement = (valeur) => {
-//     for (let i = 0; i < valeur; i++) {
-//         let newCard = document.createElement("div");
-//         newCard.id = "card";
-//         memoryGame.appendChild(newCard);
-//         for (let i = 0; i < valeur; i++) {
-//             //innerHTML
-//             let newCard2 = document.createElement("div");
-//             let flipCard = document.createElement("div");
-//             let cardFront = document.createElement("div");
-//             let cardBack = document.createElement("div");
-//             flipCard.id = "flip-card";
-//             cardFront.id = "cardFront";
-//             cardBack.id = "cardBack";
-//             flipCard.classList.add(generateRandom(4));
-//             cardBack.style.backgroundColor = flipCard.getAttribute("class");
-//             newCard2.id = "Souscard";
-//             newCard.appendChild(newCard2);
-//             newCard2.appendChild(flipCard);
-//             flipCard.appendChild(cardFront);
-//             flipCard.appendChild(cardBack);
-//         }
-//     }
-// }
+// delete case 
+// delete case 
+// delete case 
+// delete case 
+
 
 const theo = document.querySelector(".timer");
 const theo1 = document.querySelector(".timerMinute");
-const event = document.querySelector(".timerStart1");
-// intervalTime =  setInterval(timer, 1000);r
-
-// function starTimer() {
-//   if (!timestarted) {
-//     setInterval(timer, 1000)
-//     timestarted = true;
-//   }
-// }
-const lul = event.addEventListener("click", () => {
+const event1 = document.querySelector(".timerStart1");
+const lul = event1.addEventListener("click", () => {
   let time = 0;
   let timeMinutes = 0;
 
@@ -139,24 +109,36 @@ const lul = event.addEventListener("click", () => {
   }, 1000);
 
 });
-function deleteTime() {
-  clearInterval(myTimerFunction);
-}
-// arreter le temps quand toutes les cartes seront retournées
+
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (btn.getAttribute("id") == "niveau1") {
       deleteElement();
+      if(ifThemeChoose == true) {
       generate(4);
-      game();
+      game(16);
+      }else{
+        alert('choisi un theme par contre')
+      }
+      
     } else if (btn.getAttribute("id") == "niveau2") {
       deleteElement();
+      if(ifThemeChoose == true) {
+
       generate(8);
-      game();
+      game(64);
+      }else{
+        alert('choisi un theme par contre')
+      }
     } else if (btn.getAttribute("id") == "niveau3") {
       deleteElement();
+      if(ifThemeChoose == true) {
+
       generate(12);
-      game();
+      game(144);
+      }else{
+        alert('choisi un theme par contre')
+      }
     } else {
       deleteElement();
       generate(16);
@@ -166,32 +148,17 @@ btns.forEach((btn) => {
 });
 const modalValue = document.querySelector(".modal-body");
 
-function game() {
-  const event = document.querySelector(".timerStart1");
+function game(test123) {
+  const event1 = document.querySelector(".timerStart1");
   timestarted = false;
-  event.addEventListener("click", ()=>{
+  event1.addEventListener("click", ()=>{
     timestarted = true;
     myTimerFunction;
   });
-    // let time = 0;
-    // let timeMinutes = 0;
-    // myTimerFunction = setInterval(() => {
-    //   theo.innerText = time;
-    //   if (time == 59) {
-    //     timeMinutes++;
-    //     theo1.innerText = timeMinutes + ":";
-    //     time = 0;
-    //   } else {
-    //     time++;
-    //   }
-    //   let k = theo.innerText;
-    //   return k;
-    // }, 1000);
-  const sousCards = document.querySelectorAll("#Souscard");
-  const flipCard = document.querySelectorAll("#flip-card");
-  const cardBackColor = document.querySelectorAll("#cardBack");
   firstCard = false;
   secondCard = false;
+  const flipCard = document.querySelectorAll("#flip-card");
+// if(ifThemeChoose == true){
   flipCard.forEach((miniCard) => {
     
     miniCard.addEventListener("click", () => {
@@ -225,12 +192,12 @@ function game() {
       }
       // start
       let tableau = [];
-      console.log(tableau);
       for (let j = 0; j < 128; j++) {
         if (flipCard[j].classList.contains("matched")) {
           tableau.push(j);
           // problème si tableau supérieur à 16
-          if (tableau.length == 16) {
+          if (tableau.length == test123) {
+            console.log(test123);
             clearInterval(myTimerFunction);
             setTimeout(() => {
               memoryGame.innerHTML = `<button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -242,8 +209,13 @@ function game() {
               btnRestart.addEventListener("click", () => {
                 btnRestart.style.display = "none";
                 codingTokenWin.style.display = "none";
-                generate(4);
-                game();
+                if(test123 == 16){
+                  generate(4);
+                  game(16);
+                }else{
+                  generate(8);
+                  game(64);
+                }
               });
             }, 1000);
             let timeValue = 0;
@@ -252,11 +224,6 @@ function game() {
             } else {
               timeValue = 5;
             }
-
-            // let codingTokens = 0;
-            // codingTokens += timeValue;
-            // console.log(codingTokens);
-            codingToken.innerText = timeValue;
             modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et ${timeValue} codingToken`;
           }
         }
@@ -266,5 +233,8 @@ function game() {
       }
     });
   });
-  // const flipCard = document.querySelectorAll("#flip-card");
+// }else{
+  // alert('veuillez choisir un theme svp')
+// }
+  
 }

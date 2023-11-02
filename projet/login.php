@@ -17,8 +17,8 @@ if (isset($_POST['Pseudo']) && isset($_POST['Motdepasse'])) {
         if (password_verify($_POST['Motdepasse'], $user->psw)) {
             $_SESSION['Pseudo'] = $pseudo;
             $_SESSION['id'] = $user->id;
-            $_SESSION['imgPdp'] = $user->imgPdp;
             $_SESSION['scorePoints'] = $user->scorePoints;
+            $_SESSION['imgPdp'] = $user->imgPdp;
             header('Location: index.php');
         } else {
             $alert = <<<HTML
