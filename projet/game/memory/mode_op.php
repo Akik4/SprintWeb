@@ -51,7 +51,11 @@ require '../../partials/head.php'
             "case8Hal.png"
         ]
     </script>
+    <!-- <script>
+        alert('test');
+    </script> -->
     <script src="../../../assets/javascript/memoryGame.js"></script>
+
 </body>
 
 </html>
