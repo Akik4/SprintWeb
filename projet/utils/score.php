@@ -1,6 +1,5 @@
 <?php
 require_once("common.php");
-// isset($_POST['user_id']) && 
 if (isset($_POST['score']) && isset($_POST['difficulty'])) {
     $db = dataconnect();
     echo "test";

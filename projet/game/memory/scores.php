@@ -49,7 +49,6 @@ require '../../partials/head.php'
             </div>
             <div class="pop">
                 <?php
-                include "../../utils/database.php";
                 $DB = dataconnect();
                 if (isset($_GET['submit'])) {
                     $str = $_GET['search'];

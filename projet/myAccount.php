@@ -1,6 +1,8 @@
 <?php
 require_once '../projet/utils/common.php';
-require_once '../projet/utils/database.php';
+
+use utils\Header;
+
 $con = dataconnect();
 
 if (isset($_POST["submit"])) {
@@ -28,11 +30,13 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Profil</title>
 </head>
+
 <?php
 
 $query = $con->prepare(" SELECT points FROM score");
@@ -104,6 +108,65 @@ if (!isset($name)) {
         </div>
         <div class="containerS2">
             <div class="result">
+                <!-- header  -->
+                <!-- header  -->
+                <!-- header  -->
+                <div class="filterAccount">
+                    <style>
+                        .filterAccount {
+                            width: 100%;
+                            background: #A29BFE;
+                            height: auto;
+                        }
+                    </style>
+
+                    <div class="header">
+                        <nav class="navbar">
+                            <div class="space"></div>
+                            <div class="title">
+                                <ul class="nav-element">
+                                    <img src="<?php echo PROJECT_FOLDER ?>../assets/img/Fichier 1.png" height="30px" width="30px">
+                                    <li>The Power Of Memory</li>
+                                </ul>
+                            </div>
+                            <div class="list">
+                                <ul class="nav-element">
+                                    <li class="<?php $t = $active == 1 ? 'list-active' : 'list-inactive';
+                                                echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>index.php'">ACCUEIL</li>
+                                    <li class="<?php $t = $active == 2 ? 'list-active' : 'list-inactive';
+                                                echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/mode_ant.php'">JEU</li>
+                                    <li class="<?php $t = $active == 3 ? 'list-active' : 'list-inactive';
+                                                echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>game/memory/scores.php'">SCORE</li>
+                                    <li class="<?php $t = $active == 4 ? 'list-active' : 'list-inactive';
+                                                echo $t; ?>" onclick="window.location='<?php echo PROJECT_FOLDER; ?>contact.php'">NOUS CONTACTER</li>
+                                    <button class="btnPremium"> <svg viewBox="0 0 576 512" height="1em" class="logoIcon">
+                                            <path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"></path>
+                                        </svg> GO PREMIUM</button>
+                                    <style>
+                                        .btnPremium {
+                                            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+                                            background-size: 200% 200%;
+                                            font-size: 0.8em;
+                                            color: rgb(121, 103, 3);
+                                            border: none;
+                                            font-weight: 600;
+                                            font-weight: 600;
+                                            border-radius: 40px;
+                                            padding: 1%;
+                                            width: 151px;
+                                            margin-right: 7px;
+                                        }
+
+                                        .logoIcon path {
+                                            fill: rgb(121, 103, 3);
+                                        }
+                                    </style>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
                 <div class="home">
                     <div class="profil" id="profil">
                         <h1>Public profile</h1>

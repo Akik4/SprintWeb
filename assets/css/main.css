@@ -7,6 +7,7 @@
   scroll-behavior: smooth;
   
 }
+
 .main H1 {
 margin:  0;
 }
@@ -640,12 +641,8 @@ transform: translateY(0);
   /* border: none; */
   /* background: none; */
 }
-/* a modifier  */
 .preview img{
-  /* display: flex;
-  width: 54vh;
-  height: 30vh;
-  transition: all 250ms cubic-bezier(0,.37,.93,.11); */
+
 
 }
 /* .preview img:hover{
@@ -1105,6 +1102,7 @@ background: #f1f5f9;
   width: 100%;
   border-radius: 10px;
   padding: 5%;
+  margin-top: 5px;
   border: none;
   cursor: pointer;
   background: #697ed3;

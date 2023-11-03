@@ -7,6 +7,7 @@ use utils\Header;
 
 require '../../partials/head.php'
 ?>
+
 <!-- oncontextmenu="return false" -->
 
 <body>
@@ -331,11 +332,7 @@ require '../../partials/head.php'
             <div class="timerMinute fs-1" style="color: white;">0:</div>
             <div class="timer fs-1" style="color: white;">0</div>
         </div>
-        <!-- <div class="memoryGame d-flex justify-content-center"></div>
-     -->
         <div class="container d-flex justify-content-center">
-            <div>
-            </div>
             <table id="gameboard"></table>
 
             <div class="spinner">

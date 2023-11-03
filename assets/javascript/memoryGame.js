@@ -206,7 +206,7 @@ function game(test123) {
             clearInterval(myTimerFunction);
             setTimeout(() => {
               memoryGame.innerHTML = `
-              <div style="display:flex; flex-direction: column; align-items: center" >
+              <div class="btnRecords" style="display:flex; flex-direction: column; align-items: center" >
               <button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Points Gagner
             </button>
@@ -220,7 +220,6 @@ function game(test123) {
               const imgCodingWin = document.querySelector(".imgWinGame");
               btnRestart.addEventListener("click", () => {
                 btnRestart.style.display = "none";
-                codingTokenWin.style.display = "none";
                 codingTokenWin.style.display = "none";
                 imgCodingWin.style.display = "none";
                 if(test123 == 16){
