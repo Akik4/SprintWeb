@@ -19,7 +19,7 @@ use utils\Header;
     $addThemes = $DB->prepare("SELECT id, scorePoints FROM user where id = :user_id");
     $addThemes->bindParam(':user_id', $_SESSION['id'], PDO::PARAM_INT);
 
-    $addThemes2 = $DB->prepare("SELECT price, product_name FROM shop");
+    $addThemes2 = $DB->prepare("SELECT price FROM shop");
 
     $addThemes->execute();
     $addThemes2->execute();
@@ -31,7 +31,7 @@ use utils\Header;
             $_SESSION['scorePoints'] = $user6->scorePoints - $user7->price;
             //mettre dans la base de donnée les themes que l'utilisateur a acheté 
             // crée une colonne dans la base de donnée pour le nom du produit acheté
-            $_SESSION['product_name'] = $user7->product_name;
+            // $_SESSION['product_name'] = $user7->product_name;
             // $addNewTheme = $DB->prepare("ALTER user ADD Newtheme VARCHAR(255)");
             // $addNewTheme->execute();
             $price = $DB->prepare("UPDATE user SET scorePoints = :score_points WHERE id = :user_id");
@@ -73,21 +73,7 @@ use utils\Header;
         </div>
     </div>
     <h1 class="titleTheme">ALL THEME</h1>
-    <style>
-        .titleTheme {
-            margin: 3%;
-            text-align: center;
-            color: #FFF;
-            font-family: Roboto;
-            font-size: 40px;
-            font-style: normal;
-            font-weight: 800;
-            line-height: 138.687%;
-            /* 55.475px */
-            letter-spacing: 3.4px;
-            text-transform: uppercase;
-        }
-    </style>
+
     <!-- <?php echo $moneyAlert ?> -->
     <?php
     // $priceItemShops = $DB->query("SELECT price FROM shop")->fetchAll();
@@ -104,7 +90,7 @@ use utils\Header;
         <div class="container text-center">
             <div class="row">
                 <div class="col d-flex justify-content-center ">
-                    <div class="card m-3 border border-0" style="width: 18rem">
+                    <div class=" card m-3 border border-0" style="width: 18rem;">
                         <img src="../assets/img/9900_3_2_05.jpg" class="card-img-top" data-bs-toggle="modal" data-bs-target="#exampleModal" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Theme memory game Astronautes </h5>
@@ -228,8 +214,67 @@ use utils\Header;
     </div>
 
 
-    <h1>CODING TOKEN</h1>
+    <h1 class="titleTheme">CODING TOKEN</h1>
+    <div class="container d-flex justify-content-center">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <div class="card m-3 border border-0" style="width: 18rem;">
+                        <img src="../assets/img/price3.jpg" class="card-img-top" data-bs-toggle="modal" data-bs-target="#exampleModal" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Tas de coding Token <br> 500 </h5>
+                            <br>
+                            <div class="container d-flex justify-content-between">
 
+                                <a href="#" style=" background: #100E2E; color: white; " class="btn rounded-pill position-relative z-3">2.99$<img style="border-radius: 50%; margin-left: 4px" src="../assets//img/Fichier 2.png" alt="" width="25px" height="25px"></a>
+                                <svg class="position-absolute" style="top: 71%; left:0; z-index: 1;" xmlns="http://www.w3.org/2000/svg" width="18rem" height="139" viewBox="0 0 335 139" fill="none">
+                                    <path d="M112 116.347C52 138.347 12.3333 86.514 0 57.8473C0 79.514 0.1 124.147 0.5 129.347C0.9 134.547 6.33333 137.514 9 138.347H327C331.8 138.347 335 131.5 335 129V0.5C333.5 1 324.2 1.54733 297 66.3473C269.8 131.147 233.667 124.681 219 113.347C208.333 105.181 172 94.3473 112 116.347Z" fill="#7DFF8E" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <div class="card m-3 border border-0" style="width: 18rem;">
+                        <img src="../assets/img/price1.jpg" class="card-img-top" data-bs-toggle="modal" data-bs-target="#exampleModal" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Sac de Coding Token <br> 1200 </h5>
+                            <br>
+                            <div class="container d-flex justify-content-between">
+
+                                <a href="#" style=" background: #100E2E; color: white; " class="btn rounded-pill position-relative z-3">4.99$<img style="border-radius: 50%; margin-left: 4px" src="../assets//img/Fichier 2.png" alt="" width="25px" height="25px"></a>
+                                <svg class="position-absolute" style="top: 71%; left:0; z-index: 1;" xmlns="http://www.w3.org/2000/svg" width="18rem" height="139" viewBox="0 0 335 139" fill="none">
+                                    <path d="M112 116.347C52 138.347 12.3333 86.514 0 57.8473C0 79.514 0.1 124.147 0.5 129.347C0.9 134.547 6.33333 137.514 9 138.347H327C331.8 138.347 335 131.5 335 129V0.5C333.5 1 324.2 1.54733 297 66.3473C269.8 131.147 233.667 124.681 219 113.347C208.333 105.181 172 94.3473 112 116.347Z" fill="#7CFFD7" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <div class="card m-3 border border-0" style="width: 18rem;">
+                        <img src="../assets/img/price2.jpg" class="card-img-top" data-bs-toggle="modal" data-bs-target="#exampleModal" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Gros Sac de Coding Token <br> 2500 </h5>
+                            <br>
+                            <div class="container d-flex justify-content-between">
+
+                                <a href="#" style=" background: #100E2E; color: white; " class="btn rounded-pill position-relative z-3">8.99$<img style="border-radius: 50%; margin-left: 4px" src="../assets//img/Fichier 2.png" alt="" width="25px" height="25px"></a>
+                                <svg class="position-absolute" style="top: 71%; left:0; z-index: 1;" xmlns="http://www.w3.org/2000/svg" width="18rem" height="139" viewBox="0 0 335 139" fill="none">
+                                    <path d="M112 116.347C52 138.347 12.3333 86.514 0 57.8473C0 79.514 0.1 124.147 0.5 129.347C0.9 134.547 6.33333 137.514 9 138.347H327C331.8 138.347 335 131.5 335 129V0.5C333.5 1 324.2 1.54733 297 66.3473C269.8 131.147 233.667 124.681 219 113.347C208.333 105.181 172 94.3473 112 116.347Z" fill="#DDB2FF" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
 
 
     <?php
@@ -238,3 +283,18 @@ use utils\Header;
 
 
 </body>
+<style>
+    .titleTheme {
+        margin: 3%;
+        text-align: center;
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 138.687%;
+        letter-spacing: 3.4px;
+        text-transform: uppercase;
+    }
+</style>
+</style>

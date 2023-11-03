@@ -16,7 +16,7 @@ use utils\Header;
                 <div class="center">
                     <h1 class="titlePage"> <span class="animTitle">B</span>ienvenue dans notre Studio !</h1>
                     <p class="sousTitle">Venez challenger les cerveaux les plus agiles !</p>
-                    <button class="playGame" onclick="window.location = 'game/memory/game_select.php'"> Play</button>
+                    <button class="playGame" onclick="window.location = 'game/memory/mode_ant.php'"> Play</button>
                 </div>
             </div>
             </div>
@@ -67,7 +67,7 @@ use utils\Header;
                 <div class="gridSystem">
                     <div class="case two">
                         <h1>
-                        <?php
+                            <?php
                             include_once "./utils/database.php";
                             $db = dataconnect();
 
@@ -181,12 +181,12 @@ use utils\Header;
                 </div>
             </div>
 
-           <?php require_once "./chat.php";?>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="../assets/javascript/chart.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-        <script src="../assets/javascript/app.js"></script>
-        <!-- <script src="/node_modules/animejs/lib/anime.min.js"></script> -->
+            <?php require_once "chat.php" ?>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="../assets/javascript/chart.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+            <script src="../assets/javascript/app.js"></script>
+            <!-- <script src="/node_modules/animejs/lib/anime.min.js"></script> -->
     </main>
     <?php require './partials/footer.php' ?>
 

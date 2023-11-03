@@ -3,11 +3,18 @@ const btns = document.querySelectorAll(".selectDifficulty");
 const codingToken = document.querySelector(".codingToken");
 var array = [];
 
+function incremente(token) {
+  let incr = new XMLHttpRequest();
+  incr.open("POST", "../../utils/cdtoken.php", true);
+  incr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  incr.onreadystatechange = function (response) {
+    if(response.status == 201) {
+      console.log('test')
+    }
+  };
+  incr.send("token=" + token );
+}
 
-// generation des case
-// generation des case
-// generation des case
-// generation des case
 function placeA(text, size) {
   let tab = [];
   array.forEach(function get(subarray, index) {
@@ -23,6 +30,7 @@ function placeA(text, size) {
 }
 
 function generate(size) {
+  document.querySelector('.spinner').style.display = 'none';
   array = [];
   for (let index = 0; index < size; index++) {
     array.push([]);
@@ -116,7 +124,7 @@ btns.forEach((btn) => {
       deleteElement();
       if(ifThemeChoose == true) {
       generate(4);
-      game(16);
+      game(2);
       }else{
         alert('choisi un theme par contre')
       }
@@ -158,7 +166,6 @@ function game(test123) {
   firstCard = false;
   secondCard = false;
   const flipCard = document.querySelectorAll("#flip-card");
-// if(ifThemeChoose == true){
   flipCard.forEach((miniCard) => {
     
     miniCard.addEventListener("click", () => {
@@ -195,20 +202,27 @@ function game(test123) {
       for (let j = 0; j < 128; j++) {
         if (flipCard[j].classList.contains("matched")) {
           tableau.push(j);
-          // problème si tableau supérieur à 16
           if (tableau.length == test123) {
-            console.log(test123);
             clearInterval(myTimerFunction);
             setTimeout(() => {
-              memoryGame.innerHTML = `<button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                          Points Gagner
-                        </button>
-                        <button type="button" class="btnRestart btn btn-primary ">Rejouer</button>`;
+              memoryGame.innerHTML = `
+              <div style="display:flex; flex-direction: column; align-items: center" >
+              <button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Points Gagner
+            </button>
+            <button type="button" class="btnRestart btn btn-primary ">Rejouer</button>
+<img class="imgWinGame" src="../../../assets/img/Fichier 1.svg" width="500px" height="500px" alt="">
+              </div>
+             
+            `;
               const btnRestart = document.querySelector(".btnRestart");
               const codingTokenWin = document.querySelector(".codingTokenWin");
+              const imgCodingWin = document.querySelector(".imgWinGame");
               btnRestart.addEventListener("click", () => {
                 btnRestart.style.display = "none";
                 codingTokenWin.style.display = "none";
+                codingTokenWin.style.display = "none";
+                imgCodingWin.style.display = "none";
                 if(test123 == 16){
                   generate(4);
                   game(16);
@@ -218,13 +232,14 @@ function game(test123) {
                 }
               });
             }, 1000);
-            let timeValue = 0;
             if (myTimerFunction < 10) {
-              timeValue = 24;
+              incremente(10);
+              scores();
             } else {
-              timeValue = 5;
+              incremente(6);
+              scores();
             }
-            modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et ${timeValue} codingToken`;
+            modalValue.innerText = `Vous venez de gagner 10 points d'epxérience et 8 codingToken`;
           }
         }
       } // end
@@ -233,8 +248,21 @@ function game(test123) {
       }
     });
   });
-// }else{
-  // alert('veuillez choisir un theme svp')
-// }
+}
+
+
+function scores() {
+  let incr = new XMLHttpRequest();
+  incr.open("POST", "../../utils/score.php", true);
+  incr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  incr.onreadystatechange = function (response) {
+    if (response.status == 201){
+        console.log('Score enregistré');
+      } else {
+        console.error('Erreur d\'enregistrement du score');
+      }
+    }
   
+  let k = parseInt(theo.innerText);
+  incr.send("score=" +k + "&difficulty=3" );
 }
