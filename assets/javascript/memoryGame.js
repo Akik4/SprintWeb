@@ -116,7 +116,7 @@ btns.forEach((btn) => {
       deleteElement();
       if(ifThemeChoose == true) {
       generate(4);
-      game(16);
+      game(1);
       }else{
         alert('choisi un theme par contre')
       }
@@ -199,6 +199,7 @@ function game(test123) {
           if (tableau.length == test123) {
             console.log(test123);
             clearInterval(myTimerFunction);
+            timeToDB(myTimerFunction);
             setTimeout(() => {
               memoryGame.innerHTML = `<button type="button" class="codingTokenWin btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                           Points Gagner
@@ -236,5 +237,15 @@ function game(test123) {
 // }else{
   // alert('veuillez choisir un theme svp')
 // }
-  
+}
+
+function timeToDB(time) {
+  $.ajax({
+    url: "../../../assets/javascript/ScoreToDB",
+    type: "POST",
+    data: {import: time},
+    succes: function(){
+      console.log('sended')
+    }
+  })
 }
